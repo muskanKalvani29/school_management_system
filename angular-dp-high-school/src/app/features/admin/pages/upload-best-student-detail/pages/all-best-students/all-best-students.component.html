@@ -1,0 +1,80 @@
+ <!-- Breadcubs Area Start Here -->
+ <div class="breadcrumbs-area">
+    <h3>Best Student</h3>
+    <ul>
+        <li>
+            <a routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li>All Best Student</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Table Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>All Best Students Data</h3>
+            </div>
+        </div>
+        <!-- add student button -->
+        <form class="mg-b-20" >
+            <div class="row gutters-8">
+                <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                    <button [routerLink]="['add-best-student']" type="button" class="btn btn-outline-primary mybtn">Add Best Student</button>
+                </div>
+            </div>
+        </form>
+        <form  class="mg-b-20">
+            <div class="row gutters-8 d-flex justify-content-center">
+                <div class="col-6-xxxl col-xl-6 col-lg-6 col-12 form-group">
+                    <input type="text" required [(ngModel)]="nameSearch" name="nameSearch" placeholder="Search by Name ..." class="form-control text-center">
+                </div>
+                <!-- <div class="col-1-xxxl col-xl-2 col-lg-3 col-4 form-group">
+                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
+                </div> -->
+            </div>
+        </form>
+        <div class="table-responsive">
+            <table class="table text-nowrap table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>Sr No.</th><th></th>
+                        <th>Name</th><th></th>
+                        <th>Standard</th><th></th>
+                        <th>Division</th><th></th>
+                        <th>Meduim</th><th></th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- | filterBeststudent:nameSearch | async -->
+                    <tr class="text-center" *ngFor="let beststudent of bestStudents | filterBeststudent:nameSearch  ; let i=index">
+                        <td>{{i+1}}</td><td></td>
+                        <td>{{beststudent.name}}</td><td></td>
+                        <td>{{beststudent.standardName}}</td><td></td>
+                        <td>{{beststudent.divisionName}}</td><td></td>
+                        <td>{{beststudent.medium}}</td><td></td>
+                        <td>
+                            &nbsp;<a (click)="updateStudent(beststudent.bestStudentId)" style="color: green;"><i class="fa fa-edit"></i></a>
+                            &nbsp;<a (click)="viewStudent(beststudent.bestStudentId)" style="color:darkblue;"><i class="fa fa-eye"></i></a>
+                            &nbsp; <a (click)="deleteStudent(beststudent.bestStudentId)" style="color: red;"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mt-5 d-flex justify-content-end" >
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><button [disabled]="statusPre"  class="page-link" [routerLink]="['/admin/dashboard/best-student/all-best-students']" role="button" (click)="pre()">Previous</button></li>
+                      <li class="page-item" [ngClass]="{'active': i == page}" *ngFor="let p of pages;let i=index">
+                        <a class="page-link" [routerLink]="['/admin/dashboard/best-student/all-best-students']" role="button" (click)="setPage(i,$event)">{{i+1}}</a>
+                      </li>
+                      <li class="page-item"><button [disabled]="statusNext" class="page-link" [routerLink]="['/admin/dashboard/best-student/all-best-students']"  role="button" (click)="next()">Next</button></li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Student Table Area End Here -->

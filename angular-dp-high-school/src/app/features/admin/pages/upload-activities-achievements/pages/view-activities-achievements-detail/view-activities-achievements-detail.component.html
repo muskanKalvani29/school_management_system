@@ -1,0 +1,62 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Activities-Achievements</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['admin/dashboard']">Home</a>
+        </li>
+        <li>View Activities-Achievements</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Details Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Activities-Achievements Detail</h3>
+            </div>
+        </div>
+        <div class="single-info-details">
+            <div class="item-img">
+                <img src="{{imageData.imagePath}}" alt="student" width="350">
+            </div>
+            <div class="item-content">
+                <div class="header-inline item-header">
+                    <div class="header-elements">
+                        <ul>
+                            <!-- <li><a href="#"><i class="far fa-edit"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fas fa-print"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fas fa-download"></i></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-table table-responsive ml-5">
+                    <table class="table text-nowrap mt-5">
+                        <tbody>
+                            <tr>
+                                <td>Type of Image:</td>
+                                <td class="font-medium text-dark-medium myfont">{{imageData.imageName|titlecase}}</td>
+                            </tr>
+                            <tr>
+                                <td>Description:</td>
+                                <td class="font-medium text-dark-medium myfont">{{imageData.imageDiscription|titlecase}}</td>
+                            </tr> 
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row ml-5">
+                    <button (click)="goToActAchList()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Student Details Area End Here -->
+<!-- Footer Area Start Here -->
+
+
+
+
+
+

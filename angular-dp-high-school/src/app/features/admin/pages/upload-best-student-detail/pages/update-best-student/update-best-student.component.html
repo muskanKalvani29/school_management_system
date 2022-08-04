@@ -1,0 +1,116 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Best Student</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['admin/dashboard']">Dashboard</a>
+        </li>
+        <li>Update Best Student</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Book Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Update Best Student</h3>
+            </div>
+        </div>
+        <form #updatemeetingform="ngForm" class="new-added-form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <!-- type -->
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Name *</label>
+                    <input  type="text" pattern="^[a-zA-Z. ]*[a-zA-Z]{1,60}$" name="Teacher" placeholder="Teacher" class="form-control"
+                    [(ngModel)]="beststudent.name" name="name"
+                  >
+                  <!-- [(ngModel)]="meeting.usertype" name="usertype" -->
+                </div>
+                <!-- meeting name -->
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Standard *</label>
+                    <select class=" form-control" required name="standardName" [(ngModel)]="beststudent.standardName" #standardName="ngModel">
+                        <!-- <option [ngValue]>Please Select Standard *</option> -->
+                        <option *ngFor="let std of standard" [value]="std.standardName">{{std.standardName}}</option>
+                    </select>
+                </div>
+                <!-- meeting date -->
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Division *</label>
+                    <select class=" form-control" required name="divisionName" [(ngModel)]="beststudent.divisionName" #divisionName="ngModel">
+                        <!-- <option value="">Please Select Division *</option> -->
+                       <option *ngFor="let div of division" [value]="div.divisionName">{{div.divisionName}}</option>
+                    </select>
+                        <!-- [(ngModel)]="meeting.meetingDate" name="meetingDate" -->
+                    <!-- <i class="far fa-calendar-alt"></i> -->
+                </div>
+                <!-- meeting start time -->
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Meduim *</label>
+                    <select class=" form-control" required name="medium" [(ngModel)]="beststudent.medium" #medium="ngModel">
+                        <option *ngFor="let medium of mediumData" [value]="medium">{{medium}}</option>
+                      </select>
+                   <!-- [(ngModel)]="meeting.meetingStartTime" name="meetingStartTime" -->
+                </div>
+                <div class="col-lg-5 col-xl-3 col-md-7 col-sm-7 col-10 mt-2 mb-5">
+                    <div class="form-group">
+                        <label>Image *</label>
+                        <input type="file"  (change)="fileChangeEvent($event);selectFile($event)" multiple>
+                    </div>
+                </div>
+            </div>
+                <!-- meeting end time -->
+                <hr>
+                <div class="row justify-content-center mt-4">
+                    <p (click)="zoomIn()" class="display-4 mr-4"><i class="fa fa-search-plus"></i></p>
+                    <p (click)="zoomOut()" class="display-4"><i class="fa fa-search-minus"></i></p>
+                </div>
+                
+            <div class="row justify-content-center" style="margin-top: 5%;margin-bottom: 10%;">
+                    <div class="text-center col-xl-8 col-lg-12 col-md-12 order-sm-2 order-2" style="height: 80vh;">
+                        <h5>Crop Image</h5>
+                        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                            [aspectRatio]="4 / 4" [resizeToWidth]="256"
+                            [transform]="transform" [onlyScaleDown]="true" format="jpg" (imageCropped)="imageCropped($event)"
+                            (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
+                        </image-cropper>
+                    </div>
+                <div class="text-center col-md-4">
+                    <h5>Preview</h5>
+                    <!-- <img [src]="croppedImage" /> -->
+                    <img [style.border]="croppedImage ? '1px solid black' : 'none'" [src]="croppedImage" />
+                </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <div class="form-group">
+                <div >
+                    <a class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" style="margin-right: 2%;margin-top: 5%;background-color: #333366;color:white"
+                     (click)="upload()">Upload Image</a>
+                    <!-- <a type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</a> -->
+                </div>
+                <div *ngIf="currentFileUpload" class="progress mt-4">
+                    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                    aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: percentage + '%' }">
+                              {{ percentage }}%
+                    </div>
+                  </div>
+            </div>
+        </div>
+      <!-- </div> -->
+      <div class="col-12 form-group mg-t-8" style="margin-left: 3px;">
+        <button [disabled]="updatemeetingform.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" >Save</button>
+        <!-- <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button> -->
+    </div>
+</form>
+</div>
+</div>          
+                
+
+                
+                
+                
+            
+<!-- Add New Book Area End Here -->
+
+

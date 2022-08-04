@@ -1,0 +1,40 @@
+ <!-- Breadcubs Area Start Here -->
+ <div class="breadcrumbs-area">
+    <h3>Fees</h3>
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+        <li>Change Fee Status</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Book Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Change Fee Status</h3>
+            </div>
+        </div>
+        <form #addfeeform="ngForm" class="new-added-form" (ngSubmit)="updateStatus()">
+            <div class="row">
+                <!-- student gr no -->
+                <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Fee Status *</label>
+                    <input readonly type="text" placeholder="unpaid" [value]="status" class="form-control"
+                    ngModel name="feeStatus" #feeStatus="ngModel">
+                </div>
+                <div class="col-12 form-group mg-t-8">
+                    <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark text-center">Update</button>
+                    <!-- <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button> -->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add New Book Area End Here -->
+
+
+
+

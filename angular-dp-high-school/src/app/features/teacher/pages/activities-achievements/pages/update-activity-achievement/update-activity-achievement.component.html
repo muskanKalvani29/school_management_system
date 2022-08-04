@@ -1,0 +1,67 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area ml-4">
+    <h3>Activity-Achievement</h3>
+    <ul>
+        <li>
+            <a href="index.html">Teacher</a>
+        </li>
+        <li>Update Activity-Achievement</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Book Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Update Student Activity-Achievement</h3>
+            </div>
+        </div>
+        <!--(ngSubmit)="addMeeting(meetingform.value)"-->
+        <form #updateActAchForm="ngForm" class="new-added-form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <!-- meeting name -->
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Activity Name <span class="c">*</span></label>
+                    <input required type="text" placeholder="" class="form-control"
+                    pattern="^[0-9a-zA-Z. ]*[a-zA-Z]{1,60}$"
+                    [(ngModel)]="actAch.activityName" name="activityName" #activityName="ngModel">
+                    <div *ngIf="activityName.invalid && (activityName.dirty || activityName.touched)" style="color: red;">
+                        <div *ngIf="activityName.errors.required">
+                            Activity Name is required!!
+                        </div>
+                        <div *ngIf="activityName.errors.pattern">
+                            Enter Valid Activity Name!!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Achievement Name </label>
+                    <input required type="text" placeholder="" class="form-control" pattern="^[0-9a-zA-Z. ]*[a-zA-Z]{1,60}$"
+                    [(ngModel)]="actAch.achievementName" name="achievementName" #achievementName="ngModel">
+                    <span style="color:rgb(90, 88, 88)" *ngIf="achievementName.untouched">
+                        Achievement Name is optional !!
+                    </span>
+                    <span *ngIf="achievementName.errors?.pattern" style="color: red;">
+                        Enter Valid Achievement Name.
+                   </span>
+                </div>
+                <!-- meeting description it is optional to write -->
+                <div class="col-lg-6 col-12 form-group">
+                    <label>Achievement Description </label>
+                    <textarea class="textarea form-control" id="form-message" cols="5"
+                        rows="3" maxlength="300" [(ngModel)]="actAch.achievementDescription" name="achievementDescription" #achievementDescription="ngModel"></textarea>
+                    <span style="color:rgb(90, 88, 88)" *ngIf="achievementDescription.untouched">
+                        Achievement Description is optional !!
+                    </span>
+                </div>
+                <div class="col-12 form-group mg-t-8">
+                    <button [disabled]="updateActAchForm.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                    <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add New Book Area End Here -->
+

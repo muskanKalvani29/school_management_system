@@ -1,0 +1,69 @@
+ <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>Query</h3>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>All Queries</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+    <!-- Student Table Area Start Here -->
+    <div class="card height-auto">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title mt-4 mb-4">
+                    <h3>All Queries Data</h3>
+                </div>
+            </div>
+            <!-- <form class="mg-b-20">
+                <div class="row gutters-8">
+                    <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                        <input type="text" placeholder="Search by Parent Name ..." class="form-control">
+                    </div>
+                    <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
+                        <button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
+                    </div>
+                </div>
+            </form> -->
+            <div class="table-responsive">
+                <table class="table text-nowrap table-hover">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Sr No.</th><th></th>
+                            <th>Query</th><th></th>
+                            <th>Query Response</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" *ngFor="let query of queries;let i=index;">
+                            <td>{{i+1}}</td><td></td>
+                            <td>{{query.queryMessage|slice:0:10|titlecase}}...</td><td></td>
+                            <td *ngIf="!query.responseMessage">-</td>
+                            <td *ngIf="query.responseMessage">{{query.responseMessage|slice:0:5|titlecase}}...</td>
+                            <td>
+                                &nbsp;<a (click)="updateQuery(query.queryId)" role="button"><i class="fa fa-edit" style="color:green;"></i></a>
+                                <a (click)="addQuery(query.queryId)">&nbsp;&nbsp;<i class="fa fa-plus" style="color:saddlebrown"></i></a>
+                                &nbsp;<a (click)="viewQuery(query.queryId)" role="button"><i class="fa fa-eye" style="color: darkblue;"></i></a>
+                                &nbsp; <a (click)="deleteQuery(query.queryId)" role="button"><i class="fa fa-trash" style="color: red;"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mt-5 d-flex justify-content-end" >
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item"><button [disabled]="statusPre"  class="page-link" [routerLink]="['/admin/query/all-queries']" role="button" (click)="pre()">Previous</button></li>
+                          <li class="page-item" [ngClass]="{'active': i == page}" *ngFor="let p of pages;let i=index">
+                            <a class="page-link" [routerLink]="['/admin/query/all-queries']" role="button" (click)="setPage(i,$event)">{{i+1}}</a>
+                          </li>
+                          <li class="page-item"><button [disabled]="statusNext" class="page-link" [routerLink]="['/admin/query/all-queries']"  role="button" (click)="next()">Next</button></li>
+                        </ul>
+                      </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Student Table Area End Here -->

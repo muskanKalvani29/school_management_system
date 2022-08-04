@@ -1,0 +1,100 @@
+ <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>Teachers</h3>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Teacher Details</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+    <!-- Student Details Area Start Here -->
+    <div class="card height-auto">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title mt-4 mb-4">
+                    <h3>About Teacher</h3>
+                </div>
+            </div>
+            <div class="single-info-details">
+                <div class="item-img">
+                    <img src="../../../../assets/img/figure/student1.jpg" alt="student">
+                </div>
+                <div class="item-content">
+                    <div class="header-inline item-header">
+                        <h3 class="text-dark-medium font-medium" style="color:darkblue;">{{teacher.user.name|titlecase}}'s Profile</h3>
+                        <div class="header-elements">
+                            <ul>
+                                <!-- <li><a href="#"><i class="far fa-edit"></i></a></li> -->
+                                <!-- <li><a href="#"><i class="fas fa-print"></i></a></li> -->
+                                <!-- <li><a href="#"><i class="fas fa-download"></i></a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-table table-responsive">
+                        <table class="table text-nowrap">
+                            <tbody>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td class="font-medium text-dark-medium myfont">{{teacher.user.name|titlecase}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Standard:</td>
+                                    <td><span *ngFor="let std of standard" class="font-medium text-dark-medium myfont">{{std.standardName}} </span></td>
+                                </tr>
+                                <tr>
+                                    <td>Subject:</td>
+                                    <td class="font-medium text-dark-medium myfont">
+                                        <span *ngFor="let sub of subject" class="font-medium text-dark-medium myfont">{{sub.subjectName|titlecase}} </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Qualification:</td>
+                                    <td class="font-medium text-dark-medium myfont">{{teacher.qualification}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Joining Date:</td>
+                                    <td class="font-medium text-dark-medium myfont">{{teacher.joiningDate}}</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td> <td></td> <td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td> <td></td> <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Gender:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.gender|titlecase}}</td>
+                                    <td>Contact No:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.user.contactNo1}}</td> 
+                                    <td>Email Id:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.user.emailId}}</td> 
+                                </tr>
+                                <tr>
+                                    <td></td> <td></td> <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Address 1:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.address1}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Address 2:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.address2}}</td>        
+                                </tr>
+                                <tr>
+                                    <td>Pincode:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.pincode}}</td>
+                                </tr>                   
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <button (click)="goToTeacherList()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Back</button>
+        </div>
+    </div>
+    <!-- Student Details Area End Here -->
+

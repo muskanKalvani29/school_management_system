@@ -1,0 +1,102 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area ml-4">
+    <h3>Meeting</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['/dashboard']">Teacher</a>
+        </li>
+        <li>Update Parent Meeting</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Book Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-3">
+                <h3>Parent Meeting</h3>
+            </div>
+        </div>
+        <!--(ngSubmit)="onSubmit()"-->
+        <form #updatemeetingform="ngForm" class="new-added-form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <!-- type -->
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>UserType <span class="c">*</span></label>
+                    <input readonly type="text" name="parent" placeholder="parent" class="form-control"
+                    name="usertype">
+                    <!--[(ngModel)]="meeting.usertype"-->
+                    
+                </div>
+                <!-- meeting name -->
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Meeting Name <span class="c">*</span></label>
+                    <input required type="text" placeholder="" class="form-control"
+                     name="meetingName" #meetingName="ngModel" pattern="^[0-9a-zA-Z. ]*[a-zA-Z]{1,60}$"
+                     [(ngModel)]="meeting.meetingName">
+                     <div *ngIf="meetingName.invalid && (meetingName.dirty || meetingName.touched)" style="color: red;">
+                        <div *ngIf="meetingName.errors.required">
+                            Meeting Name is required!!
+                        </div>
+                        <div *ngIf="meetingName.errors.pattern">
+                            Enter Valid Meeting Name
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Meeting Date <span class="c">*</span></label>
+                    <input required type="date" class="form-control air-datepicker"
+                        data-position='bottom right' name="meetingDate"  #meetingDate="ngModel"
+                        [ngModel]="meeting.meetingDate | date:'yyyy-MM-dd'" (ngModelChange)="meeting.meetingDate = $event">
+                        <!-- <span style="color: gray;">This date is Shown as MM/dd/yyyy. <br>
+                            Enter date in the form of dd/MM/YYYY
+                        </span> -->
+                        <span style="color: red;"
+                        *ngIf="meetingDate.touched && !meetingDate.valid">
+                        Meeting Date is required!!
+                    </span>
+                </div>
+                <!-- meeting start time -->
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Meeting Start Time <span class="c">*</span></label>
+                    <input required type="time" step="1" placeholder="HH-mm-ss" class="form-control"
+                    name="meetingStartTime" #meetingStartTime="ngModel"
+                  [(ngModel)]="meeting.meetingStartTime">
+                  <span style="color: red;"
+                  *ngIf="meetingStartTime.touched && !meetingStartTime.valid">
+                  Meeting Start Time is required!!
+              </span>
+                </div>
+                <!-- meeting end time -->
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Meeting End Time <span class="c">*</span></label>
+                    <input required type="time" step="1" placeholder="HH-mm-ss" class="form-control"
+                    name="meetingEndTime"  #meetingEndTime="ngModel"
+                    [(ngModel)]="meeting.meetingEndTime">
+                    <span style="color: red;"
+                    *ngIf="meetingEndTime.touched && !meetingEndTime.valid">
+                    Meeting End Time is required!!
+                </span>
+                </div>
+                <!-- meeting description it is optional to write -->
+                <div class="col-lg-6 col-12 form-group">
+                    <label>Meeting Description </label>
+                    
+                    <textarea class="textarea form-control" id="form-message" cols="5"
+                        rows="3"  name="meetingDescription" [(ngModel)]="meeting.meetingDescription"></textarea>
+                    <span style="color:rgb(90, 88, 88)">
+                        Meeting Description is optional !!
+                    </span>
+                </div>
+                <div class="col-12 form-group mg-t-8">
+                    <button [disabled]="updatemeetingform.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                     <!-- <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button> -->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add New Book Area End Here -->
+
+

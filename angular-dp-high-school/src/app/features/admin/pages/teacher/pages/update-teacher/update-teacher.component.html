@@ -1,0 +1,141 @@
+   <!-- Breadcubs Area Start Here -->
+   <div class="breadcrumbs-area">
+    <h3>Teacher</h3>
+                <ul>
+                    <li>
+                        <a [routerLink]="['/dashboard']">Home</a>
+                    </li>
+                    <li>Update Teacher</li>
+                </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Table Area Start Here -->
+<div class="card height-auto">
+    <!-- <div class="card-body"> -->
+        
+        <div class="col-lg-12 col-xl-12 col-12-xxxl col-sm-12 col-10">
+            <div class="card dashboard-card-six pd-b-20">
+                <div class="card-body">
+                    <div class="heading-layout1">
+                        <div class="item-title mt-4 mb-4">
+                            <h3>Update Teacher</h3>
+                        </div>
+                    </div>
+                    <!-- (ngSubmit)="onSubmit() -->
+                    <form #updateteacherform="ngForm" class="new-added-form">
+                        <div class="row">
+                            <!-- teacher name -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Name *</label>
+                                <input required type="text" placeholder="" class="form-control"
+                                [(ngModel)]="user.name" name="name">
+                            </div>
+                            <!-- gender -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Gender *</label>
+                                <select class="select2" required [(ngModel)]="teacher.gender" name="gender">
+                                    <option value="">Please Select Gender *</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                    <option value="3">Others</option>
+                                </select>
+                            </div>
+                            <!-- joining date -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Joining Date *</label>
+                                <input required type="text" placeholder="dd/mm/yyyy" class="form-control air-datepicker"
+                                    data-position='bottom right' [(ngModel)]="teacher.joiningDate" name="joiningDate">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                            <!-- standard -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Standard *</label>
+                                <select class="select2" required [(ngModel)]="teacher.standard" name="standard">
+                                    <option value="">Please Select Standard *</option>
+                                    <option value="1">Nursery</option>
+                                    <option value="2">Junior</option>
+                                    <option value="2">Senior</option>
+                                    <option value="3">1</option>
+                                    <option value="3">2</option>
+                                    <option value="3">3</option>
+                                    <option value="3">4</option>
+                                    <option value="3">5</option>
+                                </select>
+                            </div>
+                            <!-- subject -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Subject *</label>
+                                <select class="select2" required [(ngModel)]="teacher.subject" name="subject">
+                                    <option value="">Please Select Standard *</option>
+                                    <option value="1">Maths</option>
+                                    <option value="2">Science</option>
+                                    <option value="2">English</option>
+                                    <option value="3">Gujarati</option>
+                                    <option value="3">Sanskrit</option>
+                                    <option value="3">Pathmala</option>
+                                    <option value="3">P.T</option>
+                                    <option value="3">Hindi</option>
+                                </select>
+                            </div>
+                            <!-- email id -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Email id *</label>
+                                <input required type="text" placeholder="" class="form-control"
+                                [(ngModel)]="user.emailId" name="emailId">
+                            </div>
+                            <!-- contact no -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Contact No *</label>
+                                <input required type="text" placeholder="" class="form-control"
+                                [(ngModel)]="user.contactNo1" name="contactNo1">
+                            </div>
+                             <!-- qualification -->
+                             <div class="col-lg-6 col-12 form-group">
+                                <label>Qualification *</label>
+                                <textarea required class="textarea form-control" id="form-message" cols="5"
+                                    rows="3"
+                                    [(ngModel)]="teacher.qualification" name="qualification"></textarea>
+                            </div>
+                            <!-- add1  -->
+                            <div class="col-lg-6 col-12 form-group">
+                                <label>Address 1 *</label>
+                                <textarea required class="textarea form-control" id="form-message" cols="5"
+                                    rows="3"
+                                    [(ngModel)]="teacher.address1" name="address1"></textarea>
+                            </div>
+                            <!-- add 2 -->
+                            <div class="col-lg-6 col-12 form-group">
+                                <label>Address 2 *</label>
+                                <textarea required class="textarea form-control" id="form-message" cols="5"
+                                    rows="3"
+                                    [(ngModel)]="teacher.address2" name="address2"></textarea>
+                            </div>
+                            <!-- pincode  -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Pincode *</label>
+                                <input required type="text" placeholder="" class="form-control"
+                                [(ngModel)]="teacher.pincode" name="pincode">
+                            </div>                                                                                                                                                                                                                
+                            <!-- image -->   
+                            <div class="col-lg-6 col-12 col-sm-12 form-group mg-t-30">
+                                <label class="text-dark-medium">Upload Teacher Photo (150px X 150px)</label>
+                                <input required type="file" class="form-control-file"
+                                [(ngModel)]="teacher.image" name="image">
+                            </div>
+                            <div class="col-12 col-sm-12 form-group mg-t-8">
+                                <button [disabled]="updateteacherform.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                                <!-- <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button> -->
+                            </div>
+                        </div>
+                    </form>
+                 </div>
+              </div>
+        
+       
+    </div>
+
+<!-- Student Table Area End Here -->
+
+</div>
+
+

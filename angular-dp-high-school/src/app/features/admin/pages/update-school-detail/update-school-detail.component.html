@@ -1,0 +1,109 @@
+
+    <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>School Detail</h3>
+        <ul>
+            <li>
+                <a routerLink="/dashboard">Home</a>
+            </li>
+            <li>Update School Detail</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+    <!-- Add New Book Area Start Here -->
+    <div class="card height-auto">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title mt-4 mb-4">
+                    <h3>Update School Detail</h3>
+                </div>
+            </div>
+            <form #updateSchoolDetailForm="ngForm" class="new-added-form" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <!-- Email Id -->
+                    <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Email Id</label>
+                        <input required type="text" placeholder="" class="form-control"
+                        name="emailId" [(ngModel)]="school.emailId" #emailId="ngModel" email="true"
+                        >
+                        <div style="color: red;" *ngIf="emailId.invalid && emailId.touched">
+                            <div *ngIf="emailId.errors.required">
+                                Email Id is Required !!
+                            </div>
+                            <div *ngIf="emailId.errors.email">
+                                Enter valid Email. <br> <strong>Ex: mansipatadiya@gmail.com</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- LandLine No -->
+                    <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>LandLine No</label>
+                        <input required type="text" class="form-control air-datepicker"
+                        name="landlineNo" [(ngModel)]="school.landlineNo" #landlineNo="ngModel"
+                        minlength="8" maxlength="8" pattern="^[0-9]{8,8}$">
+                        
+                        <div style="color: red;" *ngIf="landlineNo.invalid && (landlineNo.dirty || landlineNo.touched)">
+                            <div *ngIf="landlineNo.errors.required">
+                                LandLine No is Required !!
+                            </div>
+                            <div *ngIf="landlineNo.errors.minlength">
+                                Enter 8 digit number !! <strong>Ex: 27644080</strong>
+                            </div>
+                            <div *ngIf="landlineNo.errors?.pattern">
+                                Enter only numeric value !!
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mobile -->
+                     <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Mobile No</label>
+                        <input required type="text" class="form-control air-datepicker"
+                        name="mobileNo" [(ngModel)]="school.mobileNo" #mobileNo="ngModel"
+                        minlength="10" maxlength="10" pattern="^[0-9]{10,10}$">
+                        <div style="color: red;" *ngIf="mobileNo.invalid && (mobileNo.dirty || mobileNo.touched)">
+                            <div *ngIf="mobileNo.errors.required">
+                                Mobile No is Required !!
+                            </div>
+                            <div *ngIf="mobileNo.errors.minlength">
+                                Enter 10 digit number !! <strong>Ex: 8780079825</strong>
+                            </div>
+                            <div *ngIf="mobileNo.errors?.pattern">
+                                Enter only numeric value !!
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Office Open Time -->
+                    <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Office Open Time</label>
+                        <input required type="time" step="1" class="form-control air-datepicker"
+                            data-position='bottom right' name="officeOpenTime" [(ngModel)]="school.officeOpenTime" 
+                        >
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <!-- Office End Time -->
+                    <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Office Close Time</label>
+                        <input required type="time" step="1" class="form-control air-datepicker"
+                            data-position='bottom right' name="officeCloseTime" [(ngModel)]="school.officeCloseTime" 
+                        >
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <!-- Logo -->
+                    <!-- <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Logo</label>
+                        <input required type="file" class="form-control-file" name="image" [(ngModel)]="school.image" >
+                    </div> -->
+                   
+                    <div class="col-12 form-group mg-t-8">
+                        <button [disabled]="updateSchoolDetailForm.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                        <!-- <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Add New Book Area End Here -->
+  
+
+
+

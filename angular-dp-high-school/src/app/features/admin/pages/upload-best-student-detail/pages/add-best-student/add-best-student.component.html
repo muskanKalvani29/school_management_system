@@ -1,0 +1,127 @@
+<div class="breadcrumbs-area">
+    <h3>Best Student Images</h3>
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+        <li>Upload</li>
+    </ul>
+</div>
+<div class="card height-auto">
+    <div class="card shadow border-0 pb-8" style="background-color: white;">
+        <!-- <div class="card-body"> -->
+            <div class="heading-layout1 ml-4">
+                <div class="item-title mt-4 mb-4">
+                    <h3>Upload Images</h3>
+                </div>
+            </div> 
+                <div class="container">
+                    <form #studentform="ngForm" class="new-added-form" (ngSubmit)="addBestStudent(studentform.value)">
+                        <div class="row justify-content-center " style="margin-top: 3%;">
+                        <!-- <div class="text-center col-md-12">
+                            <input type="file" (change)="fileChangeEvent($event)" />
+                            </div> -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label for="name">Name <span class="c">*</span></label>
+                                <input required type="text" 
+                                class="form-control"
+                                name="name"
+                                pattern="^[a-zA-Z. ]*[a-zA-Z]{1,60}$"
+                                ngModel
+                                #name="ngModel">
+                                <div class="mt-2" style="color: red;"
+                                    *ngIf="name.touched && !name.valid">
+                                    Name is Required !!
+                                </div>
+                            </div>
+                            <!-- Standard -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Standard <span class="c">*</span></label>
+                                <select class="form-control" required name="standardName" ngModel #standardName="ngModel">
+                                    <!-- <option [ngValue]="null">Please Select Standard *</option> -->
+                                    <option *ngFor="let standard of standards" [value]="standard.standardName">{{standard.standardName}}</option>
+                                </select>
+                                <div class="mt-2" style="color: red;"
+                                    *ngIf="standardName.touched && !standardName.valid">
+                                    Selction of Standard is Required !!
+                                 </div>
+                            </div>
+                            
+                            <!-- Division -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Division <span class="c">*</span></label>
+                                <select class="form-control" required name="divisionName" ngModel #divisionName="ngModel">
+                                    <!-- <option [ngValue]="null">Please Select Division *</option> -->
+                                    <option *ngFor="let division of divisions" [value]="division.divisionName">{{division.divisionName}}</option>
+                                </select>
+                                <div class="mt-2" style="color: red;"
+                                    *ngIf="divisionName.touched && !divisionName.valid">
+                                    Selction of Division is Required !!
+                                 </div>
+                            </div>
+                            <!-- Medium -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Medium <span class="c">*</span></label>
+                                <select class="form-control" required name="medium" ngModel #medium="ngModel">
+                                    <!-- <option [ngValue]="null">Please Select Medium *</option> -->
+                                    <option *ngFor="let medium of mediumData" [value]="medium">{{medium}}</option>
+                                </select>
+                                <div class="mt-2" style="color: red;"
+                                    *ngIf="medium.touched && !medium.valid">
+                                   Selction of Medium is Required !!
+                                 </div>
+                            </div>
+                            <div class="col-lg-5 col-xl-3 col-md-7 col-sm-7 col-10 mt-2">
+                                <div class="form-group">
+                                    <div >
+                                        <label>Image <span class="c">*</span></label>
+                                        <input type="file" class="text-nowrap text-truncate" (change)="fileChangeEvent($event);selectFile($event)"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                    <div class="row justify-content-center mt-4">
+                        <p (click)="zoomIn()" class="display-4 mr-4"><i class="fa fa-search-plus"></i></p>
+                        <p (click)="zoomOut()" class="display-4"><i class="fa fa-search-minus"></i></p>
+                    </div>
+                    
+                <div class="row justify-content-center" style="margin-top: 5%;margin-bottom: 10%;">
+                        <div class="text-center col-xl-8 col-lg-12 col-md-12 order-sm-2 order-2" style="height: 80vh;">
+                            <h5>Crop Image</h5>
+                            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                                [aspectRatio]="4 / 4" [resizeToWidth]="256"
+                                [transform]="transform" [onlyScaleDown]="true" format="jpg" (imageCropped)="imageCropped($event)"
+                                (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
+                            </image-cropper>
+                        </div>
+                    <div class="text-center col-md-4">
+                        <h5>Preview</h5>
+                        
+                        <img [style.border]="croppedImage ? '1px solid black' : 'none'" [src]="croppedImage" />
+                    </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group">
+                <div class="form-group">
+                    <div >
+                        <a class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" style="margin-right: 2%;margin-top: 5%;background-color: #333366;color:white"
+                         (click)="upload()">Upload Image</a>
+                        <!-- <a type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</a> -->
+                    </div>
+                    <div *ngIf="currentFileUpload" class="progress mt-4">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                        aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: percentage + '%' }">
+                                  {{ percentage }}%
+                        </div>
+                      </div>
+                </div>
+            </div><br>
+            <div class="row justify-content-center mt-6" style="margin-left: 3px;">
+                <div class="col-12 form-group mg-t-8">
+                    <button  type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" (click)="addBestStudent(studentform.value)">Upload</button>
+                </div>
+            </div>
+         </div>
+    </div>
+</div>

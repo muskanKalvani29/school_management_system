@@ -1,0 +1,61 @@
+<!-- Breadcubs Area Start Here -->
+<div class="breadcrumbs-area ml-4">
+    <h3>Meetings</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['/dashboard']">Parent</a>
+        </li>
+        <li>View Meeting</li>
+    </ul>
+  </div>
+  <!-- Breadcubs Area End Here -->
+  <!-- Student Details Area Start Here -->
+  <div class="card height-auto ml-4">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title">
+                <h3 style="margin-top:15px;">Meeting Detail</h3>
+            </div>
+        </div>
+        <div class="single-info-details">
+            <div class="item-content">
+               
+                <div class="info-table table-responsive">
+                    <table class="table text-nowrap mt-3">
+                        <tbody>
+                          <tr>
+                              <td>Meeting Name:</td>
+                              <td class="font-medium text-dark-medium myfont">{{meeting.meetingName|titlecase}}</td>
+                          </tr>
+                            <tr>
+                                <td>Meeting Date:</td>
+                                <td class="font-medium text-dark-medium myfont">{{meeting.meetingDate|date:'dd-MM-yyyy'}}</td>
+                            </tr>
+                            <tr>
+                                <td>Starting Time:</td>
+                                <td class="font-medium text-dark-medium myfont">{{meeting.meetingStartTime}}</td>
+                            </tr>
+                            <tr>
+                                <td>Ending Time:</td>
+                                <td class="font-medium text-dark-medium myfont">{{meeting.meetingEndTime}}</td>
+                            </tr>
+                            <tr>
+                                <td>Description:</td>
+                                <td *ngIf="!meeting.meetingDescription" class="font-medium text-dark-medium myfont">-</td>
+                                <td *ngIf="meeting.meetingDescription" class="font-medium text-dark-medium myfont">{{meeting.meetingDescription|titlecase}}</td>
+                            </tr>        
+                        </tbody>
+                    </table>
+                </div>
+                <button (click)="goToMeetingList()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Back</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Student Details Area End Here -->
+  <!-- Footer Area Start Here -->
+  
+  
+  
+  
+  

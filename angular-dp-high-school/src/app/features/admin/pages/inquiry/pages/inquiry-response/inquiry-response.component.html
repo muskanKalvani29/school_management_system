@@ -1,0 +1,49 @@
+  <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>Inquiry</h3>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Inquiry Response</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+    <!-- Add New Book Area Start Here -->
+    <div class="card height-auto">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title mt-4 mb-4">
+                    <h3>Add Inquiry Response</h3>
+                </div>
+            </div>
+            <form #inquiryresponse="ngForm" class="new-added-form" (ngSubmit)="addInquiryResponse(inquiryresponse.value)">
+                <div class="row">
+                    <!-- inquiry message -->
+                    <div class="col-lg-6 col-12 form-group">
+                        <label>Inquiry <span style="color: red;">*</span></label>
+                        <textarea readonly class="textarea form-control" id="form-message" cols="10"
+                            rows="3" 
+                            [(ngModel)]="inquiry.inquiryMessage" name="inquiryMessage" ></textarea>
+                    </div>
+                    <!-- inquiry response -->
+                    <div class="col-lg-6 col-12 form-group">
+                        <label>Write Inquiry Response <span style="color: red;">*</span></label>
+                        <textarea required class="textarea form-control" id="form-message" cols="5"
+                            rows="3" ngModel name="inquiryResponse" #inquiryResponse="ngModel"></textarea>
+                            <span style="color: red;"
+                            *ngIf="inquiryResponse.touched && !inquiryResponse.valid">
+                            Inquiry Response is Required !!
+                        </span>
+                    </div>
+                    <div class="col-12 form-group mg-t-8">
+                        <button [disabled]="inquiryresponse.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                        <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Add New Book Area End Here -->
+
+

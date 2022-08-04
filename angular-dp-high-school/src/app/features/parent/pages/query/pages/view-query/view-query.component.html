@@ -1,0 +1,49 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area ml-4">
+    <h3>Query Response</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['/dashboard']">Parent</a>
+        </li>
+        <li>View Query Response</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Details Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title">
+                <h3 style="margin-top: 10px;">Query Detail</h3>
+            </div>
+       
+        </div>
+        <div class="single-info-details">
+            <div class="item-content">
+               
+                <div class="info-table table-responsive">
+                    <table class="table text-nowrap mt-3">
+                        <tbody>
+                            <tr>
+                                <td>Query</td>
+                                <td class="font-medium text-dark-medium myfont">{{query.queryMessage}}</td>
+                            </tr>
+                            <tr>
+                                <td>Query Response</td>
+                                <td *ngIf="!query.responseMessage" class="font-medium text-dark-medium myfont">-</td>
+                                <td *ngIf="query.responseMessage" class="font-medium text-dark-medium myfont">{{query.responseMessage|titlecase}}...</td><td></td>
+                            </tr>        
+                        </tbody>
+                    </table>
+                </div>
+                <button (click)="goToQueriesList()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Student Details Area End Here -->
+<!-- Footer Area Start Here -->
+
+
+
+

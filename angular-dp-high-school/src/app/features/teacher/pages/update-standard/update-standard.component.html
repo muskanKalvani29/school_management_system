@@ -1,0 +1,55 @@
+<!-- Breadcubs Area Start Here -->
+<div class="breadcrumbs-area ml-4">
+    <h3>Update-Standard</h3>
+    <ul>
+        <li>
+            <a href="index.html">Teacher</a>
+        </li>
+        <li>Update</li>
+    </ul>
+</div>
+    <div class="col-12-xxxl col-12" >
+        <div class="card dashboard-card-eleven">
+            <div class="card-body">
+                <div class="heading-layout1">
+                    <div class="item-title">
+                        <h3>Update Standard</h3>
+                    </div>
+                </div><br>
+                 <form #teacherData="ngForm" class="new-added-form" (ngSubmit)="addTeacher(teacherData.value)">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-12 col-sm-12 form-group">
+                            <label>Select all Standard in which you are teaching*</label>
+                            <select style="height: 90px;" class="form-select-lg " aria-label="multiple select example" multiple class="form-control" required name="standard" ngModel #standard="ngModel">
+                                <!-- <option [ngValue]="null">Please Select Standard *</option> -->
+                                <option *ngFor="let standard of standards" [value]="standard.standardName">{{standard.standardName}}</option>
+                            </select>
+                            <span style="color: red;"
+                                *ngIf="standard.touched && !standard.valid">
+                                Standard is required!!
+                            </span>
+                        </div>
+                       
+                    </div>
+                    
+                   
+                  
+                    <div class="row">
+                        <div class="col-12 form-group mg-t-8 text-center">
+                            <!-- [disabled]="aboutme.invalid" -->
+                            <button [disabled]="teacherData.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark mt-3 mr-4">Update</button>
+                            <button type="reset" class="mt-3 btn-fill-lg bg-blue-dark btn-hover-yellow btnmargin">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>   
+    </div>
+  
+    <!-- Footer Area Start Here -->
+    
+    <!-- Footer Area End Here -->
+    
+    
+    
+    

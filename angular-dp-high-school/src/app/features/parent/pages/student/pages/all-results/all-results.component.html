@@ -1,0 +1,53 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area ml-4">
+    <h3>Documents</h3>
+    <ul>
+        <li>
+            <!--add student dashboard link here-->
+            <a href="index.html">Student</a>
+        </li>
+        <li>All Documents</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Table Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title">
+                <h3>All Documents</h3>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-nowrap table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>SrNo.</th><th></th>
+                        <th>ExamType</th>
+                       
+                        <th>Description</th><th></th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let resultfile of resultfiles|async;let i=index">
+                        <td>{{i+1}}</td><td></td>
+                        <td>{{resultfile.examType.examtypeDescription|titlecase}}</td>
+                        
+                        <td *ngIf="!resultfile.description" class="font-medium text-dark-medium myfont">-</td>
+                        <td *ngIf="resultfile.description">{{resultfile.description|slice:0:20|titlecase}}...</td><td></td>
+                        
+                        <td>
+                            &nbsp;<a (click)="viewResultFile(resultfile.resultFileId)" role="button"><i class="fa fa-eye" style="color: darkblue;"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Student Table Area End Here -->
+
+
+
+

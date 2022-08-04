@@ -1,0 +1,27 @@
+<div class="breadcrumbs-area">
+  <h3>Admin Dashboard</h3>
+  <ul>
+      <li>
+          <a href="index.html">Home</a>
+      </li>
+      <li>view-time-table</li>
+  </ul>
+</div>
+<div class="card height-auto">
+<!-- <div class="card-body"> -->
+  <div class="card height-auto">
+    <!-- <div class="card-body"> -->
+      <div class="col-lg-12 col-xl-12 col-12-xxxl">
+        <div class="card dashboard-card-six pd-b-20">
+            <div class="card-body">
+              
+              <div> 
+                <iframe *ngIf="shows == true" height="700px"width="100%" [src]="pdfSource | safePipe"></iframe>
+              </div>
+
+                  <button (click)="goToTimeTableList()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Back</button>
+            </div>
+          </div>
+        </div>       
+  </div>
+</div>

@@ -1,0 +1,74 @@
+   <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>Events</h3>
+        <ul>
+            <li>
+                <a [routerLink]="['admin/dashboard']">Home</a>
+            </li>
+            <li>All Events</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+    <!-- Student Table Area Start Here -->
+    <div class="card height-auto">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title mt-4 mb-4">
+                    <h3>All Events Data</h3>
+                </div>
+            </div>
+            <form class="mg-b-20">
+                <div class="row gutters-8 d-flex justify-content-center">
+                    <div class="col-6-xxxl col-xl-6 col-lg-6 col-12 form-group">
+                        <input type="text" required [(ngModel)]="nameSearch" name="nameSearch" placeholder="Search by Name ..." class="form-control text-center">
+                    </div>       
+                </div>
+            </form>
+            <div class="table-responsive">
+                <table class="table text-nowrap table-hover">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Sr No.</th><th></th>
+                            <th>Event Name</th><th></th>
+                            <th>Event Start Date</th><th></th>
+                            <th>Event End Date</th><th></th>
+                            <th>Event Start Time</th><th></th>
+                            <th>Event End Time</th><th></th>
+                            <th>Description</th><th></th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" *ngFor="let event of events | event:nameSearch ;let i=index">
+                            <td>{{i+1}}</td><td></td>
+                            <td>{{event.eventName|titlecase}}</td><td></td>
+                            <td>{{event.eventStartdate| date:'dd-MM-yyyy'}}</td><td></td>
+                            <td>{{event.eventEnddate| date:'dd-MM-yyyy'}}</td><td></td>
+                            <td>{{event.eventStarttime}}</td><td></td>
+                            <td>{{event.eventEndtime}}</td><td></td>
+                            <td *ngIf="!event.eventDescription">-</td>
+                            <td *ngIf="event.eventDescription">{{event.eventDescription|slice:0:5|titlecase}}...</td>
+                            <td></td><td>
+                                <a (click)="updateEvent(event.eventId)" role="button"><i class="fa fa-edit" style="color: green;"></i></a>
+                                &nbsp;<a (click)="viewEvent(event.eventId)" role="button"><i class="fa fa-eye" style="color: darkblue;"></i></a>
+                                <!-- click ==> (click)="deleteEvent(event.eventId)" -->
+                                &nbsp; <a (click)="deleteEvent(event.eventId)" role="button"><i class="fa fa-trash" style="color: red;"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mt-5 d-flex justify-content-end" >
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item"><button [disabled]="statusPre"  class="page-link" [routerLink]="['/admin/event/all-events']" role="button" (click)="pre()">Previous</button></li>
+                          <li class="page-item" [ngClass]="{'active': i == page}" *ngFor="let p of pages;let i=index">
+                            <a class="page-link" [routerLink]="['/admin/event/all-events']" role="button" (click)="setPage(i,$event)">{{i+1}}</a>
+                          </li>
+                          <li class="page-item"><button [disabled]="statusNext" class="page-link" [routerLink]="['/admin/event/all-events']"  role="button" (click)="next()">Next</button></li>
+                        </ul>
+                      </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Student Table Area End Here -->

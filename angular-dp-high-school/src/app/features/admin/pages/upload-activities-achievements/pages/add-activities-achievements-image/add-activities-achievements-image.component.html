@@ -1,0 +1,192 @@
+<div class="breadcrumbs-area">
+    <h3>Activities / Achievements Images</h3>
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+        <li>Upload</li>
+    </ul>
+</div>
+<div class="card height-auto">
+    <div class="card shadow border-0 pb-8" style="background-color: white;">
+        <!-- <div class="card-body"> -->
+            <div class="heading-layout1 ml-4 mt-4 mb-4">
+                <div class="item-title">
+                    <h3>Upload Images</h3>
+                </div>
+            </div> 
+       
+        
+            <!-- cropper -->
+            <!-- <div class="card shadow border-0 pb-8"> -->
+                <div class="container">
+                    <form #ActAchimage="ngForm" class="new-added-form" >
+                    <div class="row justify-content-center ">
+                        <div class="col-lg-6 col-12 col-sm-6 col-md-6 col-4-xxxl text-center center form-group" style="margin-top: 3%; margin-bottom: 5%;;">
+                  
+                                <label for="sel1">Select Image Type Name :</label>
+                                <select class="form-control" required name="imageName" ngModel #imageName="ngModel">
+                                    <!-- <option [ngValue]="null">Please Select Medium *</option> -->
+                                    <option *ngFor="let imageActAch of ActivityData" [value]="imageActAch">{{imageActAch}}</option>
+                                </select>
+                        </div>
+                        <!-- Description -->
+                        <div class="col-lg-6 col-12 col-sm-6 col-md-6 col-6-xxxl form-group" style="margin-top: 4%; margin-bottom: 5%;;">
+                            <label>Description </label>
+                            <textarea  class="textarea form-control" name="imageDiscription" ngModel #imageDiscription="ngModel" id="form-message" cols="5"
+                                rows="3"></textarea> 
+
+                            <span style="color: gray;">
+                                Description is Optional!!
+                            </span>
+                        </div>    
+                        <div class="col-lg-5 col-xl-3 col-md-7 col-sm-7 col-10 mt-2">
+                            <div class="form-group">
+                                <div>
+                                    <label>Image</label>
+                                    <input type="file" class="text-nowrap text-truncate" (change)="fileChangeEvent($event);selectFile($event)"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                    <hr>
+
+                    <div class="row justify-content-center mt-4">
+                        <p (click)="zoomIn()" class="display-4 mr-4"><i class="fa fa-search-plus"></i></p>
+                        <p (click)="zoomOut()" class="display-4"><i class="fa fa-search-minus"></i></p>
+                    </div>
+
+                    <div class="row justify-content-center" style="margin-top: 5%;margin-bottom: 4%;">
+                        <div class="text-center col-xl-8 col-lg-12 col-md-12 order-sm-2 order-2" style="height: 70vh;">
+                            <h5>Crop Image</h5>
+                            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                                [aspectRatio]="4 / 4" [resizeToWidth]="256"
+                                [transform]="transform" [onlyScaleDown]="true" format="jpg" (imageCropped)="imageCropped($event)"
+                                (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
+                            </image-cropper>
+                        </div>
+                        <div class="text-center col-md-4">
+                            <h5>Preview</h5>
+                            <img [style.border]="croppedImage ? '1px solid black' : 'none'" [src]="croppedImage" />
+                        </div>
+
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                        <div class="form-group">
+                            
+                            <div>
+                                <a class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" style="margin-top: 5%;background-color: #333366;color:white"
+                                 (click)="upload()">Upload Image</a>
+                                <!-- <a type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</a> -->
+                            </div>
+                            <div *ngIf="currentFileUpload" class="progress mt-4">
+                                <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                                aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: percentage + '%' }">
+                                          {{ percentage }}%
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="row justify-content-center" style="margin-left: 7px;">
+                        <div class="col-12 form-group mg-t-8">
+                            <button [disabled]="ActAchimage.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" (click)="addActAch(ActAchimage.value)">Upload</button>
+                            <!-- <a type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</a> -->
+                        </div>
+                     </div>
+
+                </div>
+        <!-- </div> -->
+    </div>
+</div>
+
+
+
+<!-- <div class="breadcrumbs-area">
+    <h3>Activities / Achievements Images</h3>
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+        <li>Upload</li>
+    </ul>
+</div>
+<div class="card height-auto">
+    <div class="card shadow border-0 pb-8" style="background-color: white;"> -->
+        <!-- <div class="card-body"> -->
+            <!-- <div class="heading-layout1 ml-4 mt-4 mb-4">
+                <div class="item-title">
+                    <h3>Upload Images</h3>
+                </div>
+            </div>  -->
+       
+        
+            <!-- cropper -->
+            <!-- <div class="card shadow border-0 pb-8"> -->
+                <!-- <div class="container">
+                    <form #ActAchimage="ngForm" class="new-added-form" (ngSubmit)="addActAch(ActAchimage.value)">
+                    <div class="row justify-content-center ">
+                        <div class="col-lg-6 col-12 col-sm-6 col-md-6 col-4-xxxl text-center center form-group" style="margin-top: 3%; margin-bottom: 5%;;">
+                  
+                                <label for="sel1">Select Image Type Name <span class="strik">*</span></label>
+                                <select class="form-control" required name="imageName" ngModel #imageName="ngModel"> -->
+                                    <!-- <option [ngValue]="null">Please Select Medium *</option> -->
+                                    <!-- <option *ngFor="let imageActAch of ActivityData" [value]="imageActAch">{{imageActAch}}</option>
+                                </select>
+                        </div> -->
+                        <!-- Description -->
+                        <!-- <div class="col-lg-6 col-12 col-sm-6 col-md-6 col-6-xxxl form-group" style="margin-top: 4%; margin-bottom: 5%;;">
+                            <label>Description </label>
+                            <textarea required class="textarea form-control" name="imageDiscription" ngModel #imageDiscription="ngModel" id="form-message" cols="5"
+                                rows="3"></textarea> 
+
+                            <span style="color:grey"
+                                *ngIf="!imageDiscription.touched">
+                                Description is Optional !!
+                            </span>
+                        </div>    
+                        <div class="col-lg-5 col-xl-3 col-md-7 col-sm-7 col-10 center">
+                            <div class="form-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile" (change)="fileChangeEvent($event)">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                    <hr>
+
+                    <div class="row justify-content-center mt-4">
+                        <p (click)="zoomIn()" class="display-4 mr-4"><i class="fa fa-search-plus"></i></p>
+                        <p (click)="zoomOut()" class="display-4"><i class="fa fa-search-minus"></i></p>
+                    </div>
+
+                    <div class="row justify-content-center" style="margin-top: 5%;margin-bottom: 4%;">
+                        <div class="text-center col-xl-8 col-lg-12 col-md-12 order-sm-2 order-2" style="height: 70vh;">
+                            <h5>Crop Image</h5>
+                            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                                [aspectRatio]="4 / 4" [resizeToWidth]="256"
+                                [transform]="transform" [onlyScaleDown]="true" format="jpg" (imageCropped)="imageCropped($event)"
+                                (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
+                            </image-cropper>
+                        </div>
+                        <div class="text-center col-md-4">
+                            <h5>Preview</h5>
+                            <img [style.border]="croppedImage ? '1px solid black' : 'none'" [src]="croppedImage" />
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12 form-group mg-t-8">
+                            <button [disabled]="ActAchimage.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Upload</button> -->
+                            <!-- <a type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</a> -->
+                        <!-- </div>
+                     </div>
+
+                </div> -->
+        <!-- </div> -->
+    <!-- </div>
+</div> -->
+
+

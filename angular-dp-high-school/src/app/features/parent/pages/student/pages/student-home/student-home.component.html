@@ -1,0 +1,186 @@
+<!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area ml-4">
+    <h3>Home</h3>
+    <ul>
+        <li>
+            <!--add student dashboard link here-->
+            <a href="index.html">Parent/Student</a>
+        </li>
+        <li>Home</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<div class="row">
+    <!-- Student Info Area Start Here -->
+    <div class="col-8-xxxl col-xl-8 col-lg-8 col-sm-8 col-12">
+        <div class="card dashboard-card-ten">
+            <div class="card-body">
+                <div class="heading-layout1">
+                    <div class="item-title mt-4 mb-4">
+                        <h3>About Me</h3>
+                    </div>
+                    
+                </div>
+                <div class="student-info">
+                    <div class="media media-none--xs">
+                        <div class="ml-3">
+                            <img src="{{student.image}}"  style="width:200px;height:200px" alt="student">
+                        </div>
+                        <div class="media-body">
+                            <!-- <h3 class="item-title">Jessia Rose</h3> -->
+                            <!-- <p>Aliquam erat volutpat. Curabiene natis massa -->
+                                <!-- sedde lacustiquen sodale word moun taiery.</p> -->
+                        </div>
+                    </div>
+                    <div class="table-responsive info-table">
+                        <table class="table text-nowrap">
+                            <tbody>
+                                <tr>
+                                    <td>GR No:</td>
+                                    <td class="font-medium text-dark-medium">{{student.grNo}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Roll No:</td>
+                                    <td class="font-medium text-dark-medium">{{student.rollNo}}</td>
+                                </tr>
+                                <tr>
+                                    <td>First Name:</td>
+                                    <td class="font-medium text-dark-medium">{{student.firstName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Middle Name:</td>
+                                    <td class="font-medium text-dark-medium">{{student.middleName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name:</td>
+                                    <td class="font-medium text-dark-medium">{{student.lastName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Mother Name:</td>
+                                    <td class="font-medium text-dark-medium">{{student.motherName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email Id:</td>
+                                    <td class="font-medium text-dark-medium">{{student.emailId}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Gender:</td>
+                                    <td class="font-medium text-dark-medium">{{student.gender}}</td>
+                                </tr>
+                                <tr>
+                                    <td>BloodGroup:</td>
+                                    <td class="font-medium text-dark-medium">{{student.bloodGroup}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Addmission Date:</td>
+                                    <td class="font-medium text-dark-medium">{{student.admissionDate}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Stream:</td>
+                                    <td class="font-medium text-dark-medium">{{student.stream}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Medium:</td>
+                                    <td class="font-medium text-dark-medium">{{student.medium}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Standard:</td>
+                                    <td class="font-medium text-dark-medium">{{student.standard.standardName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Division:</td>
+                                    <td class="font-medium text-dark-medium">{{student.division.divisionName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Date Of Birth:</td>
+                                    <td class="font-medium text-dark-medium">{{student.dateOfBirth}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Address 1:</td>
+                                    <td class="font-medium text-dark-medium">{{student.address1}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Address 2:</td>
+                                    <td class="font-medium text-dark-medium">{{student.address2}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Pincode:</td>
+                                    <td class="font-medium text-dark-medium">{{student.pincode}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Privious SchoolName:</td>
+                                    <td class="font-medium text-dark-medium">{{student.previousSchoolName}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-xl-4 col-3-xxxl col-sm-4 col-12 mt-4">
+        <div class="dashboard-summery-one mg-b-30 mt-4 shadow">
+            <div class="row align-items-center">
+                <div class="col-xl-4 col-3 col-sm-5 col-md-5">
+                    <!-- <div class="item-icon bg-light-yellow">
+                        <i class="flaticon-couple text-orange"></i>
+                    </div> -->
+                    <a [routerLink]="['result/all-results']">
+                        <img src="../../../../../../../assets/images/result.png" alt="best student">
+                    </a>
+                </div>
+                <div class="col-xl-8 col-6 col-sm-7 col-md-7">
+                    <div class="item-content text-center">
+                        <div class="myfont">Result</div>
+                        <!-- <div class="item-number"><span class="counter" data-num="5690">5,690</span></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-summery-one mg-b-30 mt-4 shadow">
+            <div class="row align-items-center">
+                <div class="col-xl-4 col-3 col-sm-5 col-md-5">
+                    <!-- <div class="item-icon bg-light-yellow">
+                        <i class="flaticon-couple text-orange"></i>
+                    </div> -->
+                    <a [routerLink]="['document/all-documents']">
+                        <img src="../../../../../../../assets/images/document.png" alt="fee detail">
+                    </a>
+                </div>
+                <div class="col-xl-8 col-6 col-sm-7 col-md-7">
+                    <div class="item-content text-center">
+                        <div class="myfont">Document</div>
+                        <!-- <div class="item-number"><span class="counter" data-num="5690">5,690</span></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-summery-one mg-b-30 mt-4 shadow">
+            <div class="row align-items-center">
+                <div class="col-xl-4 col-3 col-sm-5 col-md-5">
+                    <!-- <div class="item-icon bg-light-yellow">
+                        <i class="flaticon-couple text-orange"></i>
+                    </div> -->
+                    <a [routerLink]="['time-table/all-time-tables']">
+                        <img src="../../../../../../../assets/images/timetable.png" alt="fee detail">
+                    </a>
+                </div>
+                <div class="col-xl-8 col-6 col-sm-7 col-md-5">
+                    <div class="item-content text-center">
+                        <div class="myfont">Timetable</div>
+                        <!-- <div class="item-number"><span class="counter" data-num="5690">5,690</span></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

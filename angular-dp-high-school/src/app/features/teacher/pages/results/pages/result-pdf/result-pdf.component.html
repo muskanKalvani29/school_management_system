@@ -1,0 +1,185 @@
+
+<div class="card height-auto" style="margin-top: 15%;">
+    <div class="card-body"> 
+     <div class="text-center mt-4">
+        <form class="mg-b-20">
+            <div class="row gutters-8">
+                <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-6 col-12 form-group ">
+                    <select class="form-control" required name="standard" ngModel #standard="ngModel" (change)="changestd($event)">
+                       <option value="">Please Select Standard</option>
+                       <option *ngFor="let standard of standards" [value]="standard.standardName">{{standard.standardName}}</option>
+                   </select>
+                    </div>
+                    <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-6 col-12 form-group ">           
+                        <select class="form-control" required name="division" ngModel #division="ngModel" (change)="changediv($event)">
+                           <option value="">Please Select Division</option>
+                           <option *ngFor="let division of divisions" [value]="division.divisionName">{{division.divisionName}}</option>
+                       </select>
+                    </div>
+                    <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-6 col-12 form-group ">           
+                        <select class="form-control" required name="examType" ngModel #examType="ngModel" (change)="changeExamType($event)">
+                           <option value="">Please Select ExamType</option>
+                           <option *ngFor="let examType of examTypeData" [value]="examType">{{examType}}</option>
+                       </select>
+                    </div>
+                    <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-6 col-12 form-group ">           
+                        <select class="form-control" required name="year" ngModel #year="ngModel" (change)="changeYear($event)">
+                           <option value="">Please Select Year</option>
+                           <option *ngFor="let year of yearData" [value]="year">{{year}}</option>
+                       </select>
+                    </div>
+                 <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group text-center center">
+                    <a (click)="getResultBySAndDAndEAndY()" role="button" class="fw-btn-fill btn-gradient-yellow text-center" style="color: white;">SEARCH</a>
+                </div>
+            </div>
+           
+        </form>
+
+           <button (click)="generatePDF()" class="btn btn-outline-primary btn-lg mt-4 text-center myfont">Explore PDF</button>
+        </div>
+                <div id="contentToConvert">
+                    
+                <h2 class="text-center mt-5" style="color:#042954;font-size:5.4vh;font-family:Arial, Helvetica, sans-serif">D.P. High School</h2>
+                <h3 class="text-center" style="color:red;font-size:4vh;">{{selectedExampTypestring|titlecase}} Exam {{selectedYearString}}</h3>
+                <div class="table-responsive mt-4">
+                    <table class="table text-nowrap table-hover">
+                    <thead>
+                         <tr class="text-center" style="font-family: 'calibri';font-size: 25px;font-weight: bolder;">
+                            <th *ngIf="isShow">Sr.No</th>
+                            <th *ngIf="isShow">Roll No</th>
+                            <!-- <th  *ngIf="isShow" style="text-align: center;">Name</th> -->
+                            <th *ngFor="let subject of subjectArr">{{subject|titlecase}}</th>
+                            <!-- <th *ngIf="isShow">obtainedMarks</th>
+                            <th *ngIf="isShow">Total Marks</th> -->
+                            <th *ngIf="isShow">Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" *ngFor="let result of results; let i=index" style="font-family: 'calibri';font-size: 25px;">
+                            <td>{{i+1}}</td>
+                            <td>{{result.student.rollNo}}</td>
+                            <!-- <td>{{result.student.firstName|titlecase}}&nbsp;{{result.student.middleName|titlecase}}&nbsp;{{result.student.lastName|titlecase}}</td> -->
+                            <td *ngIf="subDrawing">{{result.drawing}}</td>
+                            <td *ngIf="subEnglish">{{result.english}}</td>
+                            <td *ngIf="subEnvironment">{{result.environment}}</td>
+                            <td *ngIf="subGujarati">{{result.gujarati}}</td>
+                            <td *ngIf="subHindi">{{result.hindi}}</td>
+                            <td *ngIf="subMaths">{{result.maths}}</td>
+                            <td *ngIf="subPathmala">{{result.pathmala}}</td>
+                            <td *ngIf="subpt">{{result.pt}}</td>
+                            <td *ngIf="subSanskrit">{{result.sanskrit}}</td>
+                            <td *ngIf="subScience">{{result.science}}</td>
+                            <td *ngIf="subsocialscience">{{result.socialscience}}</td>
+                            <!-- <td>{{result.obtainedMarks}}</td>
+                            <td>{{result.totalMarks}}</td> -->
+                            <td>{{result.grade|titlecase}}</td>
+                        </tr>          
+                    </tbody>
+                </table>
+                <h2 *ngIf="showHeading" class="text-center" style="color:#042954;font-size:5.4vh;font-family:Arial, Helvetica, sans-serif;margin-top: 10%;">D.P. High School</h2>
+                <h3 *ngIf="showHeading" class="text-center" style="color:red;font-size:4vh;">{{selectedExampTypestring|titlecase}} Exam {{selectedYearString}}</h3>
+                <table *ngIf="showHeading" class="table text-nowrap table-hover">
+                    <thead>
+                         <tr class="text-center" style="font-family: 'calibri';font-size: 25px;font-weight: bolder;">
+                            <th *ngIf="isShow">Sr.No</th>
+                            <th *ngIf="isShow">Roll No</th>
+                            <!-- <th  *ngIf="isShow" style="text-align: center;">Name</th> -->
+                            <th *ngFor="let subject of subjectArr">{{subject.subjectName|titlecase}}</th>
+                            <!-- <th *ngIf="isShow">obtainedMarks</th>
+                            <th *ngIf="isShow">Total Marks</th> -->
+                            <th *ngIf="isShow">Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" *ngFor="let result of resultsafter34; let i=index" style="font-family: 'calibri';font-size: 25px;">
+                            <td>{{i+1}}</td>
+                            <td>{{result.student.rollNo}}</td>
+                            <!-- <td>{{result.student.firstName|titlecase}}&nbsp;{{result.student.middleName|titlecase}}&nbsp;{{result.student.lastName|titlecase}}</td> -->
+                            <td *ngIf="subDrawing">{{result.drawing}}</td>
+                            <td *ngIf="subEnglish">{{result.english}}</td>
+                            <td *ngIf="subEnvironment">{{result.environment}}</td>
+                            <td *ngIf="subGujarati">{{result.gujarati}}</td>
+                            <td *ngIf="subHindi">{{result.hindi}}</td>
+                            <td *ngIf="subMaths">{{result.maths}}</td>
+                            <td *ngIf="subPathmala">{{result.pathmala}}</td>
+                            <td *ngIf="subpt">{{result.pt}}</td>
+                            <td *ngIf="subSanskrit">{{result.sanskrit}}</td>
+                            <td *ngIf="subScience">{{result.science}}</td>
+                            <td *ngIf="subsocialscience">{{result.socialscience}}</td>
+                            <!-- <td>{{result.obtainedMarks}}</td>
+                            <td>{{result.totalMarks}}</td> -->
+                            <td>{{result.grade|titlecase}}</td>
+                        </tr>   
+                    </tbody>
+                </table>
+                <div  *ngIf="isShow" style="margin-top: 12%;">
+                    <h4 class="text-center mt-5" style="color:#042954;font-size:4.4vh;font-family:Arial, Helvetica, sans-serif">Grade and Percentage</h4>
+                    <table class="table text-nowrap table-hover">
+                        <thead>
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;font-weight: bolder;">
+                                <th>Grade</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;">
+                                <td>A+</td>
+                                <td>97-100%</td>
+                            </tr>
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;">
+                                <td>A</td>
+                                <td>93-96%</td>
+                            </tr>
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;"> 
+                                <td>A-</td>
+                                <td>90-92%</td>
+                            </tr>
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;"> 
+                                <td>B+</td>
+                                <td>87-89%</td>
+                            </tr>
+                            <tr class="text-center"  style="font-family: 'calibri';font-size: 25px;"> 
+                                <td>B</td>
+                                <td>83-86%</td>
+                            </tr>
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;"> 
+                                <td>B-</td>
+                                <td>84-82%</td>
+                            </tr>
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;"> 
+                                <td>C+</td>
+                                <td>77-79%</td>
+                            </tr>
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;"> 
+                                <td>C</td>
+                                <td>73-76%</td>
+                            </tr>
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;"> 
+                                <td>C-</td>
+                                <td>70-72%</td>
+                            </tr>
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;">
+                                <td>D+</td>
+                                <td>67-69%</td>
+                            </tr>
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;"> 
+                                <td>D</td>
+                                <td>63-66%</td>
+                            </tr>
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;">
+                                <td>D-</td>
+                                <td>60-62%</td>
+                            </tr>
+                            <tr class="text-center" style="font-family: 'calibri';font-size: 25px;"> 
+                                <td>F</td>
+                                <td>0-59%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                </div>
+    
+    </div>
+</div>

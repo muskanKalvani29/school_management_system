@@ -1,0 +1,81 @@
+ <!-- Breadcubs Area Start Here -->
+ <div class="breadcrumbs-area">
+    <h3>Time-Table</h3>
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+        <li>Add Time-Table</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Book Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Add New Time-Table</h3>
+            </div>
+        </div>
+        <form #addtimetableform="ngForm" class="new-added-form" >
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-12 col-sm-12 form-group data">
+                    <label>Standard *</label>
+                    <select class=" form-control" required name="standard" ngModel #standard="ngModel">
+                        <!-- <option value="">Please Select Standard *</option> -->
+                        <option *ngFor="let standard of standards" [value]="standard.standardName">{{standard.standardName}}</option>
+                    </select>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Division *</label>
+                    <select class=" form-control" required name="division" ngModel #division="ngModel">
+                        <!-- <option value="">Please Select Division *</option> -->
+                        <option *ngFor="let division of divisions" [value]="division.divisionName">{{division.divisionName}}</option>
+                    </select>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Name *</label>
+                    <input required type="text" placeholder="" 
+                        class="form-control"
+                        name="name"
+                        ngModel pattern="^[a-zA-Z. ]*[a-zA-Z]{1,60}$"
+                        #name="ngModel">
+                        <span style="color: red;"
+                            *ngIf="name.touched && !name.valid">
+                                 Name is required!!
+                        </span>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-12 col-sm-12 form-group data">
+                    <label class="text-dark-medium">Upload Time-Table *</label>
+                    <input type="file" class="form-control-file" required name="timetableFile" 
+                    (change)="fileChangeEvent($event);selectFile($event)" ngModel #timetableFile="ngModel">
+                    <span style="color: red;"
+                            *ngIf="timetableFile.touched && !timetableFile.valid">
+                            File Choose is required!!
+                    </span>
+                </div>
+                <div class="col-lg-6 col-12 col-sm-12 form-group mg-t-30">
+                    <div class="form-group"> 
+                        <div>
+                            <a class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" style="margin-top: 5%;background-color: #333366;color:white"
+                             (click)="upload()">Upload</a>
+                            <!-- <a type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</a> -->
+                        </div>
+                        <div *ngIf="currentFileUpload" class="progress mt-4" style="margin-right: 40%;">
+                            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                            aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: percentage + '%' }">
+                                      {{ percentage }}%
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-12 form-group mg-t-8">
+                    <button [disabled]="addtimetableform.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" (click)="addTimeTable(addtimetableform.value)">Save</button>
+                    <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add New Book Area End Here -->
+

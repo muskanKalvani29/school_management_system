@@ -1,0 +1,74 @@
+<div class="breadcrumbs-area ml-4">
+    <h3>View-Profile</h3>
+    <ul>
+        <li>
+            <a href="index.html">Parent</a>
+        </li>
+        <li>About Me</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<div class="row">
+    <!-- Student Info Area Start Here -->
+    <div class="col-12-xxxl col-12">
+        <div class="card dashboard-card-ten">
+            <div class="card-body">
+                <div class="heading-layout1">
+                    <div class="item-title">
+                        <h3>About Me</h3>
+                    </div>
+                    
+                </div>
+                <div class="student-info">
+                    <div class="media media-none--xs">
+                        <!-- <div class="item-img">
+                            <img src="{{parent.student.image}}" class="media-img-auto" alt="student">
+                        </div> -->
+                        <div class="media-body">
+                            <!-- <p>Aliquam erat volutpat. Curabiene natis massa -->
+                                <!-- sedde lacustiquen sodale word moun taiery.</p> -->
+                        </div>
+                    </div>
+                    <div class="table-responsive info-table mt-3">
+                        <table class="table text-nowrap">
+                            <tbody>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td class="font-medium text-dark-medium">{{user.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Contact No1:</td>
+                                    <td class="font-medium text-dark-medium">{{user.contactNo1}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Contact No2:</td>
+                                    <td class="font-medium text-dark-medium">{{parent.contactNo2}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email Id:</td>
+                                    <td class="font-medium text-dark-medium">{{user.emailId}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Occupation:</td>
+                                    <td class="font-medium text-dark-medium">{{parent.occupation}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Qualification</td>
+                                    <td class="font-medium text-dark-medium">{{parent.qualification}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Username:</td>
+                                    <td class="font-medium text-dark-medium">{{user.userName}}</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                        <button (click)="goToHome()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Back</button>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+

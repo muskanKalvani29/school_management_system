@@ -1,0 +1,81 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Fee Structure</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['admin/dashboard']">Home</a>
+        </li>
+        <li>All Fee Structure</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Table Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>All Fee Structure Data</h3>
+            </div>
+        </div>
+        <form #filterdata="ngForm" class="mg-b-20" (ngSubmit)="getFeeListByFilter(filterdata.value)">
+            <div class="row gutters-8">
+                <div class="col-4-xxxl col-xl-4 col-lg-4 col-12 form-group">
+                    <select class="form-control" name="standard" ngModel #standard="ngModel" (change)="changestd($event)">
+                        <option value="">Please Select Standard *</option>
+                        <option *ngFor="let standard of standards" [value]="standard.standardName">{{standard.standardName}}</option>
+                    </select>
+                </div>
+                <div class="col-4-xxxl col-xl-4 col-lg-4 col-12 form-group">
+                    <select class="form-control" required name="medium" ngModel #medium="ngModel" (change)="changemed($event)">
+                        <option value="">Please Select Medium *</option>
+                        <option *ngFor="let medium of mediumData" [value]="medium">{{medium}}</option>
+                    </select>
+                </div>
+                <div class="col-1-xxxl col-xl-2 col-lg-3 col-4 form-group">
+                    <button [disabled]="filterdata.invalid" type="submit" class="fw-btn-fill1 btn-gradient-yellow">SEARCH</button>
+                </div>
+            </div>
+        </form>
+        <div class="table-responsive">
+            <table class="table text-nowrap table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>Sr No</th><th></th><th></th>
+                        <th>Meduim</th><th></th><th></th>
+                        <th>Standard</th><th></th>
+                        <th>Fees</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let fees of feeStructure ;let i=index">
+                        <td>{{i+1}}</td><td></td><td></td>
+                        <td>{{fees.medium}}</td><td></td><td></td>
+                        <td>{{fees.standard}}</td><td></td>
+                        <td>{{fees.fee}}</td>
+                        <td>
+                            &nbsp;<a (click)="updateFeeStructure(fees.feeStuctureId)" role="button" style="color: green;"><i class="fa fa-edit"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mt-5 d-flex justify-content-end" >
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><button [disabled]="statusPre"  class="page-link" [routerLink]="['/admin/dashboard/fee-structure/all-fee-structure']" role="button" (click)="pre()">Previous</button></li>
+                      <li class="page-item" [ngClass]="{'active': i == page}" *ngFor="let p of pages;let i=index">
+                        <a class="page-link" [routerLink]="['/admin/dashboard/fee-structure/all-fee-structure']" role="button" (click)="setPage(i,$event)">{{i+1}}</a>
+                      </li>
+                      <li class="page-item"><button [disabled]="statusNext" class="page-link" [routerLink]="['/admin/dashboard/fee-structure/all-fee-structure']"  role="button" (click)="next()">Next</button></li>
+                    </ul>
+                  </nav>
+                <!-- <div class="mt-5 d-flex justify-content-end">
+                    <pagination-controls  id="listing_pagination" max-size="3" directionLinks="true" (pageChange)="page = $event" (click)="getEventList()" ></pagination-controls>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Student Table Area End Here -->
+
+

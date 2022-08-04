@@ -1,0 +1,69 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Best Students</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['/dashboard']">Home</a>
+        </li>
+        <li>View Best Student</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Details Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Best Student Detail</h3>
+            </div>
+        </div>
+        <div class="single-info-details">
+            <div class="item-img">
+                <img src="{{beststudent.image}}" alt="student" width="350">
+            </div>
+            <div class="item-content">
+                <div class="header-inline item-header">
+                    <div class="header-elements">
+                        <ul>
+                            <!-- <li><a href="#"><i class="far fa-edit"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fas fa-print"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fas fa-download"></i></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-table table-responsive ml-5">
+                    <table class="table text-nowrap mt-3">
+                        <tbody>
+                            <tr>
+                                <td>Name:</td>
+                                <td class="font-medium text-dark-medium myfont">{{beststudent.name|titlecase}}</td>
+                            </tr>
+                            <tr>
+                                <td>Standard:</td>
+                                <td class="font-medium text-dark-medium myfont">{{beststudent.standardName}}</td>
+                            </tr>
+                            <tr>
+                                <td>Division:</td>
+                                <td class="font-medium text-dark-medium myfont">{{beststudent.divisionName|titlecase}}</td>
+                            </tr>
+                            <tr>
+                                <td>Meduim:</td>
+                                <td class="font-medium text-dark-medium myfont">{{beststudent.medium|titlecase}}</td>
+                            </tr>      
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-left: 4.5%;">
+                    <button (click)="goToStudentList()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Student Details Area End Here -->
+<!-- Footer Area Start Here -->
+
+
+
+
+

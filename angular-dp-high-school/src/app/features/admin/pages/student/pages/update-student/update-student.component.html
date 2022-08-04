@@ -1,0 +1,291 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Students</h3>
+                <ul>
+                    <li>
+                        <a routerLinkActive="active" [routerLink]="['/dashboard']">Home</a>
+                    </li>
+                    <li>Update Student</li>
+                </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Table Area Start Here -->
+<div class="card height-auto">
+    <!-- <div class="card-body"> -->
+        
+        <div class="col-lg-12 col-xl-12 col-12-xxxl col-sm-12 col-12">
+            <div class="card dashboard-card-six pd-b-20">
+                <div class="card-body">
+                    <div class="heading-layout1">
+                        <div class="item-title mt-4 mb-4">
+                            <h3>Update Student</h3>
+                        </div>
+                    </div>
+                    <form #studentform="ngForm" class="new-added-form" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>First Name</label>
+                                <input required type="text" placeholder="" 
+                                class="form-control"
+                                [(ngModel)]="student.firstName"
+                                name="firstName" #firstName="ngModel">
+                                <span style="color: red;"
+                                        *ngIf="firstName.touched && !firstName.valid">
+                                        First Name is required!!
+                                    </span>
+                            </div>
+                            <!-- middle name -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Middle Name</label>
+                                <input required type="text" placeholder="" 
+                                class="form-control"
+                                name="middleName" #middleName="ngModel"
+                                [(ngModel)]="student.middleName">
+                                <span style="color: red;"
+                                *ngIf="middleName.touched && !middleName.valid">
+                                Middle Name is required!!
+                             </span>
+                            </div>
+                            <!-- Last name -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Last Name</label>
+                                <input required type="text" placeholder="" 
+                                class="form-control"
+                                name="lastName" #lastName="ngModel"
+                                [(ngModel)]="student.lastName">
+                                <span style="color: red;"
+                                        *ngIf="lastName.touched && !lastName.valid">
+                                        Last Name is required!!
+                                    </span>
+                            </div>
+                            <!-- Mother Name -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Mother Name</label>
+                                <input required type="text" placeholder="" 
+                                class="form-control"
+                                name="motherName" #motherName="ngModel"
+                                [(ngModel)]="student.motherName">
+                                <span style="color: red;"
+                                *ngIf="motherName.touched && !motherName.valid">
+                                Mother Name is required!!
+                            </span>
+                            </div>
+                            <!-- Father Name -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Father Name</label>
+                                <input required type="text" placeholder="" class="form-control" name="fatherName" #fatherName="ngModel" [(ngModel)]="student.fatherName">
+                                <span style="color: red;"
+                                *ngIf="fatherName.touched && !fatherName.valid">
+                                Father Name is required!!
+                            </span>
+                            </div>
+                            <!-- Roll no -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Roll No</label>
+                                <input required type="text" placeholder="" class="form-control" name="rollNo" #rollNo="ngModel"  [(ngModel)]="student.rollNo">
+                                <span style="color: red;"
+                                        *ngIf="rollNo.touched && !rollNo.valid">
+                                        RollNo is required!!
+                                    </span>
+                            </div>
+                            <!-- Gr no -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>GR No</label>
+                                <input readonly required type="text" placeholder="" class="form-control" name="grNo" #grNo="ngModel" [(ngModel)]="student.grNo">
+                                <span style="color: red;"
+                                        *ngIf="grNo.touched && !grNo.valid">
+                                        GR No is required!!
+                                    </span>
+                            </div>
+                            <!-- gender -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Gender</label>
+                                <select class="form-control" required name="gender" [(ngModel)]="student.gender" #gender="ngModel">
+                                    <!-- <option value="">Please Select Gender *</option> -->
+                                    <option *ngFor="let gender of genderdata" [value]="gender">{{gender}}</option>
+                                </select>
+                                <span style="color: red;"
+                                *ngIf="gender.touched && !gender.valid">
+                                Gender is required!!
+                            </span>
+                            </div>
+                            <!-- Standard -->
+                            <!-- <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Standard</label>
+                                <select class="form-control" required name="standardName" [(ngModel)]="student.standard.standardName" #standardName="ngModel"> -->
+                                    <!-- <option [ngValue]>Please Select Standard *</option> -->
+                                    <!-- <option *ngFor="let std of standard" [value]="std.standardName">{{std.standardName}}</option>
+                                </select>
+                                <span style="color: red;"
+                                        *ngIf="standardName.touched && !standardName.valid">
+                                        Standard is required!!
+                                    </span>
+                            </div> -->
+                            <!-- Division -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Division</label>
+                                <select class="form-control" required name="divisionName" [(ngModel)]="student.division.divisionName" #divisionName="ngModel">
+                                    <!-- <option value="">Please Select Division *</option> -->
+                                   <option *ngFor="let div of divisions" [value]="div.divisionName">{{div.divisionName}}</option>
+                                </select>
+                                <span style="color: red;"
+                                *ngIf="divisionName.touched && !divisionName.valid">
+                                Division is required!!
+                                </span>
+                            </div>
+                            <!-- Medium -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Medium</label>
+                                <select class="form-control" required name="medium" [(ngModel)]="student.medium" #medium="ngModel">
+                                  <option *ngFor="let medium of mediumData" [value]="medium">{{medium}}</option>
+                                </select>
+                                <span style="color: red;"
+                                *ngIf="medium.touched && !medium.valid">
+                                Medium is required!!
+                                
+                                </span>
+                            </div>
+                            <!-- Stream -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Stream</label>
+                                <select class="form-control" required name="stream" [(ngModel)]="student.stream" #stream="ngModel">
+                                    <option *ngFor="let stream of streamData" [value]="stream">{{stream}}</option>
+                                </select>
+                                <span style="color: red;"
+                                        *ngIf="stream.touched && !stream.valid">
+                                        Stream is required!!
+                                </span>
+                            </div>
+                            <!-- Admission Date -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Admission Date</label>
+                                <input required type="date" class="form-control air-datepicker"
+                                    data-position='bottom right'
+                                    name="admissionDate" #admissionDate="ngModel" [ngModel]="student.admissionDate | date:'yyyy-MM-dd'" (ngModelChange)="student.admissionDate = $event">
+                                <i class="far fa-calendar-alt"></i>
+                                <span style="color: red;"
+                                        *ngIf="admissionDate.touched && !admissionDate.valid">
+                                         Admission Date is required!!
+                                    </span>
+                            </div>
+                            <!-- dob -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Date Of Birth</label>
+                                <input required type="date" class="form-control air-datepicker"
+                                    data-position='bottom right' name="dateOfBirth" #dateOfBirth="ngModel" [ngModel]="student.dateOfBirth | date:'yyyy-MM-dd'" (ngModelChange)="student.dateOfBirth = $event">
+                                <i class="far fa-calendar-alt"></i>
+                                <span style="color: red;"
+                                        *ngIf="dateOfBirth.touched && !dateOfBirth.valid">
+                                         Date of Birth is required!!
+                                    </span>
+                            </div>
+                            <!-- Blood Group -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Blood Group</label>
+                                <select class="form-control" required name="bloodGroup" [(ngModel)]="student.bloodGroup" #bloodGroup="ngModel">
+                                    <option *ngFor="let bloodGroup of bloodgroupData" [value]="bloodGroup">{{bloodGroup}}</option>
+                                </select>
+                                <span style="color: red;"
+                                *ngIf="bloodGroup.touched && !bloodGroup.valid">
+                                Blood Group is required!!
+                                 </span>
+                            </div>
+                            <!-- Email Id -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Email Id</label>
+                                <input required type="text" placeholder="" #emailId="ngModel" class="form-control" name="emailId" [(ngModel)]="student.emailId">   
+                                <span style="color: red;"
+                                        *ngIf="emailId.touched && !emailId.valid">
+                                        Email Id is required!!
+                                    </span>
+                            </div>
+                             <!-- Fee status -->
+                             <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Fee Status</label>
+                                <!-- <input required type="text" placeholder="" class="form-control" name="feeStatus" [(ngModel)]="student.feeStatus">    -->
+                                <select class="form-control" required name="feeStatus" [(ngModel)]="student.feeStatus" #feeStatus="ngModel">
+                                    <option *ngFor="let feeStatus of feeStatusData" [value]="feeStatus">{{feeStatus}}</option>
+                                </select>
+                                <span style="color: red;"
+                                        *ngIf="feeStatus.touched && !feeStatus.valid">
+                                        Fee Status is required!!
+                                </span>
+                            </div>
+                            <!-- address 1 -->
+                            <div class="col-lg-6 col-12 form-group">
+                                <label>Address</label>
+                                <textarea required class="textarea form-control" name="address1" #address1="ngModel" [(ngModel)]="student.address1" id="form-message" cols="5"
+                                    rows="3"></textarea>
+                                    <span style="color: red;"
+                                    *ngIf="address1.touched && !address1.valid">
+                                    Address1 is required!!
+                                </span>
+                            </div>
+                            <!-- address 2 -->
+                            <div class="col-lg-6 col-12 form-group">
+                                <label>Address 2</label>
+                                <textarea required class="textarea form-control" name="address2" #address2="ngModel" [(ngModel)]="student.address2" id="form-message" cols="5"
+                                    rows="3"></textarea> 
+                                    <span style="color: red;"
+                                    *ngIf="address2.touched && !address2.valid">
+                                    Address2 is required!!
+                                </span>
+                            </div>
+                            <!-- pincode -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Pincode</label>
+                                <input required type="text" placeholder="" class="form-control" #pincode="ngModel" name="pincode" [(ngModel)]="student.pincode">
+                                <span style="color: red;"
+                                        *ngIf="pincode.touched && !pincode.valid">
+                                        Pincode is required!!
+                                    </span>
+                            </div>
+                            <!-- previous sch name -->
+                            <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                                <label>Previous School Name</label>
+                                <input required type="text" placeholder="" class="form-control" name="previousSchoolName" #previousSchoolName="ngModel" [(ngModel)]="student.previousSchoolName">
+                                <span style="color: red;"
+                                        *ngIf="previousSchoolName.touched && !previousSchoolName.valid">
+                                        Previous School Name is required!!
+                                    </span>
+                            </div>
+                            <!-- image -->   
+                            <div class="col-lg-6 col-12 col-sm-12 form-group mg-t-30">
+                                <label class="text-dark-medium">Upload Student Photo (150px X 150px)</label>
+                                <input type="file" class="form-control-file" name="image" #image="ngModel"
+                                (change)="fileChangeEvent($event);selectFile($event)"  [(ngModel)]="student.image">
+                                <!-- <span style="color: red;"
+                                *ngIf="image.touched && !image.valid">
+                                Choose an image is required!!
+                            </span> -->
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-12 form-group" style="margin-top:40px">
+                                <div class="form-group">
+                                    <div >
+                                        <a class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" style="margin-top: 5%;background-color: #333366;color:white"
+                                         (click)="upload()">Upload Image</a>
+                                        <!-- <a type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</a> -->
+                                    </div>
+                                    <div *ngIf="currentFileUpload" class="progress mt-4">
+                                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                                        aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: percentage + '%' }">
+                                                  {{ percentage }}%
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 form-group mg-t-8">
+                                <button [disabled]="studentform.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                                <!-- <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button> -->
+                            </div>
+                        </div>
+                    </form>
+                 </div>
+              </div>       
+    </div>
+
+<!-- Student Table Area End Here -->  
+</div>
+
+
+

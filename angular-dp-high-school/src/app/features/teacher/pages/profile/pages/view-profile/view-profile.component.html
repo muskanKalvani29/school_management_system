@@ -1,0 +1,78 @@
+<!-- Breadcubs Area Start Here -->
+<div class="breadcrumbs-area ml-4">
+    <h3>View-profile</h3>
+    <ul>
+        <li>
+            <a href="index.html">Teacher</a>
+        </li>
+        <li>About Me</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<div class="row">
+    <!-- Student Info Area Start Here -->
+    <div class="col-12-xxxl col-12">
+        <div class="card dashboard-card-ten">
+            <div class="card-body">
+                <div class="heading-layout1">
+                    <div class="item-title">
+                        <h3>About Me</h3>
+                    </div>
+                </div>
+                <div class="student-info">
+                    <div class="media media-none--xs">
+                        <div>
+                            <img [src]="imagePath" style="width:300px;height:300px" alt="student">
+                        </div>
+                    </div>
+                    <div class="table-responsive info-table mt-4">
+                        <table class="table text-nowrap">
+                            <tbody>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.user.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Contact No:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.user.contactNo1}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email Id:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.user.emailId}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Gender:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.gender}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Joining Date:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.joiningDate|date:'dd-MM-yyyy'}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Quaification:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.qualification}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Address 1:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.address1}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Address 2:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.address2}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Pincode:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.pincode}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Username:</td>
+                                    <td class="font-medium text-dark-medium">{{teacher.user.userName}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    

@@ -1,0 +1,70 @@
+
+<!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Fee Structure</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['admin/dashboard']">Dashboard</a>
+        </li>
+        <li>Update Fee Structure</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Book Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Update Fee Structure</h3>
+            </div>
+        </div>
+        <form #updateFeeStructureForm="ngForm" class="new-added-form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <!-- type -->
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Standard</label>
+                    <select class="form-control" required name="standard" [(ngModel)]="feeStructure.standard" #standard="ngModel">
+                        <!-- <option [ngValue]="null">Please Select Standard *</option> -->
+                        <option *ngFor="let standard of standards" [value]="standard.standardName">{{standard.standardName}}</option>
+                    </select>
+                  <!-- [(ngModel)]="meeting.usertype" name="usertype" -->
+                </div>
+                <!-- description -->
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Medium</label>
+                    <select class="form-control" required name="medium"  [(ngModel)]="feeStructure.medium" #medium="ngModel">
+                        <!-- <option [ngValue]="null">Please Select Medium *</option> -->
+                        <option *ngFor="let medium of mediumData" [value]="medium">{{medium}}</option>
+                    </select>
+                  <!-- [(ngModel)]="meeting.usertype" name="usertype" -->
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Fees</label>
+                    <input required type="text" placeholder="" class="form-control" name="fee" [(ngModel)]="feeStructure.fee" #fee="ngModel"
+                    pattern="^[0-9]{3,10}$">
+                    <div style="color: red;" 
+                        *ngIf="fee.invalid && (fee.dirty || fee.touched)">
+                        <div *ngIf="fee.errors.required">
+                            Fees Amount is required!!
+                        </div>
+                        <div *ngIf="fee.errors?.pattern">
+                            Enter only numeric value !!
+                        </div>
+                    </div>
+                    <!-- <span style="color: red;"  
+                    *ngIf="fee.touched && !fee.valid">
+                    Fees Amount is required!!
+                    </span> -->
+                </div>
+                <div class="col-12 form-group mg-t-8">
+                    <button [disabled]="updateFeeStructureForm.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                    <!-- <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button> -->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add New Book Area End Here -->
+
+
+

@@ -1,0 +1,64 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Holidays</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['/dashboard']">Home</a>
+        </li>
+        <li>View Holiday</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Details Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Holiday Detail</h3>
+            </div>
+        </div>
+        <div class="single-info-details">
+            <div class="item-content">
+                <div class="header-inline item-header">
+                    <div class="header-elements">
+                        <ul>
+                            <!-- <li><a routerLink="['update-holiday']"><i class="far fa-edit"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fas fa-print"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fas fa-download"></i></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-table table-responsive">
+                    <table class="table text-nowrap mt-3">
+                        <tbody>
+                            <tr>
+                                <td>Holiday Name:</td>
+                                <td class="font-medium text-dark-medium myfont">{{holiday.holidayName|titlecase}}</td>
+                            </tr>
+                            <tr>
+                                <td>Holiday Start Date:</td>
+                                <td class="font-medium text-dark-medium myfont">{{holiday.holidayStartdate| date:'dd-MM-yyyy'}}</td>
+                            </tr>
+                            <tr>
+                                <td>Holiday End Date:</td>
+                                <td class="font-medium text-dark-medium myfont">{{holiday.holidayEnddate| date:'dd-MM-yyyy'}}</td>
+                            </tr>
+                            <tr>
+                                <td>Description:</td>
+                                <td *ngIf="!holiday.holidayDescription" class="font-medium text-dark-medium myfont">-</td>
+                                <td class="font-medium text-dark-medium myfont">{{holiday.holidayDescription|titlecase}}</td>
+                            </tr>         
+                        </tbody>
+                    </table>
+                </div>
+                <button (click)="goToHolidayList()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Student Details Area End Here -->
+<!-- Footer Area Start Here -->
+
+
+
+

@@ -1,0 +1,101 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area ml-4">
+    <h3>Activity-Achievement</h3>
+    <ul>
+        <li>
+            <!--[routerLink]="['/dashboard']"-->
+            <a >Teacher</a>
+        </li>
+        <li>View Activity-Achievement</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Details Area Start Here -->
+<div class="card height-auto">
+    <!-- <div class="card-body"> -->
+        
+        <div class="col-lg-12 col-xl-12 col-12-xxxl">
+            <div class="card dashboard-card-six pd-b-20">
+                <div class="card-body">
+                    <div class="heading-layout1">
+                        <div class="item-title mt-4 mb-4">
+                            <h3>All Activity-Achievement Data</h3>
+                        </div>
+                    </div>
+                    <div class="notice-box-wrap1">
+                        <form #filterdata="ngForm" class="mg-b-20" class="mg-b-20">
+                            <div class="row gutters-8">
+                                    <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-6 col-12 form-group ">
+                                            <label>Month <span class="c">*</span></label>
+                                            <select class="form-control" required name="month" ngModel #month="ngModel" (change)="changeMonth($event)">
+                                                <option value="">Select Month</option>
+                                                <option *ngFor="let month of monthData" [value]="month">{{month}}</option>
+                                            </select>
+                                     </div>
+                                     <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-6 col-12 form-group ">
+                                        <label>Year <span class="c">*</span></label>
+                                        <select class="form-control" required name="year" ngModel #year="ngModel" (change)="changeYear($event)">
+                                            <option value="">Select Year</option>
+                                            <option *ngFor="let year of yearData" [value]="year">{{year}}</option>
+                                        </select>
+                                 </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-2-xxxl col-xl-3 col-lg-4 col-12 form-group d-flex justify-content-center">
+                                        <a (click)="getActAchByMonthAndYear()" role="button" class="fw-btn-fill btn-gradient-yellow text-center" style="color: white;">SEARCH</a>
+                                    </div>
+                                </div>
+                                 
+                            <!-- </div> -->
+                        </form>
+                        <div class="notice-list">
+                            <div class="row">
+                            <div class="col-md-12 col-lg-6 col-xl-3 col-xxl-3 col-sm-12 col-12" *ngFor="let act of actach">
+                                <div class="card1">
+                                    <div class="card-body1">
+                                        <div class="profile-usertitle">
+                                            <div class="detail">
+                                                <!-- <span>GR No: 22222</span><br> -->
+                                                <span class="text-center" style="font-weight: bold;font-size:18px;">Activity Name</span><br>
+                                                <span class="mt-4 mb-4">{{act.activityName}}</span><br>
+                                                <span class="text-center" style="font-weight: bold;font-size: 18px;">Achievement Name</span><br>
+                                                <span class="mt-4 mb-4">{{act.achievementName}}</span><br>
+                                                <span class="text-center" style="font-weight: bold;font-size: 18px;">Description: 2</span><br>
+                                                <span class="mt-4 mb-4">{{act.achievementDescription}}</span><br>
+                                            </div>  
+                                            <a (click)="updateActAch(act.activityId)" class="btn btn-success mybtn text-center mt-3" role="button" style="color: white;">&nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>
+                                            <a (click)="deleteActAch(act.activityId)" class="btn btn-danger mybtn text-center mt-3" role="button" style="color: white;">Delete</a> 
+                                                                                             
+                                        </div>           
+                                    </div>
+                                </div>
+                            </div>
+                </div>  
+                <div *ngIf="showPagination" class="mt-5 d-flex justify-content-end" >
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item"><button [disabled]="statusPre"  class="page-link" [routerLink]="['/teacher/activities-achievements/all-students']" role="button" (click)="pre()">Previous</button></li>
+                          <li class="page-item" [ngClass]="{'active': i == page}" *ngFor="let p of pages;let i=index">
+                            <a class="page-link" [routerLink]="['/teacher/activities-achievements/all-students']" role="button" (click)="setPage(i,$event)">{{i+1}}</a>
+                          </li>
+                          <li class="page-item"><button [disabled]="statusNext" class="page-link" [routerLink]="['/teacher/activities-achievements/all-students']"  role="button" (click)="next()">Next</button></li>
+                        </ul>
+                      </nav>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- <div class="table-responsive">
+           
+        </div> -->
+    </div>
+<!-- </div> -->
+<!-- Student Table Area End Here -->
+<!-- Footer Area Start Here -->
+</div>
+
+
+
+

@@ -1,0 +1,58 @@
+  <!-- Breadcubs Area Start Here -->
+
+
+  <!--result component-->
+  <div class="breadcrumbs-area ml-4">
+    <h3>Fees</h3>
+    <ul>
+        <li>
+            <!--add parents dashboard link here-->
+            <a href="index.html">Parent</a>
+        </li>
+        <li>All Fee-details</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Table Area Start Here -->
+<div class="card height-auto ml-4">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>All fee-details</h3>
+            </div>
+           
+        </div>
+        <div class="table-responsive">
+            <table class="table text-nowrap table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>SrNo.</th><th></th>
+                        <th>Payment Mode </th><th></th>
+                        <th>Installment No</th><th></th>
+                        <th>Paid Fee Amount </th><th></th>
+                        <th>Payment Date</th><th></th>
+                        
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let feePayment of feepayments|async;let i=index">
+                        <td>{{i+1}}</td><td></td>
+                        <td>{{feePayment.paymentMode|titlecase}}</td><td></td>                        
+                        <td>{{feePayment.installmentNo}}</td><td></td>
+                        <td>{{feePayment.feesAmount}}</td><td></td>
+                        <td>{{feePayment.paymentDate|date:'dd-MM-yyyy'}}</td><td></td>
+                        
+                        <td>
+                            &nbsp;<a (click)="viewFeePayment(feePayment.paymentId)" role="button"><i class="fa fa-eye" style="color: darkblue;"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Student Table Area End Here -->
+
+
+

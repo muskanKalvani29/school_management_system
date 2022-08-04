@@ -1,0 +1,66 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area ml-4">
+    <h3>Fees</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['/dashboard']">Parent</a>
+        </li>
+        <li>View Fee-Details</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Details Area Start Here -->
+<div class="card height-auto ml-4">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title">
+                <h3 style="margin-top: 10px;">View Fee-Details</h3>
+            </div>
+       
+        </div>
+        <div class="single-info-details">
+            <div class="item-content">
+               
+                <div class="info-table table-responsive">
+                    <table class="table text-nowrap mt-3">
+                        <tbody>
+                            <tr>
+                                <td>Payment Mode </td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.paymentMode|titlecase}}</td>
+                            </tr> 
+                            <tr>
+                                <td>Installment No</td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.installmentNo}}</td>
+                            </tr>
+                            <tr>
+                                <td>Fee Amount</td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.feesAmount}}</td>
+                            </tr>
+                            <!-- <tr>
+                                <td>LateFee Amount</td>
+                                <td *ngIf="!feePayment.latefeesAmount" class="font-medium text-dark-medium myfont">-</td>
+                                <td *ngIf="feePayment.latefeesAmount">{{feePayment.latefeesAmount}}</td><td></td>
+                            </tr>
+                            <tr>
+                                <td>TotalFee Amount </td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.totalfeesAmount}}</td>
+                            </tr> -->
+                            <tr>
+                                <td>Payment Date</td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.paymentDate|date:'dd-MM-yyyy'}}</td>
+                            </tr>       
+                        </tbody>
+                    </table>
+                </div>
+                <button (click)="goToFeeList()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Student Details Area End Here -->
+<!-- Footer Area Start Here -->
+
+
+
+
+

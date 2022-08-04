@@ -1,0 +1,52 @@
+ <!-- Breadcubs Area Start Here -->
+ <div class="breadcrumbs-area">
+    <h3>Time-Table</h3>
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+        <li>Update Time-Table</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Book Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Update Time-Table</h3>
+            </div>
+        </div>
+        <form #updatetimetable="ngForm" class="new-added-form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xl-12 col-lg-6 col-12 col-sm-12 form-group data">
+                    <label class="text-dark-medium">Upload Time-Table </label>
+                    <input type="file" class="form-control-file" required name="timetableFile" 
+                    (change)="fileChangeEvent($event);selectFile($event)" [(ngModel)]="timetable.timetableFile">
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group" style="margin-top:40px">
+                    <div class="form-group">
+                        <div >
+                            <a class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" style="background-color: #333366;color:white"
+                             (click)="upload()">Upload File</a>
+                            <!-- <a type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</a> -->
+                        </div>
+                        <div *ngIf="currentFileUpload" class="progress mt-4">
+                            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                            aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: percentage + '%' }">
+                                      {{ percentage }}%
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-12 form-group mg-t-8">
+                    <button [disabled]="updatetimetable.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                    <!-- <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button> -->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add New Book Area End Here -->
+
+

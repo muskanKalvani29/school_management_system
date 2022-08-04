@@ -1,0 +1,126 @@
+ <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>Fees</h3>
+        <ul>
+            <li>
+                <a [routerLink]="['admin/dashboard']">Home</a>
+            </li>
+            <li>Upload Fee</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+    <!-- Add New Book Area Start Here -->
+    <div class="card height-auto">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title mt-4 mb-4">
+                    <h3>Add Fee Detail</h3>
+                </div>
+            </div>
+            <form #addfeeform="ngForm" class="new-added-form" (ngSubmit)="addFeePayment(addfeeform.value)">
+                <div class="row">
+                    <!-- student gr no -->
+                    <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>GR No <span style="color: red;">*</span></label>
+                        <input required type="text" class="form-control"
+                        ngModel name="student" #student="ngModel" pattern="^[0-9]{3,9}$">
+                        <div style="color: red;" *ngIf="student.invalid && student.touched">
+                            <div *ngIf="student.errors.required">
+                                GR No is Required !!
+                            </div>
+                            <div *ngIf="student.errors?.pattern">
+                                Enter valid GR No. <br> <strong>Ex: 20133254</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Installment no -->
+                    <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Installment No <span style="color: red;">*</span></label>
+                        <input required type="text" class="form-control"
+                        ngModel name="InstallmentNo" #InstallmentNo="ngModel" pattern="^[0-9]{1,2}$">
+                        <div style="color: red;" *ngIf="InstallmentNo.invalid && InstallmentNo.touched">
+                            <div *ngIf="InstallmentNo.errors.required">
+                                Installment No is Required !!
+                            </div>
+                            <div *ngIf="InstallmentNo.errors?.pattern">
+                                Enter valid Installment No. <br> <strong>Ex: 1</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- paid amount -->
+                    <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Paid Amount <span style="color: red;">*</span></label>
+                        <input required type="text" class="form-control"
+                        ngModel name="feesAmount" #feesAmount="ngModel" pattern="^[0-9]{2,7}$">
+                        <div style="color: red;" *ngIf="feesAmount.invalid && feesAmount.touched">
+                            <div *ngIf="feesAmount.errors.required">
+                                Paid Amount is Required !!
+                            </div>
+                            <div *ngIf="feesAmount.errors?.pattern">
+                                Enter valid Paid Amount. <br> <strong>Ex: 2000</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- late fee amount -->
+                    <!-- <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Late Fee Amount <span style="color: red;">*</span></label>
+                        <input required type="text" class="form-control"
+                        ngModel name="latefeesAmount" #latefeesAmount="ngModel">
+                        <span *ngIf="latefeesAmount.untouched" style="color:rgb(90, 88, 88)">
+                            If not then write 0 !! 
+                        </span> -->
+                        <!-- <span style="color: red;"
+                            *ngIf="latefeesAmount.touched && !latefeesAmount.valid">
+                            Late Fee Amount is required !!
+                        </span> -->
+                    <!-- </div> -->
+                    <!-- total fee amount -->
+                    <!-- <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Total Fees Amount <span style="color: red;">*</span></label>
+                        <input required type="text" class="form-control"
+                        ngModel name="totalfeesAmount" #totalfeesAmount="ngModel" pattern="^[0-9]{2,7}$">
+                        <div style="color: red;" *ngIf="totalfeesAmount.invalid && totalfeesAmount.touched">
+                            <div *ngIf="totalfeesAmount.errors.required">
+                                Total Fees  Amount is Required !!
+                            </div>
+                            <div *ngIf="totalfeesAmount.errors?.pattern">
+                                Enter valid Total Fees Amount. <br> <strong>Ex: 2000</strong>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- payment date -->
+                    <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Payment Date <span style="color: red;">*</span></label>
+                        <input required type="date" class="form-control air-datepicker"
+                            data-position='bottom right'
+                            ngModel name="paymentDate" #paymentDate="ngModel">
+                        <i class="far fa-calendar-alt"></i>
+                        <span style="color: red;"
+                            *ngIf="paymentDate.touched && !paymentDate.valid">
+                            Payment Date is required !!
+                        </span>
+                    </div>
+                    <!-- payment mode -->
+                    <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Payment Mode *<span style="color: red;">*</span></label>
+                        <select class="form-control" required name="paymentMode" ngModel #paymentMode="ngModel">
+                            <!-- <option [ngValue]="null">Please Select Medium *</option> -->
+                            <option *ngFor="let paymentMode of paymentModeData" [value]="paymentMode">{{paymentMode}}</option>
+                        </select>
+                        <span  style="color: red;"
+                            *ngIf="paymentMode.touched && !paymentMode.valid">
+                            Payment Mode is required !!
+                        </span>
+                    </div>
+                    <div class="col-12 form-group mg-t-8">
+                        <button [disabled]="addfeeform.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                        <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Add New Book Area End Here -->
+
+
+

@@ -1,0 +1,105 @@
+/*=============== 4.2 Button ==================*/
+.fw-btn-fill1 {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 44px;
+    /* width: 100%; */
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 1px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 9;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  .fw-btn-fill1:hover {
+    background: #042954;
+  }
+  .fw-btn-fill1:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+  .btn-fill1-lg {
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+    border-radius: 4px;
+    font-weight: 500;
+    color: #ffffff;
+    letter-spacing: 1px;
+    padding: 12px 45px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  .btn-fill1-lg:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+  .btn-fill1-xl {
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+    padding: 12px 55px;
+    cursor: pointer;
+  }
+  .btn-fill1-xl:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+  .btn-fill1-lmd {
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+    padding: 12px 35px;
+    cursor: pointer;
+  }
+  .btn-fill1-lmd:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+  .btn-fill1-md {
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+    padding: 12px 30px;
+    cursor: pointer;
+  }
+  .btn-fill1-md:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+  .btn-fill1-sm {
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+    padding: 12px 25px;
+    cursor: pointer;
+  }
+  .btn-fill1-sm:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+  .btn-hover-bluedark:hover {
+    background: #042954;
+  }
+  .btn-hover-yellow:hover {
+    background: #ff9d01;
+  }

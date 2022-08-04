@@ -1,0 +1,294 @@
+    <!-- Breadcubs Area Start Here -->
+        <div class="breadcrumbs-area">
+            <h3>Admin Dashboard</h3>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>Admin</li>
+            </ul>
+        </div>
+        <!-- Breadcubs Area End Here -->
+        <!-- Dashboard summery Start Here -->
+        <div class="row gutters-20">
+            <div class="col-xl-4 col-sm-4 col-12">
+                <div class="dashboard-summery-one mg-b-20">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <div class="item-icon bg-light-green ">
+                                <i class="flaticon-classmates text-green"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="item-content">
+                                <div class="item-title">Students</div>
+                                <div class="item-number">{{student}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-sm-4 col-12">
+                <div class="dashboard-summery-one mg-b-20">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <div class="item-icon bg-light-blue">
+                                <i class="flaticon-multiple-users-silhouette text-blue"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="item-content">
+                                <div class="item-title">Teachers</div>
+                                <div class="item-number">{{teacher}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-sm-4 col-12">
+                <div class="dashboard-summery-one mg-b-20">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <div class="item-icon bg-light-yellow">
+                                <i class="flaticon-couple text-orange"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="item-content">
+                                <div class="item-title">Parents</div>
+                                <div class="item-number">{{parent}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-xl-3 col-sm-6 col-12">
+                <div class="dashboard-summery-one mg-b-20">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <div class="item-icon bg-light-red">
+                                <i class="flaticon-money text-red"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="item-content">
+                                <div class="item-title">New Students</div>
+                                <div class="item-number"><span></span><span class="counter" data-num="193000">400</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <!-- Dashboard summery End Here -->
+        <!-- Dashboard Content Start Here -->
+        <div class="row gutters-20">
+            <!-- <div class="col-12 col-xl-6 col-4-xxxl">
+                <div class="card dashboard-card-four pd-b-20">
+                    <div class="card-body">
+                        <div class="heading-layout1">
+                            <div class="item-title">
+                                <h3>Event Calender</h3>
+                            </div>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                    aria-expanded="false">...</a>
+
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="#"><i
+                                            class="fas fa-times text-orange-red"></i>Close</a>
+                                    <a class="dropdown-item" href="#"><i
+                                            class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+                                    <a class="dropdown-item" href="#"><i
+                                            class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calender-wrap">
+                            <div id="fc-calender" class="fc-calender"></div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+          
+            <div class="col-lg-8 col-xl-8 col-9-xxxl col-sm-8">
+                <div class="card dashboard-card-six">
+                    <div class="card-body">
+                        <div class="heading-layout1 mg-b-17">
+                            <div class="item-title">
+                                <h3>Notice Board</h3>
+                            </div>
+                            
+                        </div>
+                        <div class="notice-box-wrap mt-5">
+                            <div class="notice-list" *ngFor="let holiday of holidayData|async">
+                                <h6 class="notice-title" style="font-size:medium;"><a>{{holiday.holidayName| titlecase}}</a></h6>
+                                <div class="post-date bg-skyblue">{{holiday.holidayStartdate| date:'MMMM d, y'}}</div>
+                                <span class="h4 ml-3 mr-3">To</span>
+                                <div class="post-date bg-skyblue">{{holiday.holidayEnddate| date:'MMMM d, y'}}</div>
+                                <div class="entry-meta">{{holiday.holidayDescription| titlecase}}</div>
+                            </div>
+                            <div class="notice-list" *ngFor="let event of eventData|async">
+                                <h6 class="notice-title" style="font-size:medium;"><a>{{event.eventName}}</a></h6>
+                                <div class="post-date bg-yellow">{{event.eventStartdate| date:'MMMM d, y'}}</div>
+                                <span class="h4 ml-3 mr-3">To</span>
+                                <div class="post-date bg-yellow">{{event.eventEnddate| date:'MMMM d, y'}}</div><br>
+                                <div class="post-date bg-pink">{{event.eventStarttime}}</div>
+                                <span class="h4 ml-3 mr-3">To</span>
+                                <div class="post-date bg-pink">{{event.eventEndtime}}</div>
+                                <div class="entry-meta">{{event.eventDescription|titlecase}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-xl-4 col-3-xxxl col-sm-4">
+                <div class="dashboard-summery-one mg-b-30 mt-4">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-4">
+                            <!-- <div class="item-icon bg-light-yellow">
+                                <i class="flaticon-couple text-orange"></i>
+                            </div> -->
+                            <a [routerLink]="['fee-structure/all-fee-structure']">
+                                <img src="../../../../../assets/images/plusgreen.png" alt="best student">
+                            </a>
+                        </div>
+                        <div class="col-xl-9 col-6">
+                            <div class="item-content">
+                                <div class="myfont">Fee Structure</div>
+                                <!-- <div class="item-number"><span class="counter" data-num="5690">5,690</span></div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-summery-one mg-b-30 mt-4">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-4">
+                            <!-- <div class="item-icon bg-light-yellow">
+                                <i class="flaticon-couple text-orange"></i>
+                            </div> -->
+                            <a [routerLink]="['best-student/all-best-students']">
+                                <img src="../../../../../assets/images/plusred.png" alt="fee detail">
+                            </a>
+                        </div>
+                        <div class="col-xl-9 col-6">
+                            <div class="item-content">
+                                <div class="myfont">Best-Students images</div>
+                                <!-- <div class="item-number"><span class="counter" data-num="5690">5,690</span></div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-summery-one mg-b-30 mt-4">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-4">
+                            <!-- <div class="item-icon bg-light-yellow">
+                                <i class="flaticon-couple text-orange"></i>
+                            </div> -->
+                            <a [routerLink]="['activities-achivements/all-activities-achivements']">
+                                <img src="../../../../../assets/images/plusblue.png" alt="fee detail">
+                            </a>
+                        </div>
+                        <div class="col-xl-9 col-8">
+                            <div class="item-content">
+                                <div class="myfont">Activities/ Achievements images</div>
+                                <!-- <div class="item-number"><span class="counter" data-num="5690">5,690</span></div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-summery-one mg-b-30 mt-4">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-4">
+                            <!-- <div class="item-icon bg-light-yellow">
+                                <i class="flaticon-couple text-orange"></i>
+                            </div> -->
+                            <a [routerLink]="['school-detail/update-school-detail/1']">
+                                <img src="../../../../../assets/images/plusred.png" alt="best student">
+                            </a>
+                        </div>
+                        <div class="col-xl-9 col-6">
+                            <div class="item-content">
+                                <div class="myfont">School Detail</div>
+                                <!-- <div class="item-number"><span class="counter" data-num="5690">5,690</span></div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-xl-12 col-12-xxxl">
+                <div class="card dashboard-card-six pd-b-20">
+                    <div class="card-body">
+                        <div class="heading-layout1 mg-b-17">
+                            <div class="item-title mt-4 mb-4">
+                                <h3>Teacher Request</h3>
+                            </div>
+                        </div>
+                        <div class="notice-box-wrap">
+                            <div class="notice-list">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-xl-4 col-xxl-4 col-sm-6 col-12" *ngFor="let teacher of teacherrequest">
+                                        <div class="card1 ml-4">
+                                            
+                                            <div class="card-body1">
+                                                <div class="heading-layout1 float-right">
+                                                    <div class="dropdown">
+                                                        <a class="dropdown-toggle"  role="button" data-toggle="dropdown"
+                                                            aria-expanded="false"><i class="fa fa-ellipsis-v fa-xs" aria-hidden="true"></i></a>
+                                        
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" role="button" (click)="addTeacherRequest(teacher.teacherRequestId)"><i
+                                                                    class="fa fa-plus" style="color:saddlebrown"></i>Accept</a>
+                                                            <a class="dropdown-item" role="button" (click)="deleteTeacherRequset(teacher.teacherRequestId)"><i
+                                                                    class="fa fa-trash" style="color: red;"></i>Reject</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="doctor-profile">
+                                                    <!-- <img src="../../../assets/img/figure/admin.jpg" class="doctor-pic" alt="img"> -->
+                                                </div>
+                                                <div class="profile-usertitle">
+                                                    <div class="doctor-name"> {{teacher.name| titlecase}} </div>
+                                                    <!-- <p class="detail">A-103, shyam gokul flats, Mahatma Road , Mumbai</p> -->
+                                                    <p class="mt-2"><i class="fa fa-phone"></i><a
+                                                        href="tel:(123)456-7890"> {{teacher.contactNo1}}</a></p>
+                                                    <p>{{teacher.emailId}}</p>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <p class="h3">Username:</p>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <p class="h4" style="color:teal;">{{teacher.userName}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <button class="btn btn-success mybtn mt-2">Accept</button>
+                                                    <button class="btn btn-danger mybtn mt-2">Reject</button> -->
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <div class="mt-5 d-flex justify-content-end" >
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                          <li class="page-item"><button [disabled]="statusPre"  class="page-link" [routerLink]="['/admin/dashboard']" role="button" (click)="pre()">Previous</button></li>
+                                          <li class="page-item" [ngClass]="{'active': i == page}" *ngFor="let p of pages;let i=index">
+                                            <a class="page-link" [routerLink]="['/admin/dashboard']" role="button" (click)="setPage(i,$event)">{{i+1}}</a>
+                                          </li>
+                                          <li class="page-item"><button [disabled]="statusNext" class="page-link" [routerLink]="['/admin/dashboard']"  role="button" (click)="next()">Next</button></li>
+                                        </ul>
+                                      </nav>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Dashboard Content End Here -->
+       

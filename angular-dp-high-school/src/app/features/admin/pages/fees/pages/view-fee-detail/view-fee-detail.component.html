@@ -1,0 +1,84 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Fees</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['/dashboard']">Home</a>
+        </li>
+        <li>Fee Details</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Details Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Fee Details</h3>
+            </div>
+        </div>
+        <div class="single-info-details">
+            <div class="item-content">
+                <div class="header-inline item-header">
+                    <div class="header-elements">
+                        <ul>
+                            <!-- <li><a href="#"><i class="far fa-edit"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fas fa-print"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fas fa-download"></i></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-table table-responsive">
+                    <table class="table text-nowrap mt-3">
+                        <tbody>
+                            <tr>
+                                <td>GR No:</td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.student.grNo}}</td>
+                            </tr>
+                            <tr>
+                                <td>Installment No:</td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.installmentNo}}</td>
+                            </tr>
+                            <tr>
+                                <td>Paid Amount:</td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.feesAmount}}</td>
+                            </tr>
+                            <!-- <tr>
+                                <td>Late Fee Amount:</td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.latefeesAmount}}</td>
+                            </tr>
+                            <tr>
+                                <td>Total Fees Amount:</td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.totalfeesAmount}}</td>
+                            </tr> -->
+                            <tr>
+                                <td>Payment Date:</td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.paymentDate}}</td>
+                            </tr>
+                            <tr>
+                                <td>Payment Mode:</td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.paymentMode}}</td>
+                            </tr>
+                            <tr>
+                                <td>Fee Status:</td>
+                                <td class="font-medium text-dark-medium myfont">{{feePayment.student.feeStatus}}</td>
+                            </tr>
+                            <tr>
+                                <td></td> <td></td> <td></td><td></td> <td></td> <td></td>
+                                <td></td> <td></td> <td></td><td></td> <td></td> <td></td>
+                            </tr> 
+                            <tr>
+                                <td></td> <td></td> <td></td>
+                            </tr>              
+                        </tbody>
+                    </table>
+                </div>
+                <button (click)="goToFeeList()"  type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Student Details Area End Here -->
+<!-- Footer Area Start Here -->
+
+

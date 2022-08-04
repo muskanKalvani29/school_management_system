@@ -1,0 +1,235 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        .data
+        {
+            display: none;
+        }
+    </style>
+
+</head> -->
+<body class="defult-home">
+     
+        <!--Preloader area start here-->
+        <!-- <div id="loader" class="loader yellow-color">
+            <div class="loader-container">
+                <div class='loader-icon'>
+                    <img src="assets/images/dplog.png" alt="">
+                </div>
+            </div>
+        </div> -->
+        <!--Preloader area End here--> 
+
+
+
+<!-- Main content Start -->
+        <div class="main-content">
+             
+            <!-- Breadcrumbs Start -->
+            
+            <!-- Breadcrumbs End -->            
+
+        <!-- My Account Section Start -->
+        <div class="rs-login pt-50 pb-50 md-pt-30 md-pb-30" style="margin-top: 7.5%;margin-bottom: 6.85%;">
+                <div class="container">
+                    <div class="noticed">
+                        <div class="main-part">                           
+                            <div class="method-account">
+                                <!-- <h2 class="login">Login</h2> -->
+                                <div class="row">
+                                    <!-- logo of school -->
+                                    <div class="col-lg-3 col-sm-3 col-md-3 col-xl-3  col-4 ">
+                                    <img src="assets/images/dplog.png" alt="logo">
+                                    </div>
+
+                                    <!-- Name of school -->
+                                    <div class="col-lg-9 col-sm-9  col-md-9 col-8 col-xl-9 text-left" style="font-size: 3vw;font-family: sans-serif;color: #1c335f;">
+                                    <p class="logname">D.P. HIGH SCHOOL</p>
+                                    </div>
+                                </div>
+                                <div class="row pt-10">
+                                    <div class="col-lg-2"></div>
+                                    <div class="col-lg-8 text-center" style="font-size: 2vw;font-family: sans-serif;color: #FF0000;">
+                                        <p class="log"><strong>Registration</strong></p>
+                                    </div>
+                                    
+                                </div>
+                                <!-- Design form start here -->
+                                <div class="row">
+                                    <!-- <div class="col-lg-2"></div> -->
+                                    <div class="col-lg-12 col-sm-12 col-md-12 text-center">
+                                        <form>
+                                           <div class="form-group">
+                                            <!-- <label for="sel1">Select UserType :</label> -->
+                                            <select class="form-control" id="myselect">
+                                                <option value="" selected="selected">Select User Type</option>
+                                                <option value="teacher">Teacher</option>
+                                                <option value="parent">Parent</option>
+                                            </select>
+                                            </div>
+                                        </form>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-sm-12 col-md-12 mt-4">
+                                                <form #teacherForm="ngForm" name="teacher" id="teacher" class="data" (ngSubmit)="addteacherRequest(teacherForm.value)">
+                                                    <!-- Name -->
+                                                    <div class="form-group text-left">
+                                                        <label for="exampleInputName" class="colorlable">Name</label>
+                                                        <input type="text" class="form-control" name="name" ngModel #name="ngModel" pattern="^[0-9a-zA-Z. ]*[a-zA-Z]{1,60}$" placeholder="Name" required>
+                                                        <div *ngIf="name.invalid && name.touched" class="alert alert-danger mt-3" role="alert">
+                                                            <div *ngIf="name.errors.required">
+                                                                Name is Required
+                                                            </div>
+                                                            <div *ngIf="name.errors.pattern">
+                                                                You can enter only alphabatic value.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Email id-->                                                                                                                                                           <!-- Email id -->
+                                                   <div class="form-group text-left">
+                                                        <label for="exampleInputName" class="colorlable">Email Id</label>
+                                                        <input type="email" class="form-control" name="emailId" placeholder="Your Email Id" ngModel required
+                                                        #emailId="ngModel" email="true"> 
+                                                        <div *ngIf="emailId.invalid && emailId.touched" class="alert alert-danger mt-3" role="alert">
+                                                            <div *ngIf="emailId.errors.required" style="font-size: medium;">
+                                                                Email is Required !!
+                                                            </div>
+                                                            <div *ngIf="emailId.errors.email" style="font-size:medium;">
+                                                                Enter valid Email. <br> <strong>Ex: mansipatadiya@gmail.com</strong>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Contact no -->
+                                                    <div class="form-group text-left">
+                                                        <label for="exampleInputName" class="colorlable">Contact No</label>
+                                                        <input type="text" class="form-control" name="contactNo1" ngModel #contactNo1="ngModel" placeholder="contact no" 
+                                                        required minlength="10" maxlength="10" pattern="^[6-9][0-9]{9,9}$">
+                                                        <div class="alert alert-danger" role="alert"
+                                                        *ngIf="contactNo1.invalid && (contactNo1.dirty || contactNo1.touched)">
+                                                            <div *ngIf="contactNo1.errors.required">
+                                                                Contact No is Required !
+                                                            </div>
+                                                            <div *ngIf="contactNo1.errors.minlength">
+                                                                Enter 10 digit number.
+                                                            </div>
+                                                            <div *ngIf="contactNo1.errors?.pattern">
+                                                                Enter only numeric value and valid Contact No!!
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Username -->
+                                                    <div class="form-group text-left">
+                                                        <label class="colorlable">Username</label>
+                                                        <input type="text" name="userName" ngModel #userName="ngModel" placeholder="username" required
+                                                        length="8" pattern="^[a-zA-Z0-9@$_-]{8,20}$">
+                                                        <span style="color: gray;font-size: small;">
+                                                            You will not able to change your username in future,so enter remembered username.
+                                                        </span>
+                                                        <div class="alert alert-danger" role="alert"
+                                                        *ngIf="userName.invalid && (userName.dirty || userName.touched)">
+                                                        <div *ngIf="userName.errors.required">
+                                                            Username is required.
+                                                        </div>
+                                                        <div *ngIf="userName.errors?.pattern">
+                                                            username can't be start with numeric value.
+                                                            Enter Alphanumeric characters with atleast one special symbol.
+                                                            Enter username with maximum 15 characters long.
+                                                        </div>
+                                                        <div *ngIf="userName.errors.minlength"> 
+                                                            <br>
+                                                         <strong>Name must be at least 8 characters long.</strong>
+                                                       </div>
+                                                        <!-- <div *ngIf="username.errors?.pattern">
+                                                            Enter Alphanumeric
+                                                        </div> -->
+                                                </div>
+                                                    </div>
+                                                     <!-- Password -->
+                                                    <div class="form-group text-left">
+                                                        <label for="exampleInputName" class="colorlable">Password</label>
+                                                        <input [type]="show1 ? 'text' : 'password'"  type="password" name="password" #password="ngModel" ngModel placeholder="Password" required
+                                                        minlength="8" maxlength="15" pattern="^[a-zA-Z0-9@$_-]{8,15}$">
+                                                        <span class="fa fa-fw fa-eye field-icon toggle-password" 
+                                                        (click)="toggleShow1()"></span>
+                                                        <div class="alert alert-danger" role="alert"
+                                                        *ngIf="password.invalid && (password.dirty || password.touched)">
+                                                            <div *ngIf="password.errors.required">
+                                                                Password is Required !!
+                                                            </div>
+                                                            <div *ngIf="password.errors.minlength">
+                                                                Password must be at least 8 and atmost 15 character long
+                                                            </div>
+                                                            <div *ngIf="password.errors.pattern">
+                                                                <br>
+                                                                To make a strong password using Alphanumeric value with atleast one special symbol.
+                                                            </div>
+                                                        </div>
+                                                    </div>        
+                                                      <!--Confirm Password -->
+                                                      <div class="form-group text-left">
+                                                        <label for="exampleInputName" class="colorlable">Confirm Password</label>
+                                                        <input  [type]="show2 ? 'text' : 'password'" type="password" name="password1" #password1="ngModel" ngModel placeholder="Confirm Password" required
+                                                        minlength="8" maxlength="15" pattern="^[a-zA-Z0-9@$_-]{8,15}$">
+                                                        <span class="fa fa-fw fa-eye field-icon toggle-password"
+                                                        (click)="toggleShow2()"></span>
+                                                        <div class="alert alert-danger" role="alert"
+                                                        *ngIf="password1.touched && password1.errors.required">
+                                                        Confirm Password is Required !!
+                                                        </div>
+                                                    </div>                          
+                                                    <!-- sign up -->
+                                                    <div class="form-group pt-15">
+                                                        <button [disabled]="teacherForm.invalid" type="submit" class="readon submit-btn text-center">Sign Up</button>
+                                                    </div>
+                                                </form>
+
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-sm-12 col-md-12 mt-2">
+                                              <form #parentData name="parent" id="parent" class="data" (ngSubmit)="isGrNo(grNo)">
+                                                    <!---- THIS IS FORM 2---->
+                                                      <!-- Gr no -->
+                                                      <div class="form-group text-left">
+                                                        <label for="exampleInputName" class="colorlable">Enter GR no of child</label>
+                                                        <input type="text" class="form-control" pattern="^[0-9]{6}$" minlength="6" maxlength="6" required placeholder="GrNo" name="grNo" ngModel #grNo="ngModel">
+                                                        <div *ngIf="grNo.invalid && grNo.touched" class="alert alert-danger mt-3" role="alert">
+                                                            <div *ngIf="grNo.errors.required">
+                                                                GR No is Required
+                                                            </div>
+                                                            <div *ngIf="grNo.errors.minlength">
+                                                                Gr No must be 6 character long
+                                                            </div>
+                                                            <div *ngIf="grNo.errors.pattern">
+                                                                Gr No must be in numeric.
+                                                            </div>
+                                                        </div>
+                                                     </div>
+                                                    <!-- sign up -->
+                                                    <div class="form-group pt-15">
+                                                        <button [disabled]="parentData.invalid" type="submit" class="readon submit-btn text-center">Next</button>
+                                                    </div>
+                                              </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Design form End Here  -->
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- My Account Section End -->  
+
+        </div> 
+</body>
+<!-- </html> -->

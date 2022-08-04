@@ -1,0 +1,220 @@
+    <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>Home</h3>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>parent</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+   
+    <!-- Dashboard Content Start Here -->
+    <div class="row gutters-20">
+        <!-- <div class="col-12 col-xl-6 col-4-xxxl">
+            <div class="card dashboard-card-four pd-b-20">
+                <div class="card-body">
+                    <div class="heading-layout1">
+                        <div class="item-title">
+                            <h3>Event Calender</h3>
+                        </div>
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-expanded="false">...</a>
+
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i
+                                        class="fas fa-times text-orange-red"></i>Close</a>
+                                <a class="dropdown-item" href="#"><i
+                                        class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+                                <a class="dropdown-item" href="#"><i
+                                        class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calender-wrap">
+                        <div id="fc-calender" class="fc-calender"></div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+      
+        <div class="col-lg-6 col-xl-6 col-6-xxxl col-sm-12 col-12">
+            <div class="card dashboard-card-six pd-b-20">
+                <div class="card-body">
+                    <div class="heading-layout1 mg-b-17">
+                        <div class="item-title">
+                            <h3>Events</h3>
+                        </div>
+                    </div>
+                    <div class="notice-box-wrap">
+                        <div class="notice-list" *ngFor="let event of eventData|async">
+                            <h6 class="notice-title" style="font-size:medium;"><a>{{event.eventName}}</a></h6>
+                            <div class="post-date bg-yellow">{{event.eventStartdate| date:'MMMM d, y'}}</div>
+                            <span class="h4 ml-3 mr-3">To</span>
+                            <div class="post-date bg-yellow">{{event.eventEnddate| date:'MMMM d, y'}}</div><br>
+                            <div class="post-date bg-pink">{{event.eventStarttime}}</div>
+                            <span class="h4 ml-3 mr-3">To</span>
+                            <div class="post-date bg-pink">{{event.eventEndtime}}</div>
+                            <div class="entry-meta">{{event.eventDescription|titlecase}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-xl-6 col-6-xxxl col-sm-12 col-12">
+            <div class="card dashboard-card-six pd-b-20">
+                <div class="card-body">
+                    <div class="heading-layout1 mg-b-17">
+                        <div class="item-title">
+                            <h3>Holidays</h3>
+                        </div>
+                    </div>
+                    <div class="notice-box-wrap">
+                        <div class="notice-list" *ngFor="let holiday of holidayData|async">
+                            <h6 class="notice-title" style="font-size:medium;"><a>{{holiday.holidayName| titlecase}}</a></h6>
+                            <div class="post-date bg-skyblue">{{holiday.holidayStartdate| date:'MMMM d, y'}}</div>
+                            <span class="h4 ml-3 mr-3">To</span>
+                            <div class="post-date bg-skyblue">{{holiday.holidayEnddate| date:'MMMM d, y'}}</div>
+                            <div class="entry-meta">{{holiday.holidayDescription| titlecase}}</div>
+                        </div>
+                     </div>   
+                </div>
+            </div>
+        </div>
+</div>
+        <div class="row">
+            <div class="col-lg-12 col-xl-12 mt-5 col-12-xxxl col-sm-12 col-12">
+                <div class="card height-auto">
+                    <div class="card-body">
+                            <div class="container">
+                                <div class="sec-title3 text-center mb-45">
+                                    <!-- <div class="sub-title yellow-color">Choose Your Path</div> -->
+                                    <h2 class="black-color">Best Students of the Year 2020-2021</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-6 md-mb-40">
+                                        <div class="categories-items">
+                                            <div class="shadow">
+                                                <a href="#"><img class="rounded" src="{{bestStudent1.image}}" alt=""></a>
+                                            </div>
+                                            <div class="image-content">
+                                               <div class="sec-title3 text-center mt-4">
+                                                <h4 class="black-color">{{bestStudent1.medium}} Medium</h4>
+                                               </div>
+                                               <div class="ml-5">
+                                                   <span>Standard: {{bestStudent1.standardName}}</span><br>
+                                                   <span>Name: {{bestStudent1.name}}</span><br>
+                                                   <span>Div: {{bestStudent1.divisionName}}</span><br>
+                                               </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <div class="col-lg-4 col-6 md-mb-40">
+                                        <div class="categories-items">
+                                            <div class="shadow">
+                                                <a href="#"><img class="rounded" src="{{bestStudent2.image}}" alt=""></a>
+                                            </div>
+                                            <div class="image-content">
+                                               <div class="sec-title3 text-center mt-4">
+                                                <h4 class="black-color">{{bestStudent2.medium}} Medium</h4>
+                                               </div>
+                                               <div class="ml-5">
+                                                   <span>Standard: {{bestStudent2.standardName}}</span><br>
+                                                   <span>Name: {{bestStudent2.name}}</span><br>
+                                                   <span>Div: {{bestStudent2.divisionName}}</span><br>
+                                               </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div class="col-lg-4 col-6 md-mb-40">
+                                        <div class="categories-items">
+                                            <div class="shadow">
+                                                <a href="#"><img class="rounded" src="{{bestStudent3.image}}" alt=""></a>
+                                            </div>
+                                            <div class="image-content">
+                                               <div class="sec-title3 text-center mt-4">
+                                                <h4 class="black-color">{{bestStudent3.medium}} Medium</h4>
+                                               </div>
+                                               <div class="ml-5">
+                                                   <span>Standard: {{bestStudent3.standardName}}</span><br>
+                                                   <span>Name: {{bestStudent3.name}}</span><br>
+                                                   <span>Div: {{bestStudent3.divisionName}}</span><br>
+                                               </div>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                </div>
+                            </div>
+                        </div>
+            </div>
+        </div>
+            <!-- Activities and achievements -->
+                <!-- Dashboard Content Start Here -->
+    <div class="row gutters-20"></div>      
+        <div class="col-lg-6 col-xl-6 col-6-xxxl col-sm-12 col-12 mb-4">
+            <div class="card dashboard-card-six pd-b-20">
+                <div class="card-body">
+                    <div class="heading-layout1 mg-b-17">
+                        <div class="item-title">
+                            <h3>School Activities</h3>
+                        </div>
+                    </div>
+                    <div class="notice-box-wrap">
+                       <div class="row" *ngFor="let Activity of ActivityData|async">
+                           <div class="col-lg-12 col-xl-12 col-12-xxxl col-sm-12 col-12">
+                            <img class="shadow rounded ml-2 mt-3" src="{{Activity.imagePath}}" style="width: 700px;height:250px" alt="activitie1">
+                           </div>                
+                        </div>
+                      
+                       <!-- <div class="row mt-4">                   
+                            <div class="col-lg-12 col-xl-6 col-6-xxxl col-sm-12 col-12">
+                                <img class="shadow rounded ml-2 mt-3" src="assets/images/categories/home9/1.jpg" alt="activitie1">
+                            </div>                 
+                            <div class="col-lg-12 col-xl-6 col-6-xxxl col-sm-12 col-12">
+                                <img class="shadow rounded ml-2 mt-3" src="assets/images/categories/home9/1.jpg" alt="activitie1">
+                            </div>
+                        </div>
+
+                       <div class="row mt-4">
+                            <div class="col-lg-12 col-xl-6 col-6-xxxl col-sm-12 col-12">
+                                <img class="shadow rounded ml-2 mt-3" src="assets/images/categories/home9/1.jpg" alt="activitie1">
+                            </div>                 
+                            <div class="col-lg-12 col-xl-6 col-6-xxxl col-sm-12 col-12">
+                                <img class="shadow rounded ml-2 mt-3" src="assets/images/categories/home9/1.jpg" alt="activitie1">
+                            </div>
+                       </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-xl-6 col-6-xxxl col-sm-12 col-12 mb-4">
+            <div class="card dashboard-card-six pd-b-20">
+                <div class="card-body">
+                    <div class="heading-layout1 mg-b-17">
+                        <div class="item-title">
+                            <h3>School Achievements</h3>
+                        </div>
+                    </div>
+                    <div class="notice-box-wrap">
+                        <div class="row mt-4"  *ngFor="let Achievement of AchievementData|async">
+                            <div class="col-xxxl-8 col-xl-8 col-lg-8 col-sm-8 col-md-8 col-8">
+                                <img class="shadow rounded ml-4" src="{{Achievement.imagePath}}" alt="activitie1">
+                            </div>
+                            <div class="col-xxxl-4 col-xl-4 col-lg-4 col-sm-4 col-md-4 col-4">
+                                <p>{{Achievement.imageDiscription}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+        </div>
+    <!-- </div> -->
+    <!-- Dashboard Content End Here -->
+   

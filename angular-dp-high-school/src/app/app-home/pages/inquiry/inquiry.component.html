@@ -1,0 +1,133 @@
+<body class="defult-home">
+     
+    <div class="main-content">
+        <!-- Breadcrumbs Start -->
+        
+        <!-- Breadcrumbs End -->   
+         <!--Full width header Start-->
+        <div class="full-width-header home8-style4 home9">
+            <!--Header Start-->
+            <header id="rs-header" class="rs-header">
+                <!-- Menu Start -->
+                <!-- Topbar Area Start -->
+                
+                <!-- Topbar Area End -->
+                <div class="menu-area menu-sticky">
+                    <div class="container">
+                        <div class="row y-middle">
+                            <div class="col-lg-1 text-center">
+                                <div class="logo-cat-wrap">
+                                    <div class="logo-part text-center">
+                                        <a href="index.html">
+                                            <img class="normal-logo" src="assets/images/dplog.png" alt="">
+                                            <img class="sticky-logo" src="assets/images/dplog.png" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-left" style="font-size: 3vw;font-family: sans-serif;color: #1c335f;">
+                                <span class="name">D.P. High School</span>
+                            </div>
+                            <div class="col-lg-3 text-right">
+                              <div class="rs-menu-area">
+                                  <div class="main-menu">
+                                      <div class="mobile-menu">
+                                          <a class="rs-menu-toggle">
+                                              <i class="fa fa-bars" style="color: darkblue;"></i>
+                                          </a>
+                                      </div>
+                                      <nav class="rs-menu">
+                                         <ul class="nav-menu">
+                                          <li class=" current-menu-item">
+                                              <a [routerLink]="['/sms/home/signUp']">Register</a>
+                                          </li>
+
+                                             <li class="">
+                                                 <a [routerLink]="['/sms/home/login']">LogIn</a>
+                                                 
+                                             </li>
+
+                                             
+                                         </ul> <!-- //.nav-menu -->
+                                      </nav>                                        
+                                  </div> <!-- //.main-menu -->
+                                
+                              </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Menu End --> 
+
+                <!-- Canvas Menu start -->
+            <nav class="right_menu_togle hidden-md">
+                <div class="close-btn">
+                    <span id="nav-close">
+                        <div class="line">
+                            <span class="line1"></span><span class="line2"></span>
+                        </div>
+                    </span>
+                </div>
+                
+            </nav>
+            <!-- Canvas Menu end -->
+            </header>
+            <!--Header End-->
+        </div>
+        <div class="contact-page-section space pt-200 pb-100 md-pt-70 md-pb-70">
+            <div class="container">
+               
+               <div class="rs-quick-contact">
+                    <div class="inner-part text-center mb-50">
+                        <h2 class="title pb-30">Inquiry</h2>
+                   
+                    <form #addinquiryform="ngForm" class="new-added-form">
+                        <div class="row">
+                            <div class="col-lg-12 mb-35 col-md-12 col-sm-12 col-xl-12">
+                                <input class="from-control" type="text" id="name" name="phone" placeholder="Email Id"
+                                name="emailId" ngModel #emailId="ngModel" required="" email="true">
+                                <div *ngIf="emailId.invalid && emailId.touched" class="alert alert-danger mt-3" role="alert">
+                                    <div *ngIf="emailId.errors.required" style="font-size: medium;">
+                                        Email is Required !!
+                                    </div>
+                                    <div *ngIf="emailId.errors.email" style="font-size:medium;">
+                                         Enter valid Email. <br> <strong>Ex: mansipatadiya@gmail.com</strong>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>   
+                         <div class="row">
+                             <div class="col-lg-12 mb-50 col-md-12 col-sm-12">
+                                <textarea class="from-control" id="message" name="InquiryMessage" 
+                                ngModel #InquiryMessage="ngModel" maxlength="300" placeholder="Inquiry Message" required=""></textarea>
+                                <span style="color: gray;">
+                                    You can enter maximum 300 characters !!
+                                </span>
+                                <div *ngIf="InquiryMessage.invalid && InquiryMessage.touched" class="alert alert-danger mt-3" role="alert">
+                                    <div *ngIf="InquiryMessage.errors.required" style="font-size: medium;">
+                                        Inquiry Message is Required !!
+                                    </div>
+                                    <div *ngIf="InquiryMessage.errors?.maxlength">
+                                        You can enter maximum 300 characters.
+                                    </div>
+                                </div>
+                            </div>
+                         </div>   
+                        <div >
+                            <button [disabled]="addinquiryform.invalid" class="readon yellow-btn" (click)="addInquiry(addinquiryform.value)" type="submit" >Submit Now</button>
+                        </div>       
+                    </form>
+               </div> 
+            </div>
+        </div>
+        <!-- Contact Section End -->  
+
+        <!-- Newsletter section start -->
+        
+        <!-- Newsletter section end -->
+    </div> 
+    </div>
+    <!-- Main content End --> 
+</body>
+<!-- </html> -->

@@ -1,0 +1,93 @@
+  <!-- Header Menu Area Start Here -->
+  <div class="navbar navbar-expand-md header-menu-one bg-light fixed-top">
+    <div class="nav-bar-header-one">
+        <div class="header-logo">
+            <a href="index.html">
+                <img src="../../../../assets/img/navlogo1.png" alt="logo">
+            </a>
+        </div>
+        <div class="toggle-button sidebar-toggle">
+            <button type="button" class="item-link">
+                <span class="btn-icon-wrap">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="d-md-none mobile-nav-bar">
+        <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse"
+            data-target="#mobile-navbar" aria-expanded="false">
+            <i class="far fa-arrow-alt-circle-down"></i>
+        </button>
+        <button type="button" class="navbar-toggler sidebar-toggle-mobile">
+            <i class="fa fa-bars" style="color:#1C335F;"></i>
+        </button>
+    </div>
+    <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
+        <ul class="navbar-nav">
+            <!-- here there was searchbar -->
+            <span class="h3">Welcome,&nbsp;{{user_name| titlecase}} !!</span>
+        </ul>
+        <ul class="navbar-nav">
+            <li *ngIf="isadminBellIcon" class="navbar-item dropdown header-notification">
+                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fa fa-bell" style="color:darkcyan;"></i>
+                    <div class="item-title d-md-none text-16 mg-l-10">Notification</div>
+                    <span>6</span>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="item-header">
+                        <h6 class="item-title">06 Notifiacations</h6>
+                    </div>
+                    <div class="item-content">
+                        <div class="media">
+                            <div class="item-icon bg-skyblue">
+                                1
+                            </div>
+                            <div class="media-body space-sm">
+                                <div class="post-title">{{query1.queryMessage|slice:0:15|titlecase}}...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="navbar-item dropdown header-admin">
+                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                    aria-expanded="false">
+                    <div class="admin-title">
+                        <h4 class="item-title">{{user_name | titlecase}}</h4>
+                        <span>{{user_type | titlecase}}</span>
+                    </div>
+                    <div *ngIf="showUrl" class="admin-img">
+                        <img [src]="url"  width="35" height="20" class="avatar" alt="Admin">
+                    </div>
+                    
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="item-header">
+                        <h3 class="item-title">{{user_name | titlecase}}</h3>
+                    </div>
+                    <div class="item-content">
+                        <ul class="settings-list">
+                            <!-- admin -->
+                            <li *ngIf="adminUserType"><a routerLink="account-setting" style="color: indigo;"><i class="flaticon-user"></i>My Profile</a></li>
+                            <li *ngIf="adminUserType"><a [routerLink]="['/admin/account-setting']" style="color:maroon"><i class="flaticon-gear-loading"></i>Account Settings</a></li>
+                            <!-- parent -->
+                            <li *ngIf="parentUserType"><a [routerLink]="['/parent/profile/view-profile']" style="color: indigo;"><i class="flaticon-user"></i>My Profile</a></li>
+                            <li *ngIf="parentUserType"><a [routerLink]="['/parent/profile/edit-profile']" style="color:maroon"><i class="flaticon-gear-loading"></i>Account Settings</a></li>
+                            <!-- teacher -->
+                            <li *ngIf="teacherUserType"><a [routerLink]="['/teacher/profile/view-profile']" style="color: indigo;"><i class="flaticon-user"></i>My Profile</a></li>
+                            <li *ngIf="teacherUserType"><a [routerLink]="['/teacher/profile/edit-profile']" style="color:maroon"><i class="flaticon-gear-loading"></i>Account Settings</a></li>
+                            <li><a [routerLink]="['/sms/home/reset-password']" role="button" style="color:darkgoldenrod"><i class="flaticon-gear-loading"></i>Change Password</a></li>
+                            <li><a href="" role="button" (click)="logout()" style="color: green;"><i class="flaticon-turn-off"></i>Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

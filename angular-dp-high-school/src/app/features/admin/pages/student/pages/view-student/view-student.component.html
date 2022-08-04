@@ -1,0 +1,138 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Students</h3>
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+        <li>Student Details</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Details Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>About Student</h3>
+            </div>
+        </div>
+        <div class="single-info-details">
+            <div >
+                <img src="{{student.image}}"  style="width:250px" alt="student">
+            </div>
+            <div class="item-content">
+                <div class="header-inline item-header ml-5">
+                    <h3 class="text-dark-medium font-medium" style="color: darkblue;">{{student.firstName|titlecase}}&nbsp;{{student.lastName|titlecase}}'s Detail</h3>
+                    <div class="header-elements">
+                        <ul>
+                            <!-- <li><a href="#"><i class="far fa-edit"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fas fa-print"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fas fa-download"></i></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-table table-responsive ml-5">
+                    <table class="table text-nowrap">
+                        <tbody>
+                            <tr>
+                                <td>Name:</td>
+                                <td class="font-medium text-dark-medium myfont">{{student.firstName|titlecase}}&nbsp;{{student.lastName|titlecase}}&nbsp;{{student.middleName|titlecase}}</td>
+                            </tr>
+                            <tr>
+                                <td>Standard:</td>
+                                <td class="font-medium text-dark-medium myfont">{{student.standard.standardName}}</td>
+                            </tr>
+                            <tr>
+                                <td>Division:</td>
+                                <td class="font-medium text-dark-medium myfont">{{student.division.divisionName|titlecase}}</td>
+                            </tr>
+                            <tr>
+                                <td>Roll No:</td>
+                                <td class="font-medium text-dark-medium myfont">{{student.rollNo}}</td>
+                            </tr>
+                            <tr>
+                                <td>GR No:</td>
+                                <td class="font-medium text-dark-medium myfont">{{student.grNo}}</td>
+                            </tr>
+                            
+                            <tr>
+                                <td></td> <td></td> <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td></td> <td></td> <td></td>
+                            </tr>
+                            <tr>                                 
+                                <td>Medium:</td>
+                                <td class="font-medium text-dark-medium">{{student.medium|titlecase}}</td>
+                            </tr>
+                            <tr>
+                                <td>Stream:</td>
+                                <td class="font-medium text-dark-medium">{{student.stream|titlecase}}</td>      
+                            </tr>
+                            <tr>
+                                <td>Date of Birth:</td>
+                                <td class="font-medium text-dark-medium">{{student.dateOfBirth|date:'dd-MM-yyyy'}}</td>
+                            </tr>
+                            <tr>                                 
+                                <td>Blood Group:</td>
+                                <td class="font-medium text-dark-medium">{{student.bloodGroup}}</td>
+                            </tr>
+                            <tr>                               
+                                <td>Gender:</td>
+                                <td class="font-medium text-dark-medium">{{student.gender|titlecase}}</td>
+                            </tr>
+                            <tr>
+                                <td></td> <td></td> <td></td>
+                            </tr>                            
+                            <tr>
+                                <td></td> <td></td> <td></td>
+                            </tr>
+                            <tr>
+                                <td>Mother Name:</td>
+                                <td class="font-medium text-dark-medium">{{student.motherName|titlecase}}</td>
+                                <td>Father Name:</td>
+                                <td class="font-medium text-dark-medium">{{student.fatherName|titlecase}}</td> 
+                            </tr>
+                            <tr>
+                                <td></td> <td></td> <td></td>
+                            </tr>
+                            <tr>
+                                <td>Admission Date:</td>
+                                <td class="font-medium text-dark-medium">{{student.admissionDate|date:'dd-MM-yyyy'}}</td>   
+                                <td>Previous School Name:</td>
+                                <td class="font-medium text-dark-medium">{{student.previousSchoolName|titlecase}}</td>
+                                
+                            </tr>
+                            <tr>
+                                <td></td> <td></td> <td></td>
+                            </tr>
+                            <tr>
+                                <td>Email Id:</td>
+                                <td class="font-medium text-dark-medium">{{student.emailId}}</td>
+                            </tr> 
+                            <tr>
+                                <td>Address 1:</td>
+                                <td class="font-medium text-dark-medium">{{student.address1}}</td>
+                            </tr>
+                            <tr>
+                                <td>Address 2:</td>
+                                <td class="font-medium text-dark-medium">{{student.address2}}</td>        
+                            </tr>
+                            <tr>
+                                <td>Pincode:</td>
+                                <td class="font-medium text-dark-medium">{{student.pincode}}</td>
+                            </tr>               
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div style="margin-left: 17.9%;">
+            <button (click)="goToStudentList()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark mt-5">Back</button>
+        </div>
+
+    </div>
+</div>
+<!-- Student Details Area End Here -->

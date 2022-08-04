@@ -1,0 +1,51 @@
+ <!-- Breadcubs Area Start Here -->
+ <div class="breadcrumbs-area ml-4">
+    <h3>Meetings</h3>
+    <ul>
+        <li>
+            <a href="index.html">Parent</a>
+        </li>
+        <li>All Meetings</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Table Area Start Here -->
+<div class="card height-auto ml-4">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title">
+                <h3 style="margin-top: 10px;margin-bottom: 10px;">All Meetings Data</h3>
+            </div>
+        </div>
+        <div class="table-responsive ">
+            <table class="table text-nowrap table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>SrNo</th><th></th>
+                        <th>Meeting Name</th><th></th>
+                        <th>Date</th><th></th>
+                        <th>Starting Time</th><th></th>
+                        <th>Ending Time</th><th></th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let meeting of meetings|async;let i=index">
+                        <td>{{i+1}}</td><td></td>
+                        <td>{{meeting.meetingName|titlecase}}</td><td></td>
+                        <td>{{meeting.meetingDate| date:'dd-MM-yyyy'}}</td><td></td>
+                        <td>{{meeting.meetingStartTime}}</td><td></td>
+                        <td>{{meeting.meetingEndTime}}</td><td></td>
+                        <td *ngIf="!meeting.meetingDescription" class="font-medium text-dark-medium myfont">-</td>
+                        <td *ngIf="meeting.meetingDescription">{{meeting.meetingDescription|slice:0:20|titlecase}}...</td>
+                        <td>
+                            &nbsp;<a (click)="viewMeeting(meeting.meetingId)" role="button"><i class="fa fa-eye" style="color: darkblue;"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Student Table Area End Here -->

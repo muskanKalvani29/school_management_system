@@ -1,0 +1,85 @@
+
+    <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>Event</h3>
+        <ul>
+            <li>
+                <a [routerLink]="['admin/dashboard']">Home</a>
+            </li>
+            <li>Update Event</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+    <!-- Add New Book Area Start Here -->
+    <div class="card height-auto">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title mt-4 mb-4">
+                    <h3>Update Event</h3>
+                </div>
+            </div>
+            <!-- (ngSubmit)="addEvent(eventform.value) -->
+            <form #eventform="ngForm" class="new-added-form" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <!-- event name -->
+                    <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Event Name *</label>
+                        <input required type="text" placeholder="" class="form-control"
+                        [(ngModel)]="event.eventName" name="eventName" #eventName="ngModel" pattern="^[0-9a-zA-Z. ]*[a-zA-Z]{1,60}$">
+                        <div style="color: red;"  *ngIf="eventName.invalid && (eventName.dirty || eventName.touched)">
+                            <div *ngIf="eventName.errors.required">
+                                Event Name is Required !!
+                            </div>
+                            <div *ngIf="eventName.errors?.pattern">
+                                You can enter only alphabatic value with atleast one uppercase.<br>
+                                <strong>Ex: Annual Function</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- event start date -->
+                    <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Event Start Date *</label>
+                        <input required type="date" class="form-control air-datepicker"
+                            data-position='bottom right'
+                            [ngModel]="event.eventStartdate| date:'yyyy-MM-dd'" name="eventStartdate" #eventStartdate="ngModel" (ngModelChange)="event.eventStartdate = $event">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <!-- event end date -->
+                    <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Event End Date *</label>
+                        <input required type="date" class="form-control air-datepicker"
+                            data-position='bottom right'
+                            [ngModel]="event.eventEnddate| date:'yyyy-MM-dd'" name="eventEnddate" #eventEnddate="ngModel" (ngModelChange)="event.eventEnddate = $event">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <!-- start time -->
+                    <div class="col-xl-4 col-lg-6 col-12 form-group">
+                        <label>Event Start Time *</label>
+                        <input required type="time" step="1"  class="form-control"
+                        [(ngModel)]="event.eventStarttime" name="eventStarttime">
+                    </div>
+                    <!-- event end time -->
+                    <div class="col-xl-4 col-lg-6 col-12 form-group">
+                        <label>Event End Time *</label>
+                        <input required type="time" step="1" class="form-control"
+                        [(ngModel)]="event.eventEndtime" name="eventEndtime">
+                    </div>
+                    <div class="col-lg-6 col-12 form-group">
+                        <label>Event Description *</label>
+                        <textarea class="textarea form-control" id="form-message" cols="5"
+                            rows="3" [(ngModel)]="event.eventDescription" name="eventDescription"></textarea>
+                        <span style="color:rgb(90, 88, 88)">
+                            Event Description is optional !!
+                        </span>
+                    </div>
+                    <div class="col-12 form-group mg-t-8">
+                        <button [disabled]="eventform.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                        <!-- <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Add New Book Area End Here -->
+
+

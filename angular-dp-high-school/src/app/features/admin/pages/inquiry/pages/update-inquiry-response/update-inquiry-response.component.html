@@ -1,0 +1,57 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Inquiry</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['/dashboard']">Home</a>
+        </li>
+        <li>Update Inquiry Response</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Book Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Update Inquiry Response</h3>
+            </div>
+        </div>
+        <form #updateinquiryresponse="ngForm" class="new-added-form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <!-- contact no -->
+                <!-- <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Contact No *</label>
+                    <input readonly type="text" placeholder="" class="form-control"
+                    [(ngModel)]="inquiry.contactNo" name="contactNo">
+                </div> -->
+                <!-- inquiry message -->
+                <div class="col-lg-6 col-12 form-group">
+                    <label>Inquiry *</label>
+                    <textarea readonly class="textarea form-control" id="form-message" cols="10"
+                        rows="3" placeholder="I have doubt that is there any extra payment instead of fee and admission form?"
+                        [(ngModel)]="inquiry.inquiryMessage" name="inquiryMessage"></textarea>
+                </div>
+                <!-- inquiry response -->
+                <div class="col-lg-6 col-12 form-group">
+                    <label>Write Inquiry Response *</label>
+                    <textarea required class="textarea form-control" id="form-message" cols="5"
+                        rows="3"
+                        [(ngModel)]="inquiry.inquiryResponse" name="inquiryResponse" #inquiryResponse="ngModel"></textarea>
+                        <span style="color: red;"
+                        *ngIf="inquiryResponse.touched && !inquiryResponse.valid">
+                        Inquiry Response is Required !!
+                    </span>
+                </div>
+                <div class="col-12 form-group mg-t-8">
+                    <button [disabled]="updateinquiryresponse.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                    <!-- <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button> -->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add New Book Area End Here -->
+
+
+

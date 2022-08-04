@@ -1,0 +1,67 @@
+ <!-- Breadcubs Area Start Here -->
+ <div class="breadcrumbs-area ml-4">
+    <h3>Study Material</h3>
+    <ul>
+        <li>
+            <a href="index.html">Teachers</a>
+        </li>
+        <li>Study Material</li>
+    </ul>
+</div>
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-3">
+                <h3>Update Study Material</h3>
+            </div>
+        </div>
+        <!--(ngSubmit)="addMeeting(meetingform.value)"-->
+        <form #documentform="ngForm" class="new-added-form" (ngSubmit)="onSubmit()" >
+            <div class="row">
+                
+               
+                <div class="col-lg-12 col-12 form-group">
+                    <label>Study Material Description </label>
+                    <textarea class="textarea form-control" id="form-message" cols="5"
+                        rows="3"  [(ngModel)]="studymaterial.description" name="description" #description="ngModel"></textarea>
+                    <span style="color:rgb(90, 88, 88)">
+                        Study Material Description is optional !!
+                    </span>
+                </div>
+                <div class="col-xl-12 col-lg-6 col-12 col-sm-12 form-group data">
+                    <label class="text-dark-medium">Upload studyMaterial </label>
+                    <input type="file" required class="form-control-file"  name="studyMaterialFile" #studyMaterialFile="ngModel"
+                    (change)="fileChangeEvent($event);selectFile($event)" [(ngModel)]="studymaterial.studymaterialFile">
+                    <div *ngIf="studyMaterialFile.invalid && (studyMaterialFile.touched)" style="color: red;">
+                        <div *ngIf="studyMaterialFile.errors.required">
+                            studyMaterial File is required!!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group" style="margin-top:40px">
+                    <div class="form-group">
+                        <div >
+                            <a class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" style="background-color: #333366;color:white"
+                             (click)="upload()">Upload File</a>
+                            <!-- <a type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</a> -->
+                        </div>
+                        <div *ngIf="currentFileUpload" class="progress mt-4">
+                            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                            aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: percentage + '%' }">
+                                      {{ percentage }}%
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <!-- meeting description it is optional to write -->
+               
+                <div class="col-12 form-group mg-t-8">
+                    <button [disabled]="documentform.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add New Book Area End Here -->
+

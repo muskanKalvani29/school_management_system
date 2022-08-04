@@ -1,0 +1,97 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Activities-Achievements</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['/dashboard']">Dashboard</a>
+        </li>
+        <li>Update Activities-Achievements</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Book Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Update Activities-Achievements</h3>
+            </div>
+        </div>
+        <form #updateActAch="ngForm" class="new-added-form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <!-- type -->
+                <!-- <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Iamge Name *</label>
+                    <input readonly type="text" name="Teacher" placeholder="Teacher" class="form-control"
+                  > -->
+                  <!-- [(ngModel)]="meeting.usertype" name="usertype" -->
+                <!-- </div> -->
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Iamge Type Name *</label>
+                        <select class="form-control" required name="imageName" [(ngModel)]="imageData.imageName" #imageName="ngModel">
+                            <option *ngFor="let images of imageType" [value]="images">{{images}}</option>
+                          </select>
+                       <!-- [(ngModel)]="meeting.meetingStartTime" name="meetingStartTime" -->
+                    </div>
+                  
+                <!-- description -->
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Iamge Description *</label>
+                    <input readonly type="text" name="Teacher" placeholder="Teacher" class="form-control"
+                    [(ngModel)]="imageData.imageDiscription" name="imageDiscription"
+                  >
+                  <!-- [(ngModel)]="meeting.usertype" name="usertype" -->
+                </div>
+                <!-- meeting end time -->
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Image *</label>
+                    <input required type="file" class="form-control-file" name="image" 
+                    (change)="fileChangeEvent($event);selectFile($event)" multiple>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row justify-content-center mt-4">
+                <p (click)="zoomIn()" class="display-4 mr-4"><i class="fa fa-search-plus"></i></p>
+                <p (click)="zoomOut()" class="display-4"><i class="fa fa-search-minus"></i></p>
+            </div>
+
+            <div class="row justify-content-center" style="margin-top: 5%;margin-bottom: 4%;">
+                <div class="text-center col-xl-8 col-lg-12 col-md-12 order-sm-2 order-2" style="height: 70vh;">
+                    <h5>Crop Image</h5>
+                    <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                        [aspectRatio]="4 / 4" [resizeToWidth]="256"
+                        [transform]="transform" [onlyScaleDown]="true" format="jpg" (imageCropped)="imageCropped($event)"
+                        (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
+                    </image-cropper>
+                </div>
+                <div class="text-center col-md-4">
+                    <h5>Preview</h5>
+                    <img [style.border]="croppedImage ? '1px solid black' : 'none'" [src]="croppedImage" />
+                </div>
+
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group">
+                <div class="form-group">
+                    <div >
+                        <a class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" style="margin-top: 5%;background-color: #333366;color:white"
+                         (click)="upload()">Upload Image</a>
+                        <!-- <a type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</a> -->
+                    </div>
+                    <div *ngIf="currentFileUpload" class="progress mt-4">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                        aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: percentage + '%' }">
+                                  {{ percentage }}%
+                        </div>
+                      </div>
+                </div>
+            </div><br>
+                <div class="col-12 form-group mg-t-8">
+                    <button [disabled]="updateActAch.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                </div>
+        </form>
+    </div>
+</div>
+
+

@@ -1,0 +1,107 @@
+<body class="defult-home">
+<div class="col-12-xxxl col-12" style="margin-top: 5%;margin-bottom: 2.6%;">
+    <div class="card dashboard-card-eleven">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title">
+                    <h3>Add Profile</h3>
+                </div>
+            </div><br>
+             <form #teacherData="ngForm" class="new-added-form" (ngSubmit)="addTeacher(teacherData.value)">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-12 col-sm-12 form-group">
+                        <label>Standard *</label>
+                        <select style="height: 90px;" class="form-select-lg " aria-label="multiple select example" multiple class="form-control" required name="standard" ngModel #standard="ngModel">
+                            <!-- <option [ngValue]="null">Please Select Standard *</option> -->
+                            <option *ngFor="let standard of standards" [value]="standard.standardName">{{standard.standardName}}</option>
+                        </select>
+                        <span style="color: red;"
+                            *ngIf="standard.touched && !standard.valid">
+                            Standard is required!!
+                        </span>
+                    </div>
+                   
+                </div>
+                
+                <!-- <div class="row">
+                    
+                </div> -->
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Gender<span class ="c">*</span></label>
+                        <select class="form-control" required name="gender" ngModel #gender="ngModel">
+                            <!-- <option [ngValue]="null">Please Select Gender *</option> -->
+                            <option *ngFor="let gender of genderdata" [value]="gender">{{gender}}</option>
+                        </select>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Joining Date</label>
+                        <input type="date"  class="form-control air-datepicker"
+                        name="joiningDate" ngModel #joiningDate="ngModel">
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Qualification </label>
+                        <input type="text" class="form-control" name="qualification" ngModel #qualification="ngModel">
+                        <div style="color: red;" *ngIf="qualification.invalid && qualification.touched">
+                            <div *ngIf="qualification.errors.required">
+                                Qualification Id is Required !!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Address 1</label>
+                        <textarea required class="textarea form-control" id="form-message" cols="10"
+                            rows="5" 
+                            name="address1" ngModel #address1="ngModel"></textarea>
+                            <span style="color:red"
+                        *ngIf="address1.touched && address1.invalid">
+                        Address 1 is Required !!
+                        </span>
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Address 2</label>
+                            <textarea required class="textarea form-control" id="form-message" cols="10"
+                                rows="5"   name="address2" ngModel #address2="ngModel"></textarea>
+                                <span style="color:red"
+                            *ngIf="address2.touched && address2.invalid">
+                            Address 2 is Required !!
+                            </span>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Pincode</label>
+                            <input required type="text"  class="form-control" name="pincode" ngModel #pincode="ngModel"
+                            pattern="^[0-9]{6,6}$">
+                            <div style="color: red;" *ngIf="pincode.invalid && pincode.touched">
+                                <div *ngIf="pincode.errors.required">
+                                    Pincode is Required !!
+                                </div>
+                                <div *ngIf="pincode.errors?.pattern">
+                                    Enter valid 6 digit Pincode. <br> <strong>Ex: 380013</strong>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 form-group mg-t-8 text-center">
+                        <!-- [disabled]="aboutme.invalid" -->
+                        <button [disabled]="teacherData.invalid" type="submit" class="readon submit-btn text-center">Next</button>
+                        <!-- <button type="reset" class="mt-3 btn-fill-lg bg-blue-dark btn-hover-yellow btnmargin">Reset</button> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>   
+</div>
+</body>
+<!-- Footer Area Start Here -->
+
+<!-- Footer Area End Here -->
+
+
+

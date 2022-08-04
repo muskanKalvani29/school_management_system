@@ -1,0 +1,68 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Meetings</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['/dashboard']">Teacher</a>
+        </li>
+        <li>View Meeting</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Details Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Meeting Detail</h3>
+            </div>
+        </div>
+        <div class="single-info-details">
+            <div class="item-content">
+                <div class="header-inline item-header">
+                    <div class="header-elements">
+                        <ul>
+                            <!-- <li><a href="#"><i class="far fa-edit"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fas fa-print"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fas fa-download"></i></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-table table-responsive">
+                    <table class="table text-nowrap mt-3">
+                        <tbody>
+                            <tr>
+                                <td>Meeting Name:</td>
+                                <td class="font-medium text-dark-medium myfont">{{meeting.meetingName|titlecase}}</td>
+                            </tr>
+                            <tr>
+                                <td>Meeting Date:</td>
+                                <td class="font-medium text-dark-medium myfont">{{meeting.meetingDate| date:'dd-MM-yyyy'}}</td>
+                            </tr>
+                            <tr>
+                                <td>Starting Time:</td>
+                                <td class="font-medium text-dark-medium myfont">{{meeting.meetingStartTime}}</td>
+                            </tr>
+                            <tr>
+                                <td>Ending Time:</td>
+                                <td class="font-medium text-dark-medium myfont">{{meeting.meetingEndTime}}</td>
+                            </tr>
+                            <tr>
+                                <td>Description:</td>
+                                <td *ngIf="!meeting.meetingDescription" class="font-medium text-dark-medium myfont">-</td>
+                                <td class="font-medium text-dark-medium myfont">{{meeting.meetingDescription|titlecase}}</td>
+                            </tr>        
+                        </tbody>
+                    </table>
+                </div>
+                <button (click)="goToMeetingList()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Student Details Area End Here -->
+<!-- Footer Area Start Here -->
+
+
+
+

@@ -1,0 +1,71 @@
+ <!-- Breadcubs Area Start Here -->
+ <div class="breadcrumbs-area">
+    <h3>Fees</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['admin/dashboard']">Home</a>
+        </li>
+        <li>Upload Fee</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Book Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Add Fee Detail</h3>
+            </div>
+        </div>
+        <div *ngIf="showerror" class="mt-4 alert alert-danger text-center" role="alert" style="font-size: large;">
+        Enter Valid GR NO !!
+        </div>
+        <form #addfeeform="ngForm" class="new-added-form" (ngSubmit)="addFeePayment(addfeeform.value)">
+            <div class="row">
+                <!-- student gr no -->
+                <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>GR No <span class="c">*</span></label>
+                    <input required type="text" class="form-control"
+                    ngModel name="student" #student="ngModel">
+                    <span style="color: red;"
+                        *ngIf="student.touched && !student.valid">
+                        GR No is required !!
+                    </span>
+                </div>
+                <!-- Installment no -->
+                <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Installment No <span class="c">*</span></label>
+                    <input required type="text" class="form-control"
+                    ngModel name="InstallmentNo" #InstallmentNo="ngModel">
+                    <span style="color: red;"
+                        *ngIf="InstallmentNo.touched && !InstallmentNo.valid">
+                        Installment No required !!
+                    </span>
+                </div>
+                <!-- paid amount -->
+                <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Payment Amount <span class="c">*</span></label>
+                    <input required type="text" class="form-control"
+                    ngModel name="feesAmount" #feesAmount="ngModel">
+                    <span style="color: red;"
+                        *ngIf="feesAmount.touched && !feesAmount.valid">
+                        Paid Amount is required !!
+                    </span>
+                </div>
+                <!-- payment mode -->
+                <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Payment Mode </label>
+                    <input readonly class="form-control" value="Online" name="paymentMode" ngModel #paymentMode="ngModel" placeholder="Online">
+                </div>
+                <div class="col-12 form-group mg-t-8">
+                    <button [disabled]="addfeeform.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Pay Fee</button>
+                    <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add New Book Area End Here -->
+
+
+

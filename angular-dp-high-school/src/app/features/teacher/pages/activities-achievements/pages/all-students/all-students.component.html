@@ -1,0 +1,88 @@
+<!-- Breadcubs Area Start Here -->
+<div class="breadcrumbs-area ml-4">
+   <h3>Activity-Achievement</h3>
+   <ul>
+       <li>
+           <a href="index.html">Teachers</a>
+       </li>
+       <li>All students</li>
+   </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Table Area Start Here -->
+<div class="card height-auto">
+   <div class="card-body">
+       <div class="heading-layout1">
+           <div class="item-title mt-4 mb-4">
+               <h3>All Students</h3>
+           </div>
+       </div>
+       <form #filterdata="ngForm" class="mg-b-20" class="mg-b-20">
+        <div class="row gutters-8">
+                <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-6 col-12 form-group ">
+                 <select class="form-control" required name="standard" ngModel #standard="ngModel" (change)="changestd($event)">
+                    <option value="">Please Select Standard</option>
+                    <option *ngFor="let standard of standards" [value]="standard.standardName">{{standard.standardName}}</option>
+                </select>
+                 </div>
+                <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-6 col-12 form-group ">           
+                 <select class="form-control" required name="division" ngModel #division="ngModel" (change)="changediv($event)">
+                    <option value="">Please Select Division</option>
+                    <option *ngFor="let division of divisions" [value]="division.divisionName">{{division.divisionName}}</option>
+                </select>
+                 </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-2-xxxl col-xl-3 col-lg-4 col-12 form-group d-flex justify-content-center">
+                    <a (click)="getStudentsByStdAndDiv()" role="button" class="fw-btn-fill btn-gradient-yellow text-center" style="color: white;">SEARCH</a>
+                </div>
+            </div>
+             
+        <!-- </div> -->
+    </form>
+    <div class="table-responsive ">
+        <table class="table text-nowrap table-hover">
+            <thead>
+                <tr class="text-center">
+                    <th>Sr.No</th><th></th>
+                    <th>GrNo.</th><th></th>
+                    <th>Roll No.</th><th></th>
+                    <th>FirstName</th><th></th>
+                    <th>MiddleName</th><th></th>
+                    <th>LastName</th><th></th>
+                    <th>DateOfBirth</th><th></th>
+                    <th>Action</th><th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" *ngFor="let student of students ; let i=index"> 
+                    <td>{{i+1}}</td><td></td>
+                    <td>{{student.grNo}}</td><td></td>
+                    <td>{{student.rollNo}}</td><td></td>
+                    <td>{{student.firstName|titlecase}}</td><td></td>
+                    <td>{{student.middleName|titlecase}}</td><td></td>
+                    <td>{{student.lastName|titlecase}}</td><td></td>
+                    <td>{{student.dateOfBirth| date:'dd-MM-yyyy'}}</td><td></td>
+                    <td>
+                        &nbsp;<a (click)="addActAch(student.grNo)" role="button"><i class="fa fa-plus" style="color:saddlebrown"></i></a>
+                        &nbsp;<a (click)="viewActAch(student.grNo)"  role="button"><i class="fa fa-eye" style="color:darkblue"></i></a>
+                        <!-- &nbsp; <a (click)="deleteMeeting(meeting.meetingId)" role="button"><i class="fa fa-trash" style="color:red"></i></a> -->
+                    </td><td></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="mt-5 d-flex justify-content-end" >
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item"><button [disabled]="statusPre"  class="page-link" [routerLink]="['/teacher/attendance/all-students']" role="button" (click)="pre()">Previous</button></li>
+                  <li class="page-item" [ngClass]="{'active': i == page}" *ngFor="let p of pages;let i=index">
+                    <a class="page-link" [routerLink]="['/teacher/attendance/all-students']" role="button" (click)="setPage(i,$event)">{{i+1}}</a>
+                  </li>
+                  <li class="page-item"><button [disabled]="statusNext" class="page-link" [routerLink]="['/teacher/attendance/all-students']"  role="button" (click)="next()">Next</button></li>
+                </ul>
+              </nav>
+        </div>
+    </div>
+   </div>
+</div>
+<!-- Student Table Area End Here -->

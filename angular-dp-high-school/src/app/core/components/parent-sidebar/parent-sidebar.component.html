@@ -1,0 +1,132 @@
+<!-- Page Area Start Here -->
+    <!-- Sidebar Area Start Here -->
+    <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color e-resizable">
+        <div class="mobile-sidebar-header d-md-none">
+             <div class="header-logo">
+                <a href="#"><img src="../../../../assets/img/navlogo1.png" alt="logo"></a>
+             </div>
+        </div>
+         <div class="sidebar-menu-content">
+             <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+                 <!-- <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+                     <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
+                     <i class="{{menuItem.icon}}"></i>
+                     <span>{{menuItem.title}}</span></a>
+                     <ul class="nav sub-group-menu">
+                      <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+                             <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
+                             <i class="{{menuItem.icon}}"></i>
+                             <span>{{menuItem.title}}</span></a>
+                         </li> -->
+                     <!-- </ul> -->
+                 <!-- </li> --> 
+                  <li class="nav-item">
+                     <a routerLinkActive="active" [routerLink]="['home']" class="nav-link"><i
+                             class="fa fa-home"></i><span>Home</span></a>
+                 </li>
+                 <li class="nav-item">
+                     <a routerLinkActive="active" [routerLink]="['progress-report']" class="nav-link"><i
+                             class="fa fa-spinner"></i><span>Progress Report</span></a>
+                 </li>
+                 <li class="nav-item sidebar-nav-item">
+                    <a href="" class="nav-link"><i class="flaticon-calendar"></i><span>Schedule</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['meeting/all-parents-meeting']" class="nav-link"><i class="fa fa-arrow-right"></i>
+                               All Parents Meeting</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a href="" class="nav-link"><i class="fa fa-question-circle"></i><span>Query</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['query/all-queries']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                            Queries</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['query/upload-query']" class="nav-link"><i class="fa fa-arrow-right"></i>
+                            Upload Query</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a href="" class="nav-link"><i class="flaticon-technological"></i><span>Fees</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['fees/fee-details']" class="nav-link"><i class="fa fa-arrow-right"></i>
+                            Fee Detail</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['fees/pay-fees']" class="nav-link"><i
+                                    class="fa fa-arrow-right"></i>Pay Fees</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a href="" class="nav-link"><i class="flaticon-classmates"></i><span>Students</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['student/home']" class="nav-link"><i class="fa fa-home"></i>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['student/home/time-table/all-time-tables']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                                Time-table</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['student/home/document/all-documents']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                                Documents</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['student/home/result/all-results']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                                Results</a>
+                        </li>
+                        <!-- <li class="nav-item sidebar-nav-item">
+                            <a href="" class="nav-link"><i class="fa fa-upload"></i><span>Time Table</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a routerLinkActive="active" [routerLink]="['student/home/time-table/all-time-tables']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                                        Time-table</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                        <!-- <li class="nav-item sidebar-nav-item">
+                            <a href="" class="nav-link"><i class="fa fa-upload"></i><span>Documents</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a routerLinkActive="active" [routerLink]="['student/home/document/all-documents']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                                        Documents</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                        <!-- <li class="nav-item sidebar-nav-item">
+                            <a href="" class="nav-link"><i class="fa fa-upload"></i><span>Results</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a routerLinkActive="active" [routerLink]="['student/home/result/all-results']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                                        Results</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a routerLinkActive="active" class="nav-link"><i
+                            class="flaticon-settings"></i><span>Profile</span></a>
+                            <ul class="nav sub-group-menu">
+                               <li class="nav-item">
+                                   <a routerLinkActive="active" [routerLink]="['profile/view-profile']" class="nav-link"><i class="fa fa-arrow-right"></i>
+                                       View Profile</a>
+                               </li>
+                               <li class="nav-item">
+                                   <a routerLinkActive="active" [routerLink]="['profile/edit-profile']" class="nav-link"><i
+                                           class="fa fa-arrow-right"></i>Edit Profile</a>
+                               </li>
+                           </ul>
+                </li>
+             </ul>
+         </div>
+     </div>
+ 
+     
+ 

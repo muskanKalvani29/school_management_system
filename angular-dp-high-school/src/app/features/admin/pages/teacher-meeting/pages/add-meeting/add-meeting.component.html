@@ -1,0 +1,92 @@
+  <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>Meeting</h3>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Add Teacher Meeting</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+    <!-- Add New Book Area Start Here -->
+    <div class="card height-auto">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title mt-4 mb-4">
+                    <h3>Add New Teacher Meeting</h3>
+                </div>
+            </div>
+            <form #meetingform="ngForm" class="new-added-form" (ngSubmit)="addMeeting(meetingform.value)">
+                <div class="row">
+                    <!-- type -->
+                    <!-- <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>UserType *</label>
+                        <input readonly type="text" name="Teacher" placeholder="Teacher" class="form-control"
+                        ngModel name="usertype" #usertype="ngModel">
+                    </div> -->
+                    <!-- meeting name -->
+                    <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Meeting Name *</label>
+                        <input required type="text" placeholder="" class="form-control"
+                        ngModel name="meetingName" #meetingName="ngModel" pattern="^[0-9a-zA-Z. ]*[a-zA-Z]{1,60}$">
+                        <div style="color: red;"  *ngIf="meetingName.invalid && (meetingName.dirty || meetingName.touched)">
+                            <div *ngIf="meetingName.errors.required">
+                                Meeting Name is Required !!
+                            </div>
+                            <div *ngIf="meetingName.errors?.pattern">
+                                You can enter only alphabatic value with atleast one uppercase.<br>
+                                <strong>Ex: Teacher Meeting</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- meeting date -->
+                    <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Meeting Date *</label>
+                        <input required type="date" placeholder="dd/mm/yyyy" class="form-control air-datepicker"
+                            data-position='bottom right'
+                            ngModel name="meetingDate" #meetingDate="ngModel">
+                        <i class="far fa-calendar-alt"></i>
+                        <span style="color: red;"
+                            *ngIf="meetingDate.touched && !meetingDate.valid">
+                            Meeting Date is required!!
+                        </span>
+                    </div>
+                    <!-- meeting start time -->
+                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                        <label>Meeting Start Time *</label>
+                        <input required type="time" step="1" placeholder="HH-mm-ss" class="form-control"
+                        ngModel name="meetingStartTime" #meetingStartTime="ngModel">
+                        <span style="color: red;"
+                            *ngIf="meetingStartTime.touched && !meetingStartTime.valid">
+                            Meeting Start Time is required!!
+                        </span>
+                    </div>
+                    <!-- meeting end time -->
+                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                        <label>Meeting End Time *</label>
+                        <input required type="time" step="1" placeholder="HH-mm-ss" class="form-control"
+                        ngModel name="meetingEndTime" #meetingEndTime="ngModel">
+                        <span style="color: red;"
+                            *ngIf="meetingEndTime.touched && !meetingEndTime.valid">
+                            Meeting End Time is required!!
+                        </span>
+                    </div>
+                    <!-- meeting description it is optional to write -->
+                    <div class="col-lg-6 col-12 form-group">
+                        <label>Meeting Description </label>
+                        <textarea class="textarea form-control" id="form-message" cols="5"
+                            rows="3" ngModel name="meetingDescription" #meetingDescription="ngModel"></textarea>
+                        <span style="color:rgb(90, 88, 88)">
+                            Meeting Description is optional !!
+                        </span>
+                    </div>
+                    <div class="col-12 form-group mg-t-8">
+                        <button [disabled]="meetingform.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                        <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Add New Book Area End Here -->

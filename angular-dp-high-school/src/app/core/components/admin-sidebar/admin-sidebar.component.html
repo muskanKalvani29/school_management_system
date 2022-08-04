@@ -1,0 +1,168 @@
+<!-- Page Area Start Here -->
+    <!-- Sidebar Area Start Here -->
+    <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color e-resizable" >
+       <div class="mobile-sidebar-header d-md-none">
+            <div class="header-logo">
+                <a href="#"><img src="../../../../assets/img/navlogo1.png" alt="logo"></a>
+            </div>
+       </div>
+        <div class="sidebar-menu-content">
+            <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+                <!-- <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+                    <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
+                    <i class="{{menuItem.icon}}"></i>
+                    <span>{{menuItem.title}}</span></a>
+                    <ul class="nav sub-group-menu">
+                     <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+                            <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
+                            <i class="{{menuItem.icon}}"></i>
+                            <span>{{menuItem.title}}</span></a>
+                        </li> -->
+                    <!-- </ul> -->
+                <!-- </li> --> 
+                 <li class="nav-item">
+                    <a routerLinkActive="active" [routerLink]="['dashboard']" class="nav-link"
+                    ><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
+                </li>
+               <li class="nav-item">
+                    <a routerLinkActive="active" [routerLink]="['account-setting']" class="nav-link"><i
+                            class="flaticon-settings"></i><span>Account Setting</span></a>
+                </li>
+                <li class="nav-item">
+                    <a routerLinkActive="active" [routerLink]="['email']" class="nav-link"><i
+                            class="flaticon-chat"></i><span>Email</span></a>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a [routerLink]="['dashboard']" class="nav-link"><i class="flaticon-classmates"></i><span>Students</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['students/all-students']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                                Students</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['students/add-student']" class="nav-link"><i
+                                class="fa fa-arrow-right"></i>Add Student</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['students/student-promotion']" class="nav-link"><i
+                                class="fa fa-arrow-right"></i>Student Promotion</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a [routerLink]="['dashboard']" class="nav-link"><i
+                            class="flaticon-multiple-users-silhouette"></i><span>Teachers</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['teachers/all-teachers']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                                Teachers</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['/teachers/add-teacher']" class="nav-link"><i class="fas fa-angle-right"></i>Add
+                                Teacher</a>
+                        </li> -->
+                    </ul>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a [routerLink]="['dashboard']" class="nav-link"><i class="flaticon-couple"></i><span>Parents</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['parents/all-parents']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                                Parents</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a [routerLink]="['dashboard']" class="nav-link"><i class="flaticon-calendar"></i><span>Teachers Meeting</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['teachers-meeting/all-meetings']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                                Meeting</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['teachers-meeting/add-meeting']" class="nav-link"><i class="fa fa-arrow-right"></i>Add New
+                                Meeting</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a [routerLink]="['dashboard']" class="nav-link"><i class="fa fa-upload"></i><span>Time Table</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['time-table/all-time-tables']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                                Time-table</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['time-table/add-time-table']" class="nav-link"><i class="fa fa-arrow-right"></i>Add New
+                                Time-table</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a [routerLink]="['dashboard']" class="nav-link"><i
+                            class="flaticon-menu-1"></i><span>Holiday</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['holiday/all-holidays']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                                Holidays</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['holiday/add-holiday']" class="nav-link"><i class="fa fa-arrow-right"></i>Add New
+                                Holiday</a>
+                        </li>
+                    </ul>
+                </li>
+               
+                <li class="nav-item sidebar-nav-item">
+                    <a [routerLink]="['dashboard']" class="nav-link"><i
+                            class="flaticon-script"></i><span>Event Management</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a routerLinkActive="active" [routerLink]="['event/all-events']" class="nav-link"><i class="fa fa-arrow-right"></i>All Events</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLinkActive="active" [routerLink]="['event/add-event']" class="nav-link"><i class="fa fa-arrow-right"></i>Add
+                                        New Event</a>
+                                </li>
+                            </ul>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a [routerLink]="['dashboard']" class="nav-link"><i class="flaticon-technological"></i><span>Fees</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['fees/fee-details']" class="nav-link"><i class="fa fa-arrow-right"></i>All Fees
+                                Collection</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['fees/upload-fee']" class="nav-link"><i
+                                    class="fa fa-arrow-right"></i>Add Fees detail</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['fees/change-fee-status']" class="nav-link"><i
+                                    class="fa fa-arrow-right"></i>Change Fee Status</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a [routerLink]="['dashboard']" class="nav-link"><i class="fa fa-question-circle"></i><span>Query</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['query/all-queries']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                            Queries</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a [routerLink]="['dashboard']" class="nav-link"><i class="fa fa-question-circle"></i><span>Inquiry</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a routerLinkActive="active" [routerLink]="['inquiry/all-inquires']" class="nav-link"><i class="fa fa-arrow-right"></i>All
+                            Inquires</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    

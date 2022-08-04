@@ -1,0 +1,49 @@
+  <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>Query</h3>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Query Response</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+    <!-- Add New Book Area Start Here -->
+    <div class="card height-auto">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title mt-4 mb-4">
+                    <h3>Add Query Response</h3>
+                </div>
+            </div>
+            <form #queryresponse="ngForm" class="new-added-form" (ngSubmit)="addQueryResponse(queryresponse.value)">
+                <div class="row">
+                    <!-- <div class="col-xl-4 col-lg-6 col-12 col-sm-12 form-group">
+                        <label>Parent Name *</label>
+                        <input type="text" placeholder="Mansi Patadiya" class="form-control">
+                    </div> -->
+                    <div class="col-lg-6 col-12 form-group">
+                        <label>Query</label>
+                        <textarea readonly class="textarea form-control" id="form-message" cols="10"
+                            rows="3" [(ngModel)]="query.queryMessage" name="queryMessage"></textarea>
+                    </div>
+                    <div class="col-lg-6 col-12 form-group">
+                        <label>Write Query Response <span style="color: red;">*</span></label>
+                        <textarea required class="textarea form-control" id="form-message" cols="5"
+                            rows="3" ngModel name="responseMessage" #responseMessage="ngModel"></textarea>
+                        <span style="color:red;" *ngIf="responseMessage.touched && responseMessage.invalid">
+                            Query Response is Required !!
+                        </span>
+                    </div>
+                    <div class="col-12 form-group mg-t-8">
+                        <button [disabled]="queryresponse.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                        <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Add New Book Area End Here -->
+
+

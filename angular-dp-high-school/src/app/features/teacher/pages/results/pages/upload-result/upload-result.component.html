@@ -1,0 +1,74 @@
+ <!-- Breadcubs Area Start Here -->
+ <div class="breadcrumbs-area ml-4">
+    <h3>Result</h3>
+    <ul>
+        <li>
+            <a href="index.html">Teachers</a>
+        </li>
+        <li>Upload Result</li>
+    </ul>
+</div>
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-3">
+                <h3>Upload Result</h3>
+            </div>
+        </div>
+        <!--(ngSubmit)="addMeeting(meetingform.value)"-->
+        <form #meetingform="ngForm" class="new-added-form" >
+            <div class="row">
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Standard <span class="c">*</span></label>
+                    <select class="select2 form-control" required name="" ><!--ngModel #gender="ngModel">-->
+                        <option value="">Please Select Standard</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Division <span class="c">*</span></label>
+                    <select class="select2 form-control" required name="" ><!--ngModel #gender="ngModel">-->
+                        <option value="">Please Select Division</option>
+                        <option value="1">Lotus</option>
+                        <option value="2">Sunflower</option>
+                        <option value="3">Rose</option>
+                    </select>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label> Exam Type <span class="c">*</span></label>
+                    <select class="select2 form-control" required name="" ><!--ngModel #gender="ngModel">-->
+                        <option value="">Please Select Exam Type</option>
+                        <option value="1">Annual Exam</option>
+                        <option value="2">Mid Sem Exam</option>
+                        <option value="3">Week Test</option>
+                    </select>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12">
+                    <label>Select File <span class="c">*</span></label>
+                    <div class="form-group mt-4 mb-4">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- meeting description it is optional to write -->
+                <div class="col-lg-6 col-12 form-group">
+                    <label>Result Description </label>
+                    <textarea class="textarea form-control" id="form-message" cols="5"
+                        rows="3" ngModel name="meetingDescription" #meetingDescription="ngModel"></textarea>
+                    <span style="color:rgb(90, 88, 88)">
+                        Result Description is optional !!
+                    </span>
+                </div>
+                <div class="col-12 form-group mg-t-8">
+                    <button [disabled]="meetingform.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                    <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add New Book Area End Here -->

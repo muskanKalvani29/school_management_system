@@ -1,0 +1,109 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area ml-4">
+    <h3>Attendance</h3>
+    <ul>
+        <li>
+            <a href="index.html">Teacher</a>
+        </li>
+        <li>Add Attendance</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Book Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-4">
+                <h3>Add Student Attendance</h3>
+            </div>
+        </div>
+        <!--(ngSubmit)="addMeeting(meetingform.value)" #meetingform="ngForm"-->
+        <form #addAttendanceForm="ngForm" class="new-added-form" (ngSubmit)="addAttendance(addAttendanceForm.value)">
+            <div class="row">
+                <!-- type -->
+                <!-- <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>GR NO.</label> -->
+                    <!--ngModel name="usertype" #usertype="ngModel"-->
+                    <!-- <input readonly type="text" name="Parent" placeholder="456418" class="form-control">
+                </div> -->
+                <!-- meeting name -->
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Month <span class="c">*</span></label>
+                    <select class="form-control" required 
+                    name="month" ngModel #month="ngModel"><!--ngModel #gender="ngModel">-->
+                        <option value="">Please Select Month</option>
+                        <option *ngFor="let month of monthData" [value]="month">{{month}}</option>
+                       
+                    </select>
+                    <span style="color: red;" *ngIf="month.touched && month.invalid">
+                        Month is Requied !!
+                    </span>
+                </div>
+                <!-- meeting date -->
+                <div class="col-xl-3 col-lg-6 col-12 col-sm-12 form-group">
+                    <label>Year <span class="c">*</span></label>
+                    <select class="form-control" required 
+                    name="year" ngModel #year="ngModel"><!--ngModel #gender="ngModel">-->
+                        <option value="">Please Select Year</option>
+                        <option *ngFor="let year of yearData" [value]="year">{{year}}</option>
+                    </select>
+                    <span style="color: red;" *ngIf="year.touched && year.invalid">
+                        Year is Requied !!
+                    </span>
+                </div>
+              
+            
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Present Day <span class="c">*</span></label>
+                    <input required type="text" class="form-control" pattern="^[0-9]{1,2}$"
+                    name="presentDays" maxlength="2" ngModel #presentDays="ngModel">
+                    <div *ngIf="presentDays.invalid && (presentDays.dirty || presentDays.touched)" style="color: red;">
+                        <div *ngIf="presentDays.errors.required">
+                            present Days is required!!
+                        </div>
+                        <div *ngIf="presentDays.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 2 digit value only!!
+                        </div>
+                    </div>
+                </div>
+                <!-- meeting end time -->
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Absent Day <span class="c">*</span></label>
+                    <input required type="text" class="form-control" pattern="^[0-9]{1,2}$"
+                    name="absentDays" maxlength="2" ngModel #absentDays="ngModel">
+                    <div *ngIf="absentDays.invalid && (absentDays.dirty || absentDays.touched)" style="color: red;">
+                        <div *ngIf="absentDays.errors.required">
+                            absent Days is required!!
+                        </div>
+                        <div *ngIf="absentDays.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 2 digit value only!!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Total Day <span class="c">*</span></label>
+                    <input required type="text" class="form-control" maxlength="2" pattern="^[0-9]{1,2}$"
+                    name="totalDays" ngModel #totalDays="ngModel">
+                    <div *ngIf="totalDays.invalid && (totalDays.dirty || totalDays.touched)" style="color: red;">
+                        <div *ngIf="totalDays.errors.required">
+                            total Days is required!!
+                        </div>
+                        <div *ngIf="totalDays.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 2 digit value only!!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 form-group mg-t-8">
+                    <!--[disabled]="meetingform.invalid"-->
+                    <button [disabled]="addAttendanceForm.invalid"  type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                    <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add New Book Area End Here -->
+

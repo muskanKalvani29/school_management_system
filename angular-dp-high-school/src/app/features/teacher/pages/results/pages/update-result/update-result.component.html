@@ -1,0 +1,258 @@
+
+ <!-- Breadcubs Area Start Here -->
+ <div class="breadcrumbs-area ml-4">
+    <h3>Result</h3>
+    <ul>
+        <li>
+            <a href="index.html">Teachers</a>
+        </li>
+        <li>Update Result</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Table Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-3">
+                <h3>Update Marks</h3>
+            </div>
+        </div>
+        
+        <form #updateResultForm="ngForm" class="new-added-form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <!-- <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>ExamType <span class="c">*</span></label>
+                    <select class="form-control" required name="examType" [(ngModel)]="result.examType.examtypeName" #examType="ngModel">
+                        <option *ngFor="let exam of examTypeData" [value]="exam">{{exam}}</option>
+                    </select>
+                    <span style="color: red;"
+                    *ngIf="examType.touched && !examType.valid">
+                    ExamType is required!!
+                     </span>
+                </div> -->
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Year <span class="c">*</span></label>
+                    <select class="form-control" required name="year" [(ngModel)]="result.year" #year="ngModel">
+                        <!-- <option value="">Please Select Year</option> -->
+                        <option *ngFor="let year of yearData" [value]="year">{{year}}</option>
+                    </select>
+                    <span style="color: red;"
+                    *ngIf="year.touched && !year.valid">
+                    Year is required!!
+                     </span>
+                </div>
+                <div *ngIf="subMaths" class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Maths <span class="c">*</span></label>
+                    <input required type="text" class="form-control"
+                    [(ngModel)]="result.maths" name="maths" #maths="ngModel" maxlength="3" pattern="^[0-9]{1,3}$">
+                    <div *ngIf="maths.invalid && (maths.dirty || maths.touched)" style="color: red;">
+                        <div *ngIf="maths.errors.required">
+                            Maths Marks is required!!
+                        </div>
+                        <div *ngIf="maths.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="subScience" class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Science <span class="c">*</span></label>
+                    <input required type="text" class="form-control" maxlength="3" pattern="^[0-9]{1,3}$"
+                    [(ngModel)]="result.science" name="science" #science="ngModel">
+                    <div *ngIf="science.invalid && (science.dirty || science.touched)" style="color: red;">
+                        <div *ngIf="science.errors.required">
+                            Science Marks is required!!
+                        </div>
+                        <div *ngIf="science.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="subEnglish" class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>English <span class="c">*</span></label>
+                    <input required type="text" class="form-control" maxlength="3" pattern="^[0-9]{1,3}$"
+                    [(ngModel)]="result.english" name="english" #english="ngModel">
+                    <div *ngIf="english.invalid && (english.dirty || english.touched)" style="color: red;">
+                        <div *ngIf="english.errors.required">
+                            English Marks is required!!
+                        </div>
+                        <div *ngIf="english.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="subHindi" class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Hindi <span class="c">*</span></label>
+                    <input required type="text" class="form-control" maxlength="3" pattern="^[0-9]{1,3}$"
+                    [(ngModel)]="result.hindi"  name="hindi" #hindi="ngModel">
+                    <div *ngIf="hindi.invalid && (hindi.dirty || hindi.touched)" style="color: red;">
+                        <div *ngIf="hindi.errors.required">
+                            Hindi Marks is required!!
+                        </div>
+                        <div *ngIf="hindi.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="subGujarati" class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Gujarati <span class="c">*</span></label>
+                    <input required type="text" class="form-control" maxlength="3" pattern="^[0-9]{1,3}$"
+                    [(ngModel)]="result.gujarati" name="gujarati" #gujarati="ngModel">
+                    <div *ngIf="gujarati.invalid && (gujarati.dirty || gujarati.touched)" style="color: red;">
+                        <div *ngIf="gujarati.errors.required">
+                            Gujarati Marks is required!!
+                        </div>
+                        <div *ngIf="gujarati.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="subSanskrit" class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Sanskrit <span class="c">*</span></label>
+                    <input required type="text" class="form-control" maxlength="3" pattern="^[0-9]{1,3}$"
+                    [(ngModel)]="result.sanskrit" name="sanskrit" #sanskrit="ngModel">
+                    <div *ngIf="sanskrit.invalid && (sanskrit.dirty || sanskrit.touched)" style="color: red;">
+                        <div *ngIf="sanskrit.errors.required">
+                            Sanskrit Marks is required!!
+                        </div>
+                        <div *ngIf="sanskrit.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="subEnvironment" class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Enviornment <span class="c">*</span></label>
+                    <input required type="text" class="form-control" maxlength="3" pattern="^[0-9]{1,3}$"
+                    [(ngModel)]="result.environment" name="environment" #environment="ngModel">
+                    <div *ngIf="environment.invalid && (environment.dirty || environment.touched)" style="color: red;">
+                        <div *ngIf="maths.errors.required">
+                            Environment Marks is required!!
+                        </div>
+                        <div *ngIf="environment.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="subsocialscience" class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Social Science <span class="c">*</span></label>
+                    <input required type="text" class="form-control" maxlength="3" pattern="^[0-9]{1,3}$"
+                    [(ngModel)]="result.socialscience" name="socialscience" #socialscience="ngModel">
+                    <div *ngIf="socialscience.invalid && (socialscience.dirty || socialscience.touched)" style="color: red;">
+                        <div *ngIf="socialscience.errors.required">
+                            Social science Marks is required!!
+                        </div>
+                        <div *ngIf="socialscience.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>>
+                </div>
+                <div *ngIf="subpt" class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>P.T <span class="c">*</span></label>
+                    <input required type="text" class="form-control" maxlength="3" pattern="^[0-9]{1,3}$"
+                    [(ngModel)]="result.pt" name="pt" #pt="ngModel">
+                    <div *ngIf="pt.invalid && (pt.dirty || pt.touched)" style="color: red;">
+                        <div *ngIf="pt.errors.required">
+                            P.T. Marks is required!!
+                        </div>
+                        <div *ngIf="pt.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="subDrawing" class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Drawing <span class="c">*</span></label>
+                    <input required type="text" class="form-control" maxlength="3" pattern="^[0-9]{1,3}$"
+                    [(ngModel)]="result.drawing" name="drawing" #drawing="ngModel">
+                    <div *ngIf="drawing.invalid && (drawing.dirty || drawing.touched)" style="color: red;">
+                        <div *ngIf="drawing.errors.required">
+                            Drawing Marks is required!!
+                        </div>
+                        <div *ngIf="drawing.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="subPathmala" class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Pathmala <span class="c">*</span></label>
+                    <input required type="text" class="form-control" maxlength="3" pattern="^[0-9]{1,3}$"
+                    [(ngModel)]="result.pathmala" name="pathmala" #pathmala="ngModel">
+                    <div *ngIf="pathmala.invalid && (pathmala.dirty || pathmala.touched)" style="color: red;">
+                        <div *ngIf="pathmala.errors.required">
+                            Pathmala Marks is required!!
+                        </div>
+                        <div *ngIf="pathmala.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+               
+            <!-- </div> -->
+
+            <div class="row mt-4">
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Obtained Marks <span class="c">*</span></label>
+                    <input required type="text"  class="form-control" maxlength="3" pattern="^[0-9]{1,3}$"
+                    [(ngModel)]="result.obtainedMarks" name="obtainedMarks" #obtainedMarks="ngModel">
+                    <div *ngIf="obtainedMarks.invalid && (obtainedMarks.dirty || obtainedMarks.touched)" style="color: red;">
+                        <div *ngIf="obtainedMarks.errors.required">
+                            Obtained Marks is required!!
+                        </div>
+                        <div *ngIf="obtainedMarks.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Total Marks <span class="c">*</span></label>
+                    <input required type="text" class="form-control" maxlength="3" pattern="^[0-9]{1,3}$"
+                    [(ngModel)]="result.totalMarks" name="totalMarks" #totalMarks="ngModel">
+                    <div *ngIf="totalMarks.invalid && (totalMarks.dirty || totalMarks.touched)" style="color: red;">
+                        <div *ngIf="totalMarks.errors.required">
+                            Total Marks is required!!
+                        </div>
+                        <div *ngIf="totalMarks.errors.pattern">
+                            Enter Numeric values only!! <br>
+                            Enter maximum 3 digit value only!!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <label>Grade <span class="c">*</span></label>
+                    <select class="form-control" required name="grade"  [(ngModel)]="result.grade" #grade="ngModel" >
+                        <option value="">Please Select Grade</option>
+                        <option *ngFor="let grade of gradeData" [value]="grade">{{grade}}</option>
+                    </select>
+                    <span style="color: red;"
+                    *ngIf="grade.touched && !grade.valid">
+                    Grade is required!!
+                     </span>
+                   
+                </div>
+
+                <div class="col-12 form-group mg-t-8">
+                    <button [disabled]="updateResultForm.invalid" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                    <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Student Table Area End Here -->
+
+

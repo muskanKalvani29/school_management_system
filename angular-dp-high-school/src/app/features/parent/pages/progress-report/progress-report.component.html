@@ -1,0 +1,129 @@
+<div class="item-content">              
+<div class="breadcrumbs-area ml-4">
+   <h3>Progress Report</h3>
+   <ul>
+       <li>
+           <a href="index.html">Parent</a>
+       </li>
+       <li>View Progress Report</li>
+   </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<div class="card height-auto">
+   <div class="card-body">
+       <div class="row">
+           <!-- logo of school -->
+           <div class="col-lg-3 col-sm-3 col-md-3 col-xl-3  col-4 " >
+           <!-- <img src="assets/images/dplog.png" style="margin-left: 300px;" alt="logo"> -->
+           </div>
+           <!-- Name of school -->
+        
+        </div>  
+           
+        <div>
+            <form #filterdata="ngForm" class="mg-b-20" class="mg-b-20">
+                <div class="row gutters-8 mt-5">
+                    
+                        <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-6 col-12 form-group ">
+                         <!-- <label for="sel1">Select UserType :</label> -->
+                         <select class="form-control" required name="month" ngModel #month="ngModel" (change)="changeMonth($event)">
+                            <option value="">Please Select Month</option>
+                            <option *ngFor="let month of monthData" [value]="month">{{month}}</option>
+                        </select>
+                         </div>
+                    
+                        <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-6 col-12 form-group ">
+                         <!-- <label for="sel1">Select UserType :</label> -->
+                         <select class="form-control" required name="year" ngModel #year="ngModel" (change)="changeYear($event)">
+                            <option value="">Please Select Year</option>
+                            <option *ngFor="let year of yearData" [value]="year">{{year}}</option>
+                        </select>
+                         </div>
+                    </div>
+                    <div class="row d-flex justify-content-center mt-2">
+                        <div class="col-2-xxxl col-xl-3 col-lg-3 col-12 form-group d-flex justify-content-center">
+                            <a (click)="getProgressReport()" role="button" class="fw-btn-fill btn-gradient-yellow text-center" style="color: white;">SEARCH</a>
+                        </div>
+                    </div>
+                     
+                <!-- </div> -->
+            </form>
+        </div>
+        <div *ngIf="isShow" class=row>
+            <div class="row">
+                <h3 class="text-center" style="font-size:2.5vw;font-family: sans-serif;color: #1c335f;
+                ;">D.P. HIGH SCHOOL</h3>
+            </div>
+            <div class="row" style="margin-top: 5%;">
+                <h3 class="text-center" style="font-size: 35px;color:darkolivegreen;">Progress Report</h3>
+            </div>
+        
+        </div>
+            <div *ngIf="isShow" class=row>
+                <div class="row" >
+                    <h3 class="text-center ml-5" style="font-size: 25px;color:darkblue">Attendance</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table text-nowrap table-hover">
+                        <thead>
+                            <tr class="text-center">
+                                <th>Present Days</th>
+                                <th>Absent Days</th>
+                                <th>Total Days</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center" >
+                                <td>{{attendance.presentDays}}</td>
+                                <td>{{attendance.absentDays}}</td>
+                                <td>{{attendance.totalDays}}</td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="isShow1" class=row>
+                <div class="row" >
+                    <h3 class="text-center ml-5 mt-5" style="font-size: 25px;color:darkblue">Activities And Achievements</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table text-nowrap table-hover">
+                        <thead>
+                            <tr class="text-center">
+                                <th>Sr.No</th>
+                                <th>Activity Name</th>
+                                <th>Achievement Name</th>
+                                <th>Achievement Discription</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center" *ngFor="let actach of activity_achievements;let i=index">
+                                <td>{{i+1}}</td>
+                               <td>{{actach.activityName}}</td>
+                               <td>{{actach.achievementName}}</td>
+                               <td>{{actach.achievementDescription}}</td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="isShow" class=row>
+                
+                <div class="row" >
+                    <h3 class="text-center ml-5 mt-5" style="font-size: 25px;color:darkblue">Remarks</h3>
+                </div>
+                <div class="table-responsive mt-4">
+                    <table class="table text-nowrap table-hover">
+                        <tbody>
+                            <tr>
+                                <td style="margin-left: 5%;">{{Message1}},&nbsp;{{Message}},&nbsp;{{Message2}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+</div>
+
+    
+
+
+    

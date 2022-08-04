@@ -1,0 +1,114 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area ml-4">
+    <h3>Result</h3>
+    <ul>
+        <li>
+            <a [routerLink]="['/dashboard']">Teacher</a>
+        </li>
+        <li>View Result</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Details Area Start Here -->
+<div class="card height-auto">
+    <!-- <div class="card-body"> -->
+        <div class="col-lg-12 col-xl-12 col-12-xxxl">
+            <div class="card dashboard-card-six pd-b-20">
+                <div class="card-body">
+                    <div class="heading-layout1">
+                        <div class="item-title mt-4 mb-4">
+                            <h3>All Result Data</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="notice-box-wrap1">
+                        <form #filterdata="ngForm" class="mg-b-20" class="mg-b-20">
+                            <div class="row gutters-8 d-flex justify-content-center">
+                                     <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-6 col-12 form-group ">
+                                        <label>ExamType <span class="c">*</span></label>
+                                        <select class="form-control" required name="examType" ngModel #examType="ngModel" (change)="changeExamType($event)">
+                                            <option value="">Please Select ExamType</option>
+                                            <option *ngFor="let examType of examTypeData" [value]="examType">{{examType}}</option>
+                                        </select>
+                                        <span style="color: red;margin-left: 2%"
+                                            *ngIf="examType.touched && !examType.valid">
+                                            ExamType is required!!
+                                        </span>
+                                 </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-2-xxxl col-xl-3 col-lg-4 col-12 form-group d-flex justify-content-center">
+                                        <a (click)="getResultByYear()" role="button" class="fw-btn-fill btn-gradient-yellow text-center" style="color: white;">SEARCH</a>
+                                    </div>
+                                </div>
+                                 
+                            <!-- </div> -->
+                        </form>
+                        <div class="notice-list">
+                            <div class="row">
+                            <div class="col-md-12 col-lg-6 col-xl-4 col-xxl-4 col-sm-6 col-12" *ngFor="let result of results">
+                                <div class="card1">
+                                    <div class="card-body1">
+                                        <div class="profile-usertitle">
+                                            <div class="detail text-left">
+                                                <!-- <span>GR No: 22222</span><br> -->
+                                                <span style="font-weight: bold;">Exam Type: </span><span >{{result.examType.examtypeName}}</span><br>
+                                                <span style="font-weight: bold;">Year: </span ><span>{{result.year}}</span><br>
+                                                <span *ngIf="subGujarati" style="font-weight: bold;">Gujarati: </span ><span>{{result.gujarati}}</span><br *ngIf="subGujarati">
+                                                <span *ngIf="subEnglish" class="text-right" style="font-weight: bold;">English: </span><span>{{result.english}}</span><br *ngIf="subEnglish">
+                                                <span *ngIf="subEnvironment" style="font-weight: bold;">Environment: </span><span>{{result.environment}}</span><br *ngIf="subEnvironment">
+                                                <span *ngIf="subScience" class="text-right" style="font-weight: bold;">Science: </span><span>{{result.science}}</span><br *ngIf="subScience">
+                                                <span  *ngIf="subsocialscience" style="font-weight: bold;">Social Science: </span><span>{{result.socialscience}}</span><br *ngIf="subsocialscience">
+                                                <span *ngIf="subMaths"  style="font-weight: bold;">Maths: </span><span>{{result.maths}}</span><br *ngIf="subMaths">
+                                                <span *ngIf="subHindi" style="font-weight: bold;">Hindi: </span><span>{{result.hindi}}</span><br *ngIf="subHindi">
+                                                <span *ngIf="subSanskrit" style="font-weight: bold;">Sanskrit: </span><span>{{result.sanskrit}}</span><br *ngIf="subSanskrit">
+                                                <span *ngIf="subpt" style="font-weight: bold;">P.T: </span><span>{{result.pt}}</span><br *ngIf="subpt">
+                                                <span *ngIf="subDrawing" style="font-weight: bold;">Drawing: </span><span>{{result.drawing}}</span><br *ngIf="subDrawing">
+                                                <span *ngIf="subPathmala" style="font-weight: bold;">Pathmala: </span><span>{{result.pathmala}}</span><br *ngIf="subPathmala">
+                                                <span style="font-weight: bold;">Obtained: </span><span>{{result.obtainedMarks}}</span><br>
+                                                <span  style="font-weight: bold;">Passing Marks: </span><span>{{result.passingmMarks}}</span><br>
+                                                <span style="font-weight: bold;">Total Marks: </span><span>{{result.totalMarks}}</span><br>
+                                                <span style="font-weight: bold;">Grade: </span><span>{{result.grade}}</span>
+                                            </div>  
+                                            <a (click)="updateResult(result.resultId)" class="btn btn-success mybtn text-center mt-2" role="button" style="color: white;">&nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>
+                                            <a (click)="deleteResult(result.resultId)" class="btn btn-danger mybtn text-center mt-2" role="button" style="color: white;">Delete</a> 
+                                                                                             
+                                        </div> 
+                                         
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                </div>  
+                <div *ngIf="showPagination" class="mt-5 d-flex justify-content-end" >
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item"><button [disabled]="statusPre"  class="page-link" [routerLink]="['/teacher/attendance/all-students']" role="button" (click)="pre()">Previous</button></li>
+                          <li class="page-item" [ngClass]="{'active': i == page}" *ngFor="let p of pages;let i=index">
+                            <a class="page-link" [routerLink]="['/teacher/attendance/all-students']" role="button" (click)="setPage(i,$event)">{{i+1}}</a>
+                          </li>
+                          <li class="page-item"><button [disabled]="statusNext" class="page-link" [routerLink]="['/teacher/attendance/all-students']"  role="button" (click)="next()">Next</button></li>
+                        </ul>
+                      </nav>
+                </div>       
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- <div class="table-responsive">
+           
+        </div> -->
+    </div>
+<!-- </div> -->
+<!-- Student Table Area End Here -->
+<!-- Footer Area Start Here -->
+</div>
+
+
+
+
+

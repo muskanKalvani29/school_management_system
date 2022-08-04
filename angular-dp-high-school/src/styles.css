@@ -1,0 +1,28 @@
+/* Dashboard */
+
+/* @import './assets/css/normalize.css';
+@import './assets/css/main.css';
+@import './assets/css/bootstrap.min.css';
+@import './assets/css/all.min.css';
+@import './assets/fonts/flaticon.css';
+@import './assets/css/animate.min.css';
+@import './assets/css/select2.min.css';
+@import './assets/css/datepicker.min.css';
+@import './assets/css/jquery.dataTables.min.css';
+@import './assets/css/dashboardstyle.css'; */
+
+@import './assets/fonts/flaticon.css';
+@import './assets/css/font-awesome.min.css';
+
+/* Home page */
+/* 
+@import './assets/css/bootstrap.min.css';
+@import './assets/css/font-awesome.min.css';
+@import './assets/css/animate.css'; 
+@import './assets/css/off-canvas.css';
+@import './assets/css/rsmenu-main.css'; 
+@import './assets/css/rs-spacing.css';
+@import './assets/css/style1.css';
+@import './assets/css/responsive.css'; */
+/* html, body { height: 100%; }
+body { font-family: Roboto, "Helvetica Neue", sans-serif; } */

@@ -1,0 +1,44 @@
+ <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>Students</h3>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Student Promotion</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+    <!-- Student Promotion Area Start Here -->
+    <div class="card height-auto ">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title mt-4 mb-4">
+                    <h3>Search Student Promotion</h3>
+                </div>
+            </div>
+            <form #studentPromotion="ngForm" class="new-added-form" (ngSubmit)="doStudentPromotion(studentPromotion.value)">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-12 form-group">
+                        <label>Promotion From Class *</label>
+                        <select class="form-control" required name="standard" ngModel #standard="ngModel">
+                            <option value="">Please Select *</option>
+                            <option *ngFor="let standard of standards" [value]="standard.standardName">{{standard.standardName}}</option>
+                        </select>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-12 form-group">
+                        <label>Promotion To Class *</label>
+                        <select class="form-control" required name="standard1" ngModel #standard1="ngModel">
+                            <option value="">Please Select *</option>
+                            <option *ngFor="let standard of standards" [value]="standard.standardName">{{standard.standardName}}</option>
+                        </select>
+                    </div>
+                    <div class="col-12 form-group mg-t-8">
+                        <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                        <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Student Promotion Area End Here -->

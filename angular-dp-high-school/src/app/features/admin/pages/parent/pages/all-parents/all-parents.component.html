@@ -1,0 +1,113 @@
+<div class="notice-box-wrap">
+    <div class="notice-list">
+
+    <div class="dashboard-content-one">
+    <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>Parents</h3>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>All Parents</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+    <!-- Student Table Area Start Here -->
+    <div class="card height-auto">
+        <!-- <div class="card-body"> -->
+            
+            <div class="col-lg-12 col-xl-12 col-12-xxxl">
+                <div class="card dashboard-card-six pd-b-20">
+                    <div class="card-body">
+                        <div class="heading-layout1">
+                            <div class="item-title mt-4 mb-4">
+                                <h3>All Parents Data</h3>
+                            </div>
+                        </div>
+                        <form #filterdata="ngForm" class="mg-b-20" (ngSubmit)="getParentByGrNo(filterdata.value)" >
+                            <div class="row gutters-8 d-flex justify-content-center">
+                                <div class="col-6-xxxl col-xl-6 col-lg-6 col-12 form-group">
+                                    <!-- name="grNo" #grNo="ngModel" ngModel -->
+                                    <!-- [(ngModel)]="grNoSearch" name="grNoSearch" -->
+                                    <input type="text" required name="grNo" #grNo="ngModel" ngModel placeholder="Search by Gr No ..." class="form-control text-center">
+                                </div>    
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 orm-group d-flex justify-content-center">
+                                    <!-- <a (click)="getParentByGrNo(filterdata.value)" role="button" class="fw-btn-fill btn-gradient-yellow text-center" style="color: white;">SEARCH</a> -->
+                                    <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">SEARCH</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                        <div class="notice-box-wrap1">
+                            <div class="notice-list">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-6 col-xl-4 col-xxl-4 col-sm-6 col-12" *ngFor="let parent of parents">
+                                    <div class="card1">
+                                        <div class="card-body1">
+                                            <div class="heading-layout1 float-right">
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle"  role="button" data-toggle="dropdown"
+                                                        aria-expanded="false"><i class="fa fa-ellipsis-v fa-xs" aria-hidden="true"></i></a>
+                                    
+                                                    <div class="dropdown-menu dropdown-menu-right">                                            
+                                                        <a (click)="viewParent(parent.parentId)" class="dropdown-item" role="button" (click)="addTeacherRequest(teacher.teacherRequestId)"><i
+                                                            class="fa fa-plus" style="color:darkblue"></i>View</a>                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="doctor-profile">
+                                                <!-- <img src="../../../assets/img/figure/admin.jpg" class="doctor-pic" alt="img"> -->
+                                            </div>
+                                            <div class="profile-usertitle">
+                                                <div class="doctor-name"> {{parent.user.name|titlecase}} </div>
+                                                <div class="detail">
+                                                    <span style="font-weight: bold;">GR No: </span><span>&nbsp;{{parent.student.grNo}}</span><br>
+                                                    <span style="font-weight: bold;">Contact No1: </span><span>&nbsp;{{parent.user.contactNo1}}</span><br>
+                                                    <span style="font-weight: bold;">Contact No2: </span><span>&nbsp;{{parent.contactNo2}}</span><br>
+                                                    <span style="font-weight: bold;">Email Id: </span><span>&nbsp;{{parent.user.emailId}}</span><br>
+                                                    <span style="font-weight: bold;">Qualification: </span><span>&nbsp;{{parent.qualification|titlecase}}</span><br>
+                                                    <span style="font-weight: bold;">Occupation: </span><span>&nbsp;{{parent.occupation|titlecase}}</span><br><br>
+                                                </div>  
+                                                <div class="middle">
+                                                    <!-- [routerLink]="['view-parent']" -->
+                                                <!-- <a (click)="viewParent(parent.parentId)" class="btn mybtn text" role="button" style="color: white;">&nbsp;&nbsp;View&nbsp;&nbsp;</a> -->
+                                                </div>
+                                                <!-- <a href="#" class="btn btn-success mybtn" role="button">&nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a> -->
+                                                <!-- <a href="#" class="btn btn-danger mybtn" role="button">Delete</a>  -->
+                                                                                                 
+                                            </div>           
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                    </div>  
+                    <div class="mt-5 d-flex justify-content-end" >
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                              <li class="page-item"><button [disabled]="statusPre"  class="page-link" [routerLink]="['/admin/parents/all-parents']" role="button" (click)="pre()">Previous</button></li>
+                              <li class="page-item" [ngClass]="{'active': i == page}" *ngFor="let p of pages;let i=index">
+                                <a class="page-link" [routerLink]="['/admin/parents/all-parents']" role="button" (click)="setPage(i,$event)">{{i+1}}</a>
+                              </li>
+                              <li class="page-item"><button [disabled]="statusNext" class="page-link" [routerLink]="['/admin/parents/all-parents']"  role="button" (click)="next()">Next</button></li>
+                            </ul>
+                          </nav>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            
+            <!-- <div class="table-responsive">
+               
+            </div> -->
+        </div>
+    <!-- </div> -->
+    <!-- Student Table Area End Here -->
+  
+</div>
+</div>
+</div>
+

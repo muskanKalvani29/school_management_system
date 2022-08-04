@@ -1,0 +1,95 @@
+<div class="breadcrumbs-area">
+    <h3>Email</h3>
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+        <li>send Email</li>
+    </ul>
+</div>
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4">
+                <h3>Email</h3>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 col-12 col-sm-6 col-md-6 col-4-xxxl text-center center" style="margin-top: 2%; margin-bottom: 2%;">
+                <form #filterdata="ngForm" class="mg-b-20" class="mg-b-20">
+                    <div class="row gutters-8">
+                        
+                            <div class="col-lg-12 col-xl-12 col-xxl-12 col-md-12 col-12 form-group ">
+                             <!-- <label for="sel1">Select UserType :</label> -->
+                             <select class="form-control" required name="standard" ngModel #standard="ngModel" (change)="changestd($event)">
+                                <option value="">Please Select Standard</option>
+                                <option *ngFor="let standard of standards" [value]="standard.standardName">{{standard.standardName}}</option>
+                            </select>
+                             </div>
+                        
+                            <div class="col-lg-12 col-xl-12 col-xxl-12 col-md-12 col-12 form-group ">
+                             <!-- <label for="sel1">Select UserType :</label> -->
+                             <select class="form-control" required name="division" ngModel #division="ngModel" (change)="changediv($event)">
+                                <option value="">Please Select Division</option>
+                                <option *ngFor="let division of divisions" [value]="division.divisionName">{{division.divisionName}}</option>
+                            </select>
+                             </div>
+                        </div>
+                        <div class="row d-flex justify-content-center mt-2">
+                            <div class="col-6-xxxl col-xl-4 col-lg-3 col-12 form-group d-flex justify-content-center">
+                                <a (click)="getStudentByStdAndDiv(filterdata.value)" role="button" class="fw-btn-fill btn-gradient-yellow text-center" style="color: white;">SEARCH</a>
+                            </div>
+                        </div>
+                         
+                    <!-- </div> -->
+                </form>
+            </div>
+           
+        </div>
+        <div class="table-responsive">
+            <table class="table text-nowrap table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>GR No</th><th></th>
+                        <th>Standard</th><th></th>
+                        <th>Division</th><th></th>
+                        <th>Roll No</th><th></th>
+                        <th>Name</th><th></th>
+                        <th>Email Id</th><th></th>
+                        <th>Fee Status</th><th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let student of students">
+                        <td>{{student.grNo}} </td><td></td>
+                        <td>{{student.standard.standardName}}</td><td></td>
+                        <td>{{student.division.divisionName}}</td><td></td>
+                        <td>{{student.rollNo}}</td><td></td>
+                        <td>{{student.firstName}}&nbsp;{{student.lastName}}&nbsp;{{student.middleName}}</td><td></td>
+                        <td>{{student.emailId}}</td><td></td>
+                        <td style="color: tomato;">{{student.feeStatus}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mt-5 d-flex justify-content-end" >
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><button [disabled]="statusPre"  class="page-link" [routerLink]="['/admin/email']" role="button" (click)="pre()">Previous</button></li>
+                      <li class="page-item" [ngClass]="{'active': i == page}" *ngFor="let p of pages;let i=index">
+                        <a class="page-link" [routerLink]="['/admin/email']" role="button" (click)="setPage(i,$event)">{{i+1}}</a>
+                      </li>
+                      <li class="page-item"><button [disabled]="statusNext" class="page-link" [routerLink]="['/admin/email']"  role="button" (click)="next()">Next</button></li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 form-group mg-t-8">
+                <!-- <a class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark checkall" role="button" style="margin-right: 2%;color: white;">Select All</a> -->
+                <a (click)="sendEmail()" class="btn-fill-lg bg-blue-dark btn-hover-yellow" style="color: white;">Send To All</a>
+            </div>
+         </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area ml-4">
+    <h3>Query</h3>
+    <ul>
+        <li>
+            <a href="index.html">Parent</a>
+        </li>
+        <li>Add Query</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Book Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title">
+                <h3>Add Query</h3>
+            </div>
+        </div>
+        <form #query="ngForm" class="new-added-form" (ngSubmit)="addQuery(query.value)">
+            <div class="row">
+                <div class="col-lg-6 col-12 form-group">
+                    <label>Query <span style="color: red;">*</span></label>
+                    <textarea required class="textarea form-control" cols="10" rows="3"
+                     name="queryMessage" ngModel #queryMessage="ngModel"></textarea>   
+                     <span style="color: red;"
+                        *ngIf="queryMessage.touched && !queryMessage.valid">
+                        Query Message is required!!                 
+                    </span>   
+                </div>
+                
+                <div class="col-12 form-group mg-t-8">
+                    <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                    <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add New Book Area End Here -->
+
+
+

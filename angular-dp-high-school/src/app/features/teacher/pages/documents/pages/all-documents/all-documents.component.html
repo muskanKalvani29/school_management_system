@@ -1,0 +1,85 @@
+ <div class="breadcrumbs-area ml-4">
+    <h3>Study Material</h3>
+    <ul>
+        <li>
+            <a href="index.html">Teachers</a>
+        </li>
+        <li>Study Material</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Student Table Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title mt-4 mb-3">
+                <h3>All Study Material</h3>
+            </div>
+        </div>
+        <form #filterdata="ngForm" class="mg-b-20" class="mg-b-20">
+            <div class="row gutters-8">
+                    <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-6 col-12 form-group ">
+                        <select class="form-control" required name="standard" ngModel #standard="ngModel" (change)="changestd($event)">
+                            <option value="">Please Select Standard</option>
+                            <option *ngFor="let standard of standards" [value]="standard.standardName">{{standard.standardName}}</option>
+                        </select>
+                     </div>
+                
+                
+                    <div class="col-2-xxxl col-xl-3 col-lg-4 col-12 form-group ">
+                        <a (click)="getDocumentByStdAndDiv()" role="button" class="fw-btn-fill btn-gradient-yellow text-center" style="color: white;">SEARCH</a>
+                    </div>
+                
+            </div>    
+            <!-- </div> -->
+        </form>
+        <div class="table-responsive">
+            <table class="table text-nowrap table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>SrNo.</th><th></th>
+                        <th>Standard</th><th></th>
+                        <th>Document Discription</th><th></th>
+                        <th>Document Type</th><th></th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let studyMaterial of studyMaterials;let i=index">
+                        <td>{{i+1}}</td><td></td>
+                        <td>{{studyMaterial.standard.standardName}}</td>
+                        <td></td><td *ngIf="!studyMaterial.description" class="font-medium text-dark-medium myfont">-</td>
+                        <td *ngIf="studyMaterial.description">{{studyMaterial.description|slice:0:20|titlecase}}...</td><td></td>
+                        <td>{{studyMaterial.studyMaterialType.studymaterialType}}</td><td></td>
+                        <td>
+                            &nbsp;<a (click)="updateDocument(studyMaterial.studymaterialId)" role="button"><i class="fa fa-edit" style="color:green"></i></a>
+                            &nbsp;<a (click)="viewDocument(studyMaterial.studymaterialId)" role="button"><i class="fa fa-eye" style="color:darkblue"></i></a>
+                            &nbsp; <a (click)="deleteDocument(studyMaterial.studymaterialId)" role="button"><i class="fa fa-trash" style="color:red"></i></a>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mt-5 d-flex justify-content-end" >
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><button [disabled]="statusPre"  class="page-link" [routerLink]="['/teacher/study-material/all-study-material']" role="button" (click)="pre()">Previous</button></li>
+                      <li class="page-item" [ngClass]="{'active': i == page}" *ngFor="let p of pages;let i=index">
+                        <a class="page-link" [routerLink]="['/teacher/study-material/all-study-material']" role="button" (click)="setPage(i,$event)">{{i+1}}</a>
+                      </li>
+                      <li class="page-item"><button [disabled]="statusNext" class="page-link" [routerLink]="['/teacher/study-material/all-study-material']"  role="button" (click)="next()">Next</button></li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Student Table Area End Here -->
+ 
+
+
+
+
+
+
+
